@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="DepositPaidList" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="463fef32-fc25-44ff-9751-013fd5ec3d27">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<field name="field1" class="java.lang.String"/>
+	<group name="Customer :-">
+		<groupExpression><![CDATA[$V{PAGE_NUMBER}]]></groupExpression>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<group name="Customer">
+		<groupExpression><![CDATA[$F{field1}]]></groupExpression>
+		<groupHeader>
+			<band height="23">
+				<staticText>
+					<reportElement uuid="eb62efe1-542b-4d83-b07e-29fd3ab26035" x="0" y="0" width="61" height="20"/>
+					<textElement verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Customer :-]]></text>
+				</staticText>
+				<textField>
+					<reportElement uuid="a510cd3d-f80a-4cab-b418-9f443c6d3055" x="61" y="0" width="164" height="20"/>
+					<textElement verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{field1}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="50"/>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="64" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="845acd6b-1179-4af7-8b49-dec7cd28df6c" x="204" y="37" width="356" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Deposit Paid Register From 16-01-2010 To 16-09-2022]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="fb3f63e0-a491-447c-8015-012e51911df1" x="0" y="2" width="560" height="25"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[BANKWALA DEMONSTARTION.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="1fb33546-6d42-4a87-9264-1757c6c0b84c" x="0" y="37" width="44" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Branch :]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="85" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="96733a67-15ca-4fa0-aac0-764c45845990" x="663" y="21" width="110" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Normal Interest]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="38561372-ef4d-4317-99de-79110d3df87f" x="552" y="21" width="111" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Paid Interest]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="ab4b9a63-839d-444d-96d7-7e6c5391d69f" x="413" y="21" width="139" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Deposit Amount]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="6b6c1fc2-0b04-4756-ade0-d4d1dd1597d6" x="277" y="21" width="132" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Paid Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="dc19c035-9490-4b2a-a323-7bdbff20bbfd" x="61" y="21" width="104" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[A/C No.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="ef9d8735-e1f2-4ded-850e-89debd1d3853" x="0" y="21" width="44" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Sr. No.]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="ec1fa255-fc44-47de-8370-72ff26997169" x="0" y="44" width="802" height="1"/>
+			</line>
+			<line>
+				<reportElement uuid="1db2cabe-36b8-4328-aa18-40c5ffb8d2ad" x="0" y="3" width="802" height="1"/>
+			</line>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement uuid="8c7d9818-5711-40e5-8bf0-35230c873f89" x="5" y="0" width="27" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="50"/>
+	</pageFooter>
+	<summary>
+		<band height="61" splitType="Stretch">
+			<line>
+				<reportElement uuid="c7544f6b-930f-460b-874c-9572d2b16616" x="0" y="0" width="802" height="1"/>
+			</line>
+			<line>
+				<reportElement uuid="ae00b5a6-ae29-4591-8f9d-3dd250b6fc2d" x="0" y="15" width="802" height="1"/>
+			</line>
+			<staticText>
+				<reportElement uuid="9ac0974d-4308-49b7-9c49-bf3025ad3a96" x="353" y="15" width="45" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="29140479-ff03-4f84-bed0-57e450ce833b" x="0" y="35" width="802" height="1"/>
+			</line>
+		</band>
+	</summary>
+</jasperReport>

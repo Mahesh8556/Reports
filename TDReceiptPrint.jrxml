@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.0.final using JasperReports Library version 6.20.0-2bc7ab61c56f459e8176eb05c7705e145cd400ad  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="TDReceiptPrint" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="772" leftMargin="42" rightMargin="28" topMargin="190" bottomMargin="0" uuid="c261d937-05a7-4f06-84fa-49c5ffc42ad7">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="51"/>
+	<field name="AC_OPDATE" class="java.lang.String"/>
+	<field name="AC_NAME" class="java.lang.String"/>
+	<field name="AC_REF_RECEIPTNO" class="java.lang.String"/>
+	<field name="AC_EXPDT" class="java.lang.String"/>
+	<field name="AC_NO" class="java.lang.String"/>
+	<field name="AC_ADDR" class="java.lang.String"/>
+	<field name="S_NAME" class="java.lang.String"/>
+	<field name="AC_MONTHS" class="java.lang.String"/>
+	<field name="AC_INTRATE" class="java.lang.String"/>
+	<field name="AC_SCHMAMT" class="java.lang.String"/>
+	<field name="AC_MATUAMT" class="java.lang.String"/>
+	<field name="AC_DAYS" class="java.lang.String"/>
+	<field name="AC_NNAME" class="java.lang.String"/>
+	<field name="FN_AMTTOWORDENGLISH" class="java.lang.String"/>
+	<field name="AC_ASON_DATE" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="226" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+			<textField>
+				<reportElement x="639" y="22" width="100" height="16" uuid="742139b5-02da-4775-9523-ef06ed7de114"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{AC_OPDATE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="134" y="94" width="286" height="16" uuid="dcad1402-d95a-446c-bbe3-526010c612d3"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{AC_NAME}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="460" y="18" width="160" height="16" uuid="599a63a7-6889-49bc-bef4-f71e2d92dd8a"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{AC_REF_RECEIPTNO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="639" y="70" width="100" height="16" uuid="5d0281ce-cac9-44b4-8b14-703a9bc4f924"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{AC_EXPDT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="110" y="50" width="100" height="16" uuid="e4cc6609-efa7-4db5-9d26-614c60bce0ee"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{AC_NO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="444" y="97" width="221" height="16" uuid="9501ecc2-9610-48bb-b219-0661efa3aed6"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{AC_ADDR}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="110" y="20" width="100" height="16" uuid="44f17e6c-70ff-42a9-a6e5-aa2cbd35bb87"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{S_NAME}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="264" y="151" width="60" height="16" uuid="f2d7e04d-aa82-42cd-b54e-e34e35f9ab91"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{AC_MONTHS}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="116" y="151" width="58" height="16" uuid="7b9e2748-c330-4085-88dd-3dac0d0d6510"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{AC_INTRATE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="114" y="126" width="100" height="16" uuid="813200d6-2152-4411-ada2-2f7c4a7a2c3c"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{AC_SCHMAMT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="173" y="180" width="100" height="16" uuid="4612a2dd-8925-4de6-a36c-752b3baacf7f"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{AC_MATUAMT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="61" y="205" width="263" height="21" uuid="e8836cdb-80b8-4769-834b-19dea4c8d7b6"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{AC_NNAME}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="324" y="126" width="315" height="16" uuid="0cbe799f-2e61-427b-b441-f1f110e9e1c3"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{FN_AMTTOWORDENGLISH}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="639" y="46" width="129" height="20" uuid="6efb6cfc-24ba-44ff-950f-f0fd94df9112"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{AC_ASON_DATE}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="570" y="-14" width="150" height="20" uuid="23a434c8-a029-474d-9096-8ccc51883722"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[BRANCH : HERLE]]></text>
+			</staticText>
+		</band>
+	</detail>
+</jasperReport>

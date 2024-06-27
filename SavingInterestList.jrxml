@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SavingInterestList" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="bf421734-419e-438d-a047-bc3dc0c3f261">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<field name="field1" class="java.lang.String"/>
+	<group name="Scheme">
+		<groupExpression><![CDATA[$F{field1}]]></groupExpression>
+		<groupHeader>
+			<band height="21">
+				<staticText>
+					<reportElement uuid="62b19f97-9a49-4d53-bc8d-a89eed6554d6" x="1" y="0" width="56" height="20"/>
+					<textElement verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Scheme :]]></text>
+				</staticText>
+				<textField>
+					<reportElement uuid="ba42e6ab-4f12-4857-934a-89adc3bf58be" x="57" y="0" width="68" height="20"/>
+					<textElement verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$F{field1}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="26">
+				<staticText>
+					<reportElement uuid="11b2608f-fd9a-4c3a-9389-b43934c0ebde" x="210" y="3" width="108" height="21"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Schemewise Total :]]></text>
+				</staticText>
+				<line>
+					<reportElement uuid="f7e3cc01-bf69-465e-a16e-a8b344ff961b" x="0" y="24" width="801" height="1"/>
+					<graphicElement>
+						<pen lineWidth="0.9"/>
+					</graphicElement>
+				</line>
+				<line>
+					<reportElement uuid="87f543e1-d284-4e44-b6a8-1aaad97aa517" x="1" y="2" width="801" height="1"/>
+					<graphicElement>
+						<pen lineWidth="0.9"/>
+					</graphicElement>
+				</line>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="49" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="b7dae7aa-002d-4e24-bea2-915387b505be" x="259" y="29" width="252" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Saving Interest List on 30/09/2022]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="301eb898-e563-4454-9338-f702a384fc63" x="0" y="1" width="222" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[BANKWALA DEMONSTRATION.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c1b7db14-2056-48c9-a327-5bde7f5da973" x="0" y="29" width="47" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Branch : ]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="38" splitType="Stretch">
+			<line>
+				<reportElement uuid="043928d5-90f0-46b0-bb93-11b78a817dee" x="0" y="2" width="802" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.9"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement uuid="74f8f485-a47b-4838-a277-f810161db13a" x="0" y="3" width="29" height="34"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Sr.
+No.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="16c6a91a-a82b-433c-a72c-9caf64e0da0d" x="28" y="3" width="47" height="34"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[A/c
+No.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="17de811c-a3cb-4c37-8f94-f8d5c5029290" x="75" y="3" width="182" height="23"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Account Name ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="0250d02c-be3c-406d-a2a6-e42ca14dadc1" x="256" y="3" width="62" height="34"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Last Interest
+Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="7e18d5b8-c648-415e-9bc9-906ba4a624eb" x="584" y="3" width="71" height="34"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Ledger
+Balance]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c2566cd3-d436-4b97-9e29-3e65010aa014" x="657" y="3" width="69" height="34"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ Interest
+Amount]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="f52f2ff9-88a9-403a-a598-f30c148e45f6" x="450" y="3" width="61" height="25"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Days]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="4283bc38-c31b-4bfe-a4b6-2dc95f04dc9f" x="376" y="3" width="74" height="23"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Months]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="5976e437-00b0-4c01-bf1a-b93950ace4ce" x="318" y="3" width="58" height="34"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Interest
+Rate]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="efd99d90-8b11-4bd7-b47b-988eb7737bbf" x="0" y="37" width="802" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.9"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement uuid="b1d765aa-f7a3-4ed2-8179-95659f427922" x="729" y="3" width="71" height="34"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Net Ledger
+Balance]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="bcaeae32-de8c-40c8-a92d-cb637449f3b9" x="517" y="3" width="65" height="23"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Product]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="22" splitType="Stretch">
+			<textField>
+				<reportElement uuid="ca30ccfa-d68d-4b0e-9c6f-3a4eb34f7dbf" x="0" y="0" width="29" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="46" splitType="Stretch">
+			<line>
+				<reportElement uuid="69a87822-5067-4826-bbe4-388f2d052485" x="0" y="12" width="802" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.9"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement uuid="0c807ef1-d890-4094-9dd3-b7b81b0c1e21" x="679" y="13" width="80" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement uuid="f58a8bfb-13f7-400e-8296-ffe7dbf62b91" x="759" y="13" width="40" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy HH.mm.ss">
+				<reportElement uuid="7b7931b3-ccc5-4b73-8a7b-d9010cf29826" x="0" y="13" width="100" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="5331e0d4-8f50-4bd3-96f2-3f4253d9174c" x="100" y="13" width="76" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[SUPERVISOR]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="108" splitType="Stretch">
+			<line>
+				<reportElement uuid="2fb5ad48-1afd-4c05-b77b-c183ca5160e3" x="0" y="1" width="802" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.9"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement uuid="0fe87800-5128-43e8-9dbd-69dbdddf2ad2" x="222" y="2" width="96" height="21"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Grand Total :]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="357e988d-1f8f-46f9-86f6-6e281618fb0d" x="0" y="23" width="802" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.9"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement uuid="b1929dbf-11d4-471a-a9de-bc561cdf298e" x="361" y="87" width="100" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Officer / Manager]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="dd1ac418-9b3b-4dfa-9345-5d34360b4e66" x="587" y="87" width="100" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[General Manager]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="4635fab6-64ef-44cd-9a12-b391d6d8f1dd" x="152" y="87" width="100" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Clerk]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.0.final using JasperReports Library version 6.20.0-2bc7ab61c56f459e8176eb05c7705e145cd400ad  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name=" shares_transfer_register" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="e49df87e-b478-443b-91ea-972be79d90fd">
+	<property name="ireport.zoom" value="1.2100000000000006"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<field name="BankName" class="java.lang.String"/>
+	<field name="Branch" class="java.lang.String"/>
+	<field name="sdate" class="java.lang.String"/>
+	<field name="edate" class="java.lang.String"/>
+	<field name="AC_NAME" class="java.lang.String"/>
+	<field name="CITY_NAME" class="java.lang.String"/>
+	<field name="NO_OF_SHARES" class="java.lang.String"/>
+	<field name="SHARES_FROM_NO" class="java.lang.String"/>
+	<field name="SHARES_TO_NO" class="java.lang.String"/>
+	<field name="RESULATION_DATE" class="java.lang.String"/>
+	<field name="RESULATION_NO" class="java.lang.String"/>
+	<field name="TRAN_AMOUNT" class="java.lang.String"/>
+	<field name="TOTAL_SHARE_AMOUNT" class="java.lang.String"/>
+	<field name="AC_TYPE" class="java.lang.String"/>
+	<field name="CERTIFICATE_NO" class="java.lang.String"/>
+	<field name="ACNO_TYPE" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="148" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="802" height="40" uuid="9a6d04cb-2671-4a31-8f1e-32b944042712"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{BankName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="397" y="51" width="53" height="20" uuid="7a8570d2-328c-46f1-9730-5ca93538d1df"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sdate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="470" y="51" width="81" height="20" uuid="b58d8140-5bfb-4089-8970-120ad94f8539"/>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{edate}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="60" width="47" height="20" uuid="5f5c8eea-4d78-4f19-9ade-d5d424258537"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Branch :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="270" y="51" width="135" height="38" uuid="ffa03691-06dc-484b-a389-1e8fbdc7c7f6"/>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Membership Cancellation]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="450" y="51" width="19" height="20" uuid="a421c4b9-bba5-4131-94b7-52673a8c95ed"/>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[To]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="47" y="60" width="100" height="20" uuid="cb2abfd6-49b0-4842-b5b0-6451297424f6"/>
+				<textFieldExpression><![CDATA[$F{Branch}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="78" width="802" height="1" uuid="e2877e06-f246-4fd7-81db-16ce551f4b0b"/>
+			</line>
+			<line>
+				<reportElement x="0" y="113" width="802" height="1" uuid="a594943e-83f0-4888-88a2-6f2b4d60adf6"/>
+			</line>
+			<staticText>
+				<reportElement x="0" y="86" width="42" height="20" uuid="7c0c0b12-6e8c-4b4f-b67d-7a85c9acab01"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Sr.No.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="42" y="86" width="153" height="20" uuid="06b83f7d-6638-4c71-ac58-416ed40bb019"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Member Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="195" y="86" width="70" height="20" uuid="6925d262-328f-40ad-bd6a-966036b55f07"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[City]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="265" y="86" width="73" height="33" uuid="f6ef960b-8b9a-4695-b9f6-ffc64835c9cd"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Certificate Number]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="360" y="86" width="58" height="33" uuid="5a72eb81-8052-4787-a87d-ea3a5aacf4e9"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[No.of Shares]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="432" y="87" width="76" height="20" uuid="134d2708-9d28-4fee-bde9-eecb3c88c798"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Shares Amount]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="508" y="86" width="75" height="33" uuid="d744e6e4-1877-4744-9cd4-762f3379e36a"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Shares From No.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="596" y="86" width="62" height="33" uuid="485e7252-9e2e-4adf-b8cf-4b711fe16205"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Shares To No.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="743" y="86" width="59" height="33" uuid="7d4896b0-e09f-47d4-8684-9c7ef91f5ee1"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Resolution No.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="671" y="86" width="60" height="33" uuid="0dc3a6a4-76cf-4a42-9eca-039fb86738a1"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Resolution Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="128" width="50" height="20" uuid="0670e8f4-cafc-4a10-969e-c611132d8045"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Scheme :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="728" y="62" width="83" height="14" uuid="b323e1b7-653c-4cac-a4b9-8bc06b543132"/>
+				<text><![CDATA[Amount in Rupees]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="52" y="127" width="100" height="20" uuid="c91bb497-de1e-40ca-a1ea-faec987ef9d3"/>
+				<textFieldExpression><![CDATA[$F{ACNO_TYPE}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="6" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="4" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="26" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="42" height="20" uuid="bdb5256b-4cb5-4665-b80e-f44860347e40"/>
+				<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="42" y="0" width="153" height="26" uuid="9d15c11f-8e0a-4251-bf78-fc62a7b7944b"/>
+				<textFieldExpression><![CDATA[$F{AC_NAME}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="195" y="0" width="70" height="20" uuid="b3b2ee35-da33-4c9e-ac7b-45ee18e7efb1"/>
+				<textFieldExpression><![CDATA[$F{CITY_NAME}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="508" y="0" width="75" height="20" uuid="adbbcadb-d55a-4d9d-aea4-3182aef662e8"/>
+				<textFieldExpression><![CDATA[$F{SHARES_FROM_NO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="600" y="0" width="58" height="20" uuid="411504af-7877-440a-9534-adb96ac5b9d8"/>
+				<textFieldExpression><![CDATA[$F{SHARES_TO_NO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="671" y="0" width="60" height="20" uuid="8a80694c-289f-4364-aa0b-5fa7cf5d833c"/>
+				<textFieldExpression><![CDATA[$F{RESULATION_DATE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="743" y="0" width="59" height="20" uuid="460f87a9-ca7a-45aa-9709-613cfed13785"/>
+				<textFieldExpression><![CDATA[$F{RESULATION_NO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="432" y="0" width="76" height="20" uuid="add39df5-0dfa-4279-b3da-2e6260161473"/>
+				<textFieldExpression><![CDATA[$F{TRAN_AMOUNT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="360" y="0" width="58" height="20" uuid="f05a972d-fe17-4884-86ca-d25e499f91c6"/>
+				<textFieldExpression><![CDATA[$F{NO_OF_SHARES}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="265" y="0" width="73" height="20" uuid="37c2bd2a-5a45-40d4-97d4-807689ae2c43"/>
+				<textFieldExpression><![CDATA[$F{CERTIFICATE_NO}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="7" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="30" splitType="Stretch">
+			<textField pattern="d/M/yyyy h.mm a">
+				<reportElement x="10" y="10" width="100" height="20" uuid="237a5d45-3a2d-4911-9d23-c414777381b9"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="680" y="9" width="80" height="20" uuid="85682823-4f25-4372-b008-4effad1410b9"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="760" y="9" width="40" height="20" uuid="3ac84b22-841d-4081-b52b-1a409191969b"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="5" width="802" height="1" uuid="753f0ff2-7a83-4e4a-a78d-29b83ea860a2"/>
+			</line>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="142" splitType="Stretch">
+			<staticText>
+				<reportElement x="332" y="11" width="100" height="22" uuid="6f31957c-fe03-4edf-89e0-22019c91130d"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="95" y="120" width="100" height="20" uuid="f7430a4e-84c3-4eec-bdd0-5e46e3d9e527"/>
+				<textElement>
+					<font size="8" isBold="false"/>
+				</textElement>
+				<text><![CDATA[CLERK/OFFICER]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="370" y="120" width="100" height="20" uuid="62aeb13b-e2b4-4c07-b5c1-f0b7b6c7a2d3"/>
+				<textElement>
+					<font size="8" isBold="false"/>
+				</textElement>
+				<text><![CDATA[MANAGER]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="643" y="122" width="100" height="20" uuid="20751814-874e-4214-b967-66096dbc91df"/>
+				<textElement>
+					<font size="8" isBold="false"/>
+				</textElement>
+				<text><![CDATA[G.MANAGER]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="432" y="10" width="76" height="22" uuid="36aaf9a1-6db5-490b-8e6e-67eb96d69856"/>
+				<textFieldExpression><![CDATA[$F{TOTAL_SHARE_AMOUNT}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="2" width="802" height="1" uuid="38983dd9-7306-43fb-9159-10aa7ff3c770"/>
+			</line>
+			<line>
+				<reportElement x="0" y="29" width="802" height="1" uuid="020cbf3d-bfb3-408b-915f-3e9dca39bc40"/>
+			</line>
+		</band>
+	</summary>
+</jasperReport>

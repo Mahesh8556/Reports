@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Loan_Cash_Credit_Ac_Open_Wise_Report.jrxml" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f736459f-362c-4475-ba20-9461af942c0f">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<field name="AC_NO" class="java.lang.String"/>
+	<field name="AC_NAME" class="java.lang.String"/>
+	<field name="AC_OPDATE" class="java.lang.String"/>
+	<field name="AC_SANCTION_DATE" class="java.lang.String"/>
+	<field name="AC_EXPIRE_DATE" class="java.lang.String"/>
+	<field name="AC_MONTHS" class="java.lang.String"/>
+	<field name="AC_SANCTION_AMOUNT" class="java.lang.String"/>
+	<field name="AC_SECURITY_AMT" class="java.lang.String"/>
+	<field name="field1" class="java.lang.String"/>
+	<field name="field2" class="java.lang.String"/>
+	<field name="field3" class="java.lang.String"/>
+	<field name="field4" class="java.lang.String"/>
+	<field name="field5" class="java.lang.String"/>
+	<group name="scheme">
+		<groupExpression><![CDATA[$F{field1}]]></groupExpression>
+		<groupHeader>
+			<band height="21">
+				<staticText>
+					<reportElement uuid="b8d7a508-31a6-4f54-b414-85e6eb3f3176" x="0" y="0" width="65" height="20"/>
+					<textElement verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Scheme :]]></text>
+				</staticText>
+				<textField>
+					<reportElement uuid="1ccb84ab-605d-4d28-ab13-f674774862f1" x="65" y="0" width="100" height="20"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$F{field1}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="32">
+				<line>
+					<reportElement uuid="2a5ec6d9-5d7f-468f-85e1-59b836561f0d" x="1" y="10" width="802" height="1"/>
+				</line>
+				<staticText>
+					<reportElement uuid="7f927c81-fd50-4707-9006-aeb59b9cddcb" x="460" y="10" width="73" height="20"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Sub Total :]]></text>
+				</staticText>
+				<textField>
+					<reportElement uuid="2a73e818-3f62-4a86-97a0-5cae098a85c4" x="681" y="11" width="47" height="20"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$F{field2}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement uuid="a1f0f0f9-9d1a-489a-b250-0c43df288e41" x="744" y="10" width="61" height="20"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$F{field3}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="43" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="f8a301b9-374e-4f0d-88d1-6fef7039faca" x="214" y="20" width="388" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Loan / CC A/c Open  Datewise Report From ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="14f44dfc-44ac-4658-b55c-567b1dc88a44" x="0" y="21" width="45" height="19"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Branch :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="5d8c954f-b5e8-4a87-bc1b-fdf70c64fc1a" x="0" y="0" width="200" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[BANKWALA DEMONSTRATION.]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="dad1aef3-aaf8-4e90-af44-be0bb7ec2e7a" x="0" y="40" width="802" height="1"/>
+			</line>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="31" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="8ebf9428-c0c3-4ff6-9d2c-0bdc4546f616" x="1" y="1" width="22" height="29"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Sr.No.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="a6249b20-c6fb-48da-bbf0-bc8682b38220" x="678" y="1" width="50" height="28"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Sanction Limit]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="4322885f-70ea-4ec6-a761-542288cd8639" x="392" y="0" width="53" height="28"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Opening Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="61f0b939-2453-4123-becd-187ff70489dc" x="162" y="-1" width="124" height="30"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Account Name    	  Guarantor Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="3a446840-42e4-4585-aabd-9c1ff6b91b8f" x="741" y="1" width="64" height="28"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Security Amount]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="b226fca9-f49a-4639-bfef-ec2153fa7f80" x="602" y="1" width="59" height="28"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Period (Months)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="4036bf64-23cc-4819-8578-0d8547c88a52" x="458" y="0" width="63" height="31"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Sanction Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="125849d9-c581-4fbf-886a-9cd75686eb52" x="36" y="1" width="62" height="29"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[A/c. No.]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="290d22ad-cb01-4072-b150-2c509dcd7a42" x="1" y="30" width="802" height="1"/>
+			</line>
+			<staticText>
+				<reportElement uuid="07c51d28-80a1-4cbf-a84d-789e93e004f5" x="536" y="-1" width="52" height="30"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Expire Date]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement uuid="f80fa982-1ff6-493c-8336-f1b48a7d1788" x="1" y="0" width="22" height="19"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="db416584-6904-4948-8652-a7eb773c7402" x="35" y="-1" width="49" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{AC_NO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="d5835a56-1c87-4b08-ace6-3645da4dd028" x="162" y="-1" width="211" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{AC_NAME}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="9f4d76ec-6bb1-43a4-b9d0-d632befc9664" x="407" y="0" width="53" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{AC_OPDATE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="03ee0534-6a41-4907-9cb5-7ec88de5f01b" x="458" y="0" width="63" height="19"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{AC_SANCTION_DATE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="84f5487e-83fd-4d69-8cf1-b0e7765abe34" x="536" y="0" width="52" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{AC_EXPIRE_DATE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="23e2de14-600d-479a-8a68-6d2ce90fe45c" x="602" y="0" width="59" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{AC_MONTHS}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="8177eb49-fb65-4be5-9c2e-eb9add7a49f7" x="681" y="0" width="47" height="19"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{AC_SANCTION_AMOUNT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="eb3a9aa2-a416-4d4e-8cbb-9fc0e250ebd0" x="741" y="0" width="61" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{AC_SECURITY_AMT}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch">
+			<line>
+				<reportElement uuid="f9901b1c-00f8-4bc4-ab41-4ba65fe0caa0" x="0" y="23" width="802" height="1"/>
+			</line>
+			<staticText>
+				<reportElement uuid="d3d20124-c0d1-4bfe-911a-2b4076cd18e1" x="460" y="2" width="73" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Grand Total :]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="3c898c51-7111-403b-a099-cbb3edfbb8d8" x="0" y="2" width="802" height="1"/>
+			</line>
+			<textField>
+				<reportElement uuid="d8abb7f3-368f-4809-a67a-f9a247adc830" x="681" y="4" width="47" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{field4}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="e0f48f80-1ac2-4648-a4c9-910655f3f39f" x="744" y="4" width="58" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{field5}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

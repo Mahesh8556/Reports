@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="BalanceConfirmationCertificate" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="38d4b024-9a80-47c2-9157-3a47cd462973">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<field name="BankName" class="java.lang.String"/>
+	<field name="Address" class="java.lang.String"/>
+	<field name="date" class="java.lang.String"/>
+	<field name="name" class="java.lang.String"/>
+	<field name="address" class="java.lang.String"/>
+	<field name="A/cNo." class="java.lang.String"/>
+	<field name="Date" class="java.lang.String"/>
+	<field name="field1" class="java.lang.String"/>
+	<field name="amount" class="java.lang.String"/>
+	<field name="Amount" class="java.lang.String"/>
+	<field name="NAME" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="166" splitType="Stretch">
+			<textField>
+				<reportElement uuid="f53022b8-3c13-4b97-be80-1d97ef32f1f7" x="413" y="1" width="389" height="20"/>
+				<textElement textAlignment="Right">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{BankName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="04f509be-52e6-4b64-bec7-40a1e3d7f6b0" x="523" y="21" width="279" height="20"/>
+				<textElement textAlignment="Right">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Address}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="7dc20791-70a1-457c-82c3-fe7ee7671069" x="0" y="40" width="100" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{date}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="6998131a-7bc6-4c71-8598-5399fff47b0d" x="0" y="60" width="100" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="029eaaa3-edcd-4a5e-9f41-a510d2858138" x="0" y="80" width="100" height="19"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{address}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="58ac58ea-45a3-44f7-be55-d354ab5386f2" x="0" y="109" width="117" height="26"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Dear  Sir/Madam ,]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="59757f1d-7a3a-4dea-bb4a-8282c017bd66" x="244" y="124" width="326" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[  Sub : Balance Confirmation Certificate As on ]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="353b5196-0154-470f-80dc-90d937fb078b" x="570" y="124" width="77" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Date}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement uuid="baa43c0c-1da9-4a90-af71-562c25f2d7cd" x="254" y="144" width="393" height="1"/>
+			</line>
+		</band>
+	</title>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="296" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="da0b028a-59c6-49e6-90bf-a6f6d7627ac2" x="0" y="0" width="371" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[This  is  to  state  that  the  Cr/Dr  balance  in  your  Account No.]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="02ddf3ba-9f94-4c3d-aacd-e4ff826e5a31" x="371" y="2" width="69" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{A/cNo.}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="8bbdff16-3e0b-4026-839a-5cf41a091623" x="440" y="2" width="78" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[with us as on ]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="bc396d57-1f78-4046-8752-ca1f2aaad397" x="518" y="2" width="61" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{field1}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="cfa54348-213c-4924-8852-bef52854d401" x="0" y="20" width="23" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[is]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="2fd74c50-0c1d-460d-b112-40e96ccf226d" x="23" y="22" width="83" height="20"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{amount}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="ac89b16d-1c97-479d-9e15-23c58c5f404e" x="0" y="42" width="158" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[This same consists of ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="8d5a25e4-0cff-49c8-aaf4-d38fc38dbb83" x="0" y="62" width="141" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Clear  Balance  Of   Rs.]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="fe3aeea0-31d8-4735-a6d1-8f0e068a9acf" x="158" y="62" width="72" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Amount}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="7ca00c8b-6af5-4556-aeeb-f58260983211" x="0" y="82" width="647" height="22"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[We  would  appreciate  your  returning  a  copy  of  this  letter  duly  signed  by  your  Authorized  Signatory(ies)  i ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="5b1b67d2-ea82-452d-b7bc-710c13b830c8" x="0" y="104" width="254" height="21"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[acceptance  thereof ,  at the place  marked .   ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="f6bc04d2-9f44-4759-a70b-3e905290f7a2" x="0" y="125" width="684" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[In  case  you  have  any  queries  or  objections  as  regards  the  details  mentioned  above ,  please  inform  the same]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="ceef94e4-030f-4b53-a6d0-9e9238dbd3c6" x="0" y="145" width="106" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[in  writing  to  us .]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="2e2f13a6-ba54-47dd-a97e-96dff812a47d" x="0" y="165" width="664" height="19"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Please  note  that  in  case  we  do  not  receive  the  copy  of  this  letter  signed  by  you  in  acceptance  thereof,  or ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="8bd67332-000a-49ee-b223-6204cfde2c2e" x="0" y="184" width="523" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[we  do  not  receive  any  written  communication  from  you  raising  any  objection  or  query  in  ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="547a94dd-f76a-45ad-8397-64a03afa07ac" x="0" y="204" width="621" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[therewith,  as  aforesaid  it will  be  deemed  that  you  have  accepted  this  letter  in  all  respects  AND  no  further]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="0c8cb630-5867-4ac4-bb29-95f346afd186" x="0" y="224" width="309" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[query  or  objection  can  be  raised  by  you  there after .]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="7324b724-3a2e-48b0-8be7-653d1d1f3236" x="0" y="244" width="361" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Assuring  you  our  best  service  at  all  times,  we  remain, ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="82b8433a-3733-402c-b189-8aa8068072dd" x="0" y="264" width="80" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Yours  truly.]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="25" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="72" splitType="Stretch">
+			<textField>
+				<reportElement uuid="2b955e3e-8960-4eb8-af6d-f35519f85527" x="0" y="52" width="100" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NAME}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="d1082016-fe21-493b-85cd-dc33a7dbd846" x="0" y="33" width="170" height="19"/>
+				<textElement textAlignment="Center">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[AUTHORISED  SIGNATORIES]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="b0f719a7-c2f3-4752-84bc-e90a203edc14" x="-21" y="0" width="839" height="1"/>
+			</line>
+			<line>
+				<reportElement uuid="89ae1322-acf9-48aa-8fab-66b7247eb251" x="0" y="19" width="188" height="1"/>
+			</line>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="56" splitType="Stretch"/>
+	</summary>
+</jasperReport>

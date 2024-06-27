@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.0.final using JasperReports Library version 6.20.0-2bc7ab61c56f459e8176eb05c7705e145cd400ad  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="nominee_list" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="e5bd4424-9798-4029-a360-d35493e24bc0">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<property name="ireport.zoom" value="1.2100000000000009"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="bankname" class="java.lang.String"/>
+	<field name="date" class="java.lang.String"/>
+	<field name="branchname" class="java.lang.String"/>
+	<field name="AC_NO" class="java.lang.String"/>
+	<field name="AC_NAME" class="java.lang.String"/>
+	<field name="AC_NNAME" class="java.lang.String"/>
+	<field name="AC_NRELA" class="java.lang.String"/>
+	<field name="addacno" class="java.lang.String"/>
+	<field name="flag" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="81" splitType="Stretch">
+			<textField>
+				<reportElement x="194" y="10" width="403" height="30" uuid="3b6c81b8-4ac9-43fe-b4a0-d69e2253f525"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{bankname}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="271" y="44" width="150" height="20" uuid="82f9932e-2193-4ecc-9532-3a895f88e0b0"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nominee List As on Date ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="425" y="44" width="100" height="20" uuid="a4c61b5c-9512-4b09-9334-9634775aee86"/>
+				<textElement>
+					<font size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{date}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="51" width="50" height="30" uuid="c1832df4-4de7-4334-8060-1813c8943f16"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Branch :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="50" y="51" width="100" height="29" uuid="ccc004a2-8f5c-40e0-b0b6-a591a60ec335"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{branchname}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="41" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="0" width="800" height="1" uuid="a3d241ed-2fbb-4955-b6de-c90787df2d80"/>
+			</line>
+			<line>
+				<reportElement x="0" y="40" width="800" height="1" uuid="2f1f2db5-bad9-402e-b846-00d19f1dcebe"/>
+			</line>
+			<staticText>
+				<reportElement x="0" y="7" width="80" height="30" uuid="50a9dab5-e7a9-4bec-be66-2d59ddae0bd7"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Sr. No.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="80" y="7" width="100" height="30" uuid="48ff498e-1cf2-42e5-8e14-5ffacac92895"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Account Number]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="210" y="7" width="170" height="30" uuid="655248e3-7482-4937-a4b3-c0855d78d5d2"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Account Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="480" y="9" width="100" height="30" uuid="4fe38002-d4df-40e8-8881-48fa18867219"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Kohinoor" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[नॉमिनी नाव ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="680" y="9" width="100" height="30" uuid="8d84543c-9259-451a-8643-fe6370507c1d"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Relation]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="26" splitType="Stretch">
+			<textField>
+				<reportElement x="80" y="6" width="100" height="20" uuid="59cc0333-1b14-47dc-bd39-f128967b3735"/>
+				<textFieldExpression><![CDATA[$F{AC_NO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="210" y="6" width="210" height="20" uuid="3d7fabd1-f8bb-4626-a756-6a6666851c6c"/>
+				<textFieldExpression><![CDATA[$F{AC_NAME}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="480" y="6" width="180" height="20" uuid="496a76ea-8989-4e08-9ea2-9b40f4e29ea5"/>
+				<textFieldExpression><![CDATA[$F{AC_NNAME}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="680" y="6" width="100" height="20" uuid="b95373d5-9d6c-4948-9f43-3ee785d492ba"/>
+				<textFieldExpression><![CDATA[$F{AC_NRELA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="3" y="6" width="70" height="20" uuid="35fa16be-d555-4387-82cc-8e6cc5adefe9"/>
+				<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="33" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="7" width="800" height="1" uuid="606f799f-cf1f-4140-bc78-07af2f06806e"/>
+			</line>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="3" y="13" width="90" height="20" uuid="30f00640-beee-4c62-94ce-38d5e084df70"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="680" y="13" width="80" height="20" uuid="13cb7e43-b62c-4c4f-80b8-ddbd838b466a"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="760" y="13" width="40" height="20" uuid="92f24b52-b045-46d5-a061-b7e5ea95d07a"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="84" splitType="Stretch">
+			<staticText>
+				<reportElement x="3" y="64" width="80" height="20" uuid="bf6f2858-7073-49a2-9ae1-47347d37fc5d"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Clerk]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="355" y="64" width="100" height="20" uuid="c40531e0-61ba-4c04-9d99-135c38fcea7f"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Manager]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="700" y="64" width="100" height="20" uuid="f27b0907-c8d7-491c-8443-16792be7d944"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Chairman]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="2" width="802" height="1" uuid="2a29ab83-352e-4aaa-a629-6b4737f1f7e9"/>
+			</line>
+		</band>
+	</summary>
+</jasperReport>

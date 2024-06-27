@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.0.final using JasperReports Library version 6.20.0-2bc7ab61c56f459e8176eb05c7705e145cd400ad  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="passbook" pageWidth="566" pageHeight="510" orientation="Landscape" columnWidth="546" leftMargin="10" rightMargin="10" topMargin="15" bottomMargin="15" uuid="ff8362a1-dbec-46ec-8442-d11fc88a1f05">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="OP_BALANCE" class="java.lang.String"/>
+	<field name="TRAN_DATE" class="java.lang.String"/>
+	<field name="Cheque_No" class="java.lang.String"/>
+	<field name="NARRATION" class="java.lang.String"/>
+	<field name="DR_AMOUNT" class="java.lang.String"/>
+	<field name="CR_AMOUNT" class="java.lang.String"/>
+	<field name="CLOSING_BAL" class="java.lang.String"/>
+	<field name="CRDR" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="28" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="21">
+			<textField>
+				<reportElement x="2" y="4" width="59" height="17" uuid="935a089c-5be1-462d-a2c8-5265e47362da"/>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA[$F{TRAN_DATE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="71" y="4" width="51" height="17" uuid="11867352-4858-47ef-8ff9-c0f96d673aa6"/>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA[$F{Cheque_No}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="128" y="4" width="105" height="17" uuid="5325b789-a33b-478d-93e5-083ebe05a69b"/>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA[$F{NARRATION}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="246" y="4" width="83" height="17" uuid="29e16b48-8059-4dc3-a703-f8c0946848f4"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{DR_AMOUNT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="338" y="4" width="74" height="17" uuid="7ee43386-f08b-43b0-8d08-b353a6cff2cc"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{CR_AMOUNT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="418" y="4" width="82" height="17" uuid="3e606047-fe9a-4fff-ab8d-f5b63b7fa431"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{CLOSING_BAL}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="LoanCashCreditRenewalList" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f681697f-8377-449d-8a3a-8bc711fd95f6">
+	<property name="ireport.zoom" value="1.610510000000002"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<field name="BRANCH" class="java.lang.String"/>
+	<field name="AC_NO" class="java.lang.String"/>
+	<field name="AC_NAME" class="java.lang.String"/>
+	<field name="START_DATE" class="java.lang.String"/>
+	<field name="END_DATE" class="java.lang.String"/>
+	<field name="AC_RENEWAL_NO" class="java.lang.String"/>
+	<field name="AC_RENEWAL_COUNTER" class="java.lang.String"/>
+	<field name="NEW_INTEREST_RATE" class="java.lang.String"/>
+	<field name="OLD_DRAWING_POWER" class="java.lang.String"/>
+	<field name="NEW_EXPIRY_DATE" class="java.lang.String"/>
+	<field name="NEW_MATURITY_AMOUNT" class="java.lang.String"/>
+	<field name="AC_ACNOTYPE" class="java.lang.String"/>
+	<field name="BANK_NAME" class="java.lang.String"/>
+	<field name="scheme_total" class="java.lang.String"/>
+	<field name="AC_SANCTION_AMOUNT" class="java.lang.String"/>
+	<field name="scheme_total1" class="java.lang.String"/>
+	<field name="S_NAME" class="java.lang.String"/>
+	<field name="S_APPL" class="java.lang.String"/>
+	<group name="scheme group1">
+		<groupExpression><![CDATA[$F{BRANCH}]]></groupExpression>
+		<groupHeader>
+			<band height="38">
+				<staticText>
+					<reportElement x="8" y="6" width="44" height="12" uuid="0fecfaa4-08c7-40dc-abcb-abd558c0b65a"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="8"/>
+					</textElement>
+					<text><![CDATA[SCHEME:-]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="93" y="6" width="52" height="12" uuid="31ce1a66-b5df-4418-8e37-930371bbf91c"/>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{S_NAME}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="64" y="6" width="29" height="12" uuid="a2cb23fe-c471-40cc-9b5f-fb05e99b75e5"/>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{S_APPL}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="50">
+				<staticText>
+					<reportElement x="103" y="16" width="82" height="20" uuid="4ef83510-f380-4a34-b9c8-95b5f1fc3b53"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="8"/>
+					</textElement>
+					<text><![CDATA[Total Accounts:-]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="202" y="16" width="28" height="19" uuid="3be1e445-d5aa-4af7-91f0-558817ce5c9f"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="402" y="16" width="81" height="19" uuid="368b77c4-99ef-4fdf-8d9b-79deab4aaac8"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{scheme_total}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement x="0" y="36" width="555" height="1" uuid="3239168c-17af-4be9-81f9-f7d5cf91cb7b"/>
+				</line>
+				<line>
+					<reportElement x="0" y="16" width="552" height="1" uuid="9b869693-30e9-4b8c-bdf9-d8e8edff79fe"/>
+				</line>
+				<textField>
+					<reportElement x="502" y="17" width="48" height="18" uuid="f2377743-3924-41a6-a70e-3d422f07e28c"/>
+					<textElement verticalAlignment="Middle">
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{scheme_total1}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="70" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="47" width="44" height="20" uuid="492c63f5-9192-41cb-b870-4f66d1ac8e9d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[BRANCH]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="46" y="47" width="64" height="20" uuid="4da1b673-4d2e-4118-b684-8008e63b1794"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{BRANCH}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="336" y="27" width="51" height="20" uuid="f6588756-c596-447a-b752-0e9b3ac21043"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{START_DATE}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="387" y="27" width="19" height="20" uuid="b30f42c4-eb9a-49da-919a-3ca3ec692cc2"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TO]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="406" y="27" width="53" height="20" uuid="96681686-8832-429b-92b5-f188fbc7b1c9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{END_DATE}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="144" y="27" width="163" height="20" uuid="f0184b8e-5b70-4794-9fb3-b495e4ef936e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Loan Cash Credit Renewal List]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="118" y="0" width="341" height="23" uuid="3e0d9460-e576-4cfa-ad80-1399b276f7df"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{BANK_NAME}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="307" y="27" width="27" height="20" uuid="53e7f3ad-c75f-4f17-b60b-b54e0c333f21"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[From]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="479" y="47" width="76" height="20" uuid="f1a0ef43-43db-4f18-bac8-cd86b96e4143"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="8" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Amount in Rupees]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="32" splitType="Stretch">
+			<staticText>
+				<reportElement x="39" y="6" width="64" height="20" uuid="5f680628-c408-4576-bdf4-a6f3b5a5e6ab"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[ACCOUNT NO.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="118" y="6" width="72" height="20" uuid="d9e9bd4f-360e-4e97-a33c-fd3619fe6165"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[ACCOUNT NAME]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="345" y="6" width="65" height="20" uuid="f9048f71-097f-421e-a1f5-668c42a3649f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[INTREST RATE %]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="410" y="6" width="69" height="20" uuid="a8c2b5a6-e870-4bb2-8eae-db030e45cd6c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[OLD DRAWING POWER]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="491" y="6" width="61" height="20" uuid="d5cab8ac-e3f9-43b7-bed1-136bbfe529b3"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[NEW SANCTION AMOUNT]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="28" width="555" height="1" uuid="f10ecf49-5eab-4cb3-84b5-6b2d2818a4c3"/>
+			</line>
+			<staticText>
+				<reportElement x="276" y="6" width="69" height="20" uuid="00abbc38-c11b-47ea-981f-d070c43a842d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[RENEWAL DATE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="202" y="6" width="61" height="20" uuid="26c9c392-85e5-4e1c-acaf-99db88509fd1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[RENEWAL NO.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="6" width="36" height="20" uuid="9848baa2-1d05-4bbc-a695-8f84dc89f198"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[SR. NO.]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="3" width="555" height="1" uuid="10c1d664-85ff-477e-8b8b-0c889af86410"/>
+			</line>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="2" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="37" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="14" width="19" height="14" uuid="9fce028e-be6f-4fb2-854a-09503356beb0"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="39" y="14" width="69" height="14" uuid="a4ecea97-edf6-44fc-907a-122d6705070f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{AC_NO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="108" y="14" width="124" height="14" uuid="296a0789-7189-4b83-8276-224e634345ff"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{AC_NAME}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="232" y="14" width="34" height="14" uuid="5af3e5f0-4130-4f6f-ad33-73b3935754c4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{AC_RENEWAL_COUNTER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="288" y="14" width="57" height="14" uuid="5a1f1ad2-b997-4402-9e2d-98b80f87ef33"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NEW_EXPIRY_DATE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="345" y="14" width="65" height="14" uuid="0549ce59-f2c4-4abd-8911-4a8300490d77"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NEW_INTEREST_RATE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="416" y="14" width="53" height="14" uuid="3b4ae14d-59f3-4c9d-b749-9a834b35a6f9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{OLD_DRAWING_POWER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="502" y="14" width="50" height="14" uuid="b387e1c5-ee66-4de9-ac02-6c1490632ce0"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{AC_SANCTION_AMOUNT}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="32" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="3" width="555" height="1" uuid="89de7471-b81a-42c5-a421-3aea8dc6cad7"/>
+			</line>
+			<textField>
+				<reportElement x="432" y="10" width="80" height="20" uuid="4879a5c7-708d-4332-b7a6-84015609a858"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="512" y="10" width="40" height="20" uuid="aa367cfc-91ed-4a92-b6a6-37f146e9b545"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy h.mm a">
+				<reportElement x="5" y="8" width="100" height="20" uuid="aced1369-429c-420d-adf9-16595f29bd8a"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="8" y="43" width="100" height="20" uuid="f4404c7b-0e7a-46c8-af0c-bc6130567b3e"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Clerk]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="455" y="43" width="100" height="20" uuid="e9183b12-1b6b-46a5-84db-4cfffe02df8c"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Chairman]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="232" y="43" width="100" height="20" uuid="35560f1e-85be-44d2-a73b-8193ddd89f5d"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Manager]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

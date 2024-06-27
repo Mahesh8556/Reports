@@ -1,0 +1,393 @@
+<?php
+
+ob_start(); 
+include "main.php";
+require_once('dbconnect.php');
+
+set_time_limit(500);
+ini_set('display_errors', '1');
+ini_set('display_startup_errors', '1');
+error_reporting(E_ALL);
+use simitsdk\phpjasperxml\PHPJasperXML;
+
+$filename = __DIR__.'/Receiptdetail.jrxml';
+
+$data = [];
+$faker = Faker\Factory::create('en_US');
+
+//connect pgAdmin database connection 
+// $conn = pg_connect("host=127.0.0.1 dbname=CBSBhairavnath user=postgres password=admin");
+
+//get data from enquiry tableand
+// $startDate = "'01/01/2015'";
+// $endDate = "'01/01/2016'";
+$dateformate = "'DD/MM/YYYY'";
+$one = "'1'";
+$two = "'2'";
+$three = "'3'";
+$four = "'4'";
+$JV = "'JV'";
+$C = "'C'";
+$D = "'D'";
+$CS = "'CS'";
+$TR = "'TR'";
+$CL = "'CL'";
+$NA = "'NA'";
+$Expenditure = "'Expenditure'";
+$Income = "'Income'";
+$Asset = "'Asset'";
+$Liabilities = "'Liabilities'";
+$branchCode = $_GET['branchCode'];
+
+$bankName = $_GET['bankName'];
+$branchName = $_GET['branchName'];
+$start2date = $_GET['start2date'];
+$end1date = $_GET['end1date'];
+// $branched = $_GET['branched'];
+$tran = $_GET['tran'];
+$flag = $_GET['flag'];
+$print = $_GET['print'];
+$penal = $_GET['penal'];
+
+$bankName = str_replace("'", "", $bankName);
+$start2date_ = str_replace("'", "", $start2date);
+$end1date_ = str_replace("'", "", $end1date);
+// $branchName = str_replace("'", "", $branchName);
+$tran = str_replace("'", "", $tran);
+
+$flag == 1? $checktype='true': $checktype='false';
+// echo $checktype;
+
+
+if($flag == 0)
+{
+    $query = '
+SELECT  ACMASTER."AC_NO", ACMASTER."AC_NAME" AC_NAME,(CASE CAST(ACMASTER."PARENT_NODE" AS INTEGER)
+     WHEN 1  THEN '.$Liabilities.'
+     WHEN 2  THEN '.$Asset.'
+	 WHEN 3 THEN '.$Income.'
+	 WHEN 4  THEN '.$Expenditure.'
+     ELSE  '.$NA.'
+END ) a_type ,
+	 ( COALESCE(ACCOTRAN."DEBIT_TRANSFERAMT",0) + COALESCE(DAILYTRAN."DEBIT_DAILY_TRANSFERAMT",0)) "DEBIT_TRANSFERAMT"  , 
+( COALESCE(ACCOTRAN."CREDIT_TRANSFERAMT",0) + COALESCE(DAILYTRAN."CREDIT_DAILY_TRANSFERAMT",0)) "CREDIT_TRANSFERAMT"  , 
+( COALESCE(ACCOTRAN."DEBIT_CASHAMT",0)  + COALESCE(DAILYTRAN."DEBIT_DAILY_CASHAMT",0)) "DEBIT_CASHAMT"  ,
+ ( COALESCE(ACCOTRAN."CREDIT_CASHAMT",0) + COALESCE(DAILYTRAN."CREDIT_DAILY_CASHAMT",0)) "CREDIT_CASHAMT"  ,
+ ( COALESCE(ACCOTRAN."DEBIT_TRANSFERAMT",0) + COALESCE(DAILYTRAN."DEBIT_DAILY_TRANSFERAMT",0)  +  COALESCE(ACCOTRAN."DEBIT_CASHAMT",0)  
++ COALESCE(DAILYTRAN."DEBIT_DAILY_CASHAMT",0)    
+ ) DEBIT_TOTAL_AMT  ,
+( COALESCE(ACCOTRAN."CREDIT_TRANSFERAMT",0) + COALESCE(DAILYTRAN."CREDIT_DAILY_TRANSFERAMT",0)  + COALESCE(ACCOTRAN."CREDIT_CASHAMT",0) 
++ COALESCE(DAILYTRAN."CREDIT_DAILY_CASHAMT",0)  ) "CREDIT_TOTAL_AMT" 
+FROM ACMASTER LEFT JOIN gl_statement_code ON GL_STATEMENT_CODE.ID=CAST(ACMASTER."AC_BCD" AS INTEGER) 
+LEFT JOIN
+ ( SELECT "TRAN_ACNOTYPE" , "TRAN_ACTYPE", "TRAN_ACNO"  , 
+SUM( CASE "TRAN_TYPE" WHEN '.$TR.' THEN  CASE "TRAN_DRCR"  WHEN '.$D.'  THEN  "TRAN_AMOUNT" ELSE 0 END ELSE 0 END  
++ CASE "TRAN_TYPE" WHEN '.$JV.' THEN  CASE "TRAN_DRCR"  WHEN '.$D.'  THEN  "TRAN_AMOUNT" ELSE 0 END ELSE 0 END  
++ CASE "TRAN_TYPE" WHEN '.$CL.' THEN  CASE "TRAN_DRCR"  WHEN '.$D.'  THEN  "TRAN_AMOUNT" ELSE 0 END ELSE 0 END  ) "DEBIT_TRANSFERAMT"  , 
+SUM(CASE "TRAN_TYPE" WHEN '.$TR.' THEN  CASE "TRAN_DRCR"  WHEN '.$C.'  THEN  "TRAN_AMOUNT" ELSE 0 END ELSE 0 END  
++ CASE "TRAN_TYPE" WHEN '.$JV.' THEN  CASE "TRAN_DRCR"  WHEN '.$C.'  THEN  "TRAN_AMOUNT" ELSE 0 END ELSE 0 END  
++ CASE "TRAN_TYPE" WHEN '.$CL.' THEN  CASE "TRAN_DRCR"  WHEN '.$C.'  THEN  "TRAN_AMOUNT" ELSE 0 END ELSE 0 END  ) "CREDIT_TRANSFERAMT"  , 
+SUM(CASE "TRAN_TYPE" WHEN '.$CS.' THEN  CASE "TRAN_DRCR"  WHEN '.$D.'  THEN  "TRAN_AMOUNT" ELSE 0 END ELSE 0 END) "DEBIT_CASHAMT"  , 
+SUM(CASE "TRAN_TYPE" WHEN '.$CS.' THEN  CASE "TRAN_DRCR"  WHEN '.$C.'  THEN  "TRAN_AMOUNT" ELSE 0 END ELSE 0 END) "CREDIT_CASHAMT"  
+FROM ACCOTRAN WHERE CAST("TRAN_DATE" AS DATE) >= TO_DATE('.$start2date.', '.$dateformate.')  AND "BRANCH_CODE"= '.$branchCode.'
+AND CAST("TRAN_DATE" AS DATE) <= TO_DATE('.$end1date.','.$dateformate.')  AND NOT (( CAST("TRAN_DATE" AS DATE) = TO_DATE('.$start2date.', '.$dateformate.') 
+AND COALESCE("CLOSING_ENTRY",0) <> 0 )  OR ( CAST("TRAN_DATE" AS DATE) = TO_DATE('.$end1date.', '.$dateformate.') 
+AND COALESCE("CLOSING_ENTRY",0) <> 0 ) ) GROUP BY "TRAN_ACNOTYPE" , "TRAN_ACTYPE", "TRAN_ACNO"  order by "TRAN_ACNO"
+) ACCOTRAN ON ACCOTRAN."TRAN_ACNO"=CAST(ACMASTER."AC_NO" AS INTEGER)  
+LEFT JOIN  
+(  SELECT "tran_glactype", "TRAN_GLACNO"  , 
+ SUM(CASE "TRAN_DRCR"  WHEN '.$D.'  THEN  CASHAMT  ELSE 0 END) "DEBIT_DAILY_CASHAMT"  ,
+ SUM(CASE "TRAN_DRCR"  WHEN '.$C.'  THEN  CASHAMT  ELSE 0 END) "CREDIT_DAILY_CASHAMT"  ,
+ SUM(CASE "TRAN_DRCR"  WHEN '.$D.'  THEN  TRANSFERAMT ELSE 0 END 
++ CASE "TRAN_DRCR"  WHEN '.$D.'  THEN  CLEARINGAMT ELSE 0 END) "DEBIT_DAILY_TRANSFERAMT"  , 
+SUM(CASE "TRAN_DRCR"  WHEN '.$C.'  THEN  TRANSFERAMT ELSE 0 END 
++ CASE "TRAN_DRCR"  WHEN '.$C.'  THEN  CLEARINGAMT ELSE 0 END) "CREDIT_DAILY_TRANSFERAMT"  
+From VWDETAILDAILYTRAN WHERE CAST("TRAN_GLACNO" AS CHARACTER VARYING) <> (SELECT "CASH_IN_HAND_ACNO" FROM SYSPARA) 
+AND "TRAN_STATUS"=1 AND CAST("TRAN_DATE" AS DATE) <= TO_DATE('.$end1date.','.$dateformate.')  AND "BRANCH_CODE"='.$branchCode.'
+GROUP BY "tran_glactype","TRAN_GLACNO" 
+) DAILYTRAN  ON DAILYTRAN."TRAN_GLACNO"=CAST(ACMASTER."AC_NO" AS INTEGER) AND  ACMASTER."AC_TYPE" = DAILYTRAN."tran_glactype" 
+WHERE
+ACMASTER."AC_ACNOTYPE" = ACCOTRAN."TRAN_ACNOTYPE"  
+AND ACMASTER."AC_TYPE" = ACCOTRAN."TRAN_ACTYPE"  
+ AND ACMASTER."AC_NO" = ACCOTRAN."TRAN_ACNO"  AND ACMASTER."PARENT_NODE" IN ('.$one.','.$two.','.$three.','.$four.') ORDER BY "AC_NO"';
+}
+else if($flag == 1){
+$query = '
+SELECT  ACMASTER."AC_NO", ACMASTER."AC_NAME" AC_NAME,(CASE CAST(ACMASTER."PARENT_NODE" AS INTEGER)
+     WHEN 1  THEN '.$Liabilities.'
+     WHEN 2  THEN '.$Asset.'
+	 WHEN 3 THEN '.$Income.'
+	 WHEN 4  THEN '.$Expenditure.'
+     ELSE  '.$NA.'
+END ) a_type ,
+	 ( COALESCE(ACCOTRAN."DEBIT_TRANSFERAMT",0) + COALESCE(DAILYTRAN."DEBIT_DAILY_TRANSFERAMT",0)) "DEBIT_TRANSFERAMT"  , 
+( COALESCE(ACCOTRAN."CREDIT_TRANSFERAMT",0) + COALESCE(DAILYTRAN."CREDIT_DAILY_TRANSFERAMT",0)) "CREDIT_TRANSFERAMT"  , 
+( COALESCE(ACCOTRAN."DEBIT_CASHAMT",0)  + COALESCE(DAILYTRAN."DEBIT_DAILY_CASHAMT",0)) "DEBIT_CASHAMT"  ,
+ ( COALESCE(ACCOTRAN."CREDIT_CASHAMT",0) + COALESCE(DAILYTRAN."CREDIT_DAILY_CASHAMT",0)) "CREDIT_CASHAMT"  ,
+ ( COALESCE(ACCOTRAN."DEBIT_TRANSFERAMT",0) + COALESCE(DAILYTRAN."DEBIT_DAILY_TRANSFERAMT",0)  +  COALESCE(ACCOTRAN."DEBIT_CASHAMT",0)  
++ COALESCE(DAILYTRAN."DEBIT_DAILY_CASHAMT",0)    
+ ) DEBIT_TOTAL_AMT  ,
+( COALESCE(ACCOTRAN."CREDIT_TRANSFERAMT",0) + COALESCE(DAILYTRAN."CREDIT_DAILY_TRANSFERAMT",0)  + COALESCE(ACCOTRAN."CREDIT_CASHAMT",0) 
++ COALESCE(DAILYTRAN."CREDIT_DAILY_CASHAMT",0)  ) "CREDIT_TOTAL_AMT" 
+FROM ACMASTER LEFT JOIN gl_statement_code ON GL_STATEMENT_CODE.ID=CAST(ACMASTER."AC_BCD" AS INTEGER) 
+LEFT JOIN
+ ( SELECT "TRAN_ACNOTYPE" , "TRAN_ACTYPE", "TRAN_ACNO"  , 
+SUM( CASE "TRAN_TYPE" WHEN '.$TR.' THEN  CASE "TRAN_DRCR"  WHEN '.$D.'  THEN  "TRAN_AMOUNT" ELSE 0 END ELSE 0 END  
++ CASE "TRAN_TYPE" WHEN '.$JV.' THEN  CASE "TRAN_DRCR"  WHEN '.$D.'  THEN  "TRAN_AMOUNT" ELSE 0 END ELSE 0 END  
++ CASE "TRAN_TYPE" WHEN '.$CL.' THEN  CASE "TRAN_DRCR"  WHEN '.$D.'  THEN  "TRAN_AMOUNT" ELSE 0 END ELSE 0 END  ) "DEBIT_TRANSFERAMT"  , 
+SUM(CASE "TRAN_TYPE" WHEN '.$TR.' THEN  CASE "TRAN_DRCR"  WHEN '.$C.'  THEN  "TRAN_AMOUNT" ELSE 0 END ELSE 0 END  
++ CASE "TRAN_TYPE" WHEN '.$JV.' THEN  CASE "TRAN_DRCR"  WHEN '.$C.'  THEN  "TRAN_AMOUNT" ELSE 0 END ELSE 0 END  
++ CASE "TRAN_TYPE" WHEN '.$CL.' THEN  CASE "TRAN_DRCR"  WHEN '.$C.'  THEN  "TRAN_AMOUNT" ELSE 0 END ELSE 0 END  ) "CREDIT_TRANSFERAMT"  , 
+SUM(CASE "TRAN_TYPE" WHEN '.$CS.' THEN  CASE "TRAN_DRCR"  WHEN '.$D.'  THEN  "TRAN_AMOUNT" ELSE 0 END ELSE 0 END) "DEBIT_CASHAMT"  , 
+SUM(CASE "TRAN_TYPE" WHEN '.$CS.' THEN  CASE "TRAN_DRCR"  WHEN '.$C.'  THEN  "TRAN_AMOUNT" ELSE 0 END ELSE 0 END) "CREDIT_CASHAMT"  
+FROM ACCOTRAN WHERE CAST("TRAN_DATE" AS DATE) >= TO_DATE('.$start2date.', '.$dateformate.')  AND "BRANCH_CODE"= '.$branchCode.'
+AND CAST("TRAN_DATE" AS DATE) <= TO_DATE('.$end1date.','.$dateformate.')  AND NOT (( CAST("TRAN_DATE" AS DATE) = TO_DATE('.$start2date.', '.$dateformate.') 
+AND COALESCE("CLOSING_ENTRY",0) <> 0 )  OR ( CAST("TRAN_DATE" AS DATE) = TO_DATE('.$end1date.', '.$dateformate.') 
+AND COALESCE("CLOSING_ENTRY",0) <> 0 ) ) GROUP BY "TRAN_ACNOTYPE" , "TRAN_ACTYPE", "TRAN_ACNO"  order by "TRAN_ACNO"
+) ACCOTRAN ON ACCOTRAN."TRAN_ACNO"=CAST(ACMASTER."AC_NO" AS INTEGER)  
+LEFT JOIN  
+(  SELECT "tran_glactype", "TRAN_GLACNO"  , 
+ SUM(CASE "TRAN_DRCR"  WHEN '.$D.'  THEN  CASHAMT  ELSE 0 END) "DEBIT_DAILY_CASHAMT"  ,
+ SUM(CASE "TRAN_DRCR"  WHEN '.$C.'  THEN  CASHAMT  ELSE 0 END) "CREDIT_DAILY_CASHAMT"  ,
+ SUM(CASE "TRAN_DRCR"  WHEN '.$D.'  THEN  TRANSFERAMT ELSE 0 END 
++ CASE "TRAN_DRCR"  WHEN '.$D.'  THEN  CLEARINGAMT ELSE 0 END) "DEBIT_DAILY_TRANSFERAMT"  , 
+SUM(CASE "TRAN_DRCR"  WHEN '.$C.'  THEN  TRANSFERAMT ELSE 0 END 
++ CASE "TRAN_DRCR"  WHEN '.$C.'  THEN  CLEARINGAMT ELSE 0 END) "CREDIT_DAILY_TRANSFERAMT"  
+From VWDETAILDAILYTRAN WHERE CAST("TRAN_GLACNO" AS CHARACTER VARYING) <> (SELECT "CASH_IN_HAND_ACNO" FROM SYSPARA) 
+AND "TRAN_STATUS"=1 AND CAST("TRAN_DATE" AS DATE) <= TO_DATE('.$end1date.','.$dateformate.')  AND "BRANCH_CODE"='.$branchCode.'
+GROUP BY "tran_glactype","TRAN_GLACNO" 
+) DAILYTRAN  ON DAILYTRAN."TRAN_GLACNO"=CAST(ACMASTER."AC_NO" AS INTEGER) AND  ACMASTER."AC_TYPE" = DAILYTRAN."tran_glactype" 
+WHERE
+ACMASTER."AC_ACNOTYPE" = ACCOTRAN."TRAN_ACNOTYPE"  
+AND ACMASTER."AC_TYPE" = ACCOTRAN."TRAN_ACTYPE"  
+ AND ACMASTER."AC_NO" = ACCOTRAN."TRAN_ACNO"  AND ACMASTER."PARENT_NODE" IN ('.$one.','.$two.') ORDER BY "AC_NO"';
+}
+else if($flag == 2)
+{
+    $query = '
+SELECT  ACMASTER."AC_NO", ACMASTER."AC_NAME" AC_NAME,(CASE CAST(ACMASTER."PARENT_NODE" AS INTEGER)
+     WHEN 1  THEN '.$Liabilities.'
+     WHEN 2  THEN '.$Asset.'
+	 WHEN 3 THEN '.$Income.'
+	 WHEN 4  THEN '.$Expenditure.'
+     ELSE  '.$NA.'
+END ) a_type ,
+	 ( COALESCE(ACCOTRAN."DEBIT_TRANSFERAMT",0) + COALESCE(DAILYTRAN."DEBIT_DAILY_TRANSFERAMT",0)) "DEBIT_TRANSFERAMT"  , 
+( COALESCE(ACCOTRAN."CREDIT_TRANSFERAMT",0) + COALESCE(DAILYTRAN."CREDIT_DAILY_TRANSFERAMT",0)) "CREDIT_TRANSFERAMT"  , 
+( COALESCE(ACCOTRAN."DEBIT_CASHAMT",0)  + COALESCE(DAILYTRAN."DEBIT_DAILY_CASHAMT",0)) "DEBIT_CASHAMT"  ,
+ ( COALESCE(ACCOTRAN."CREDIT_CASHAMT",0) + COALESCE(DAILYTRAN."CREDIT_DAILY_CASHAMT",0)) "CREDIT_CASHAMT"  ,
+ ( COALESCE(ACCOTRAN."DEBIT_TRANSFERAMT",0) + COALESCE(DAILYTRAN."DEBIT_DAILY_TRANSFERAMT",0)  +  COALESCE(ACCOTRAN."DEBIT_CASHAMT",0)  
++ COALESCE(DAILYTRAN."DEBIT_DAILY_CASHAMT",0)    
+ ) DEBIT_TOTAL_AMT  ,
+( COALESCE(ACCOTRAN."CREDIT_TRANSFERAMT",0) + COALESCE(DAILYTRAN."CREDIT_DAILY_TRANSFERAMT",0)  + COALESCE(ACCOTRAN."CREDIT_CASHAMT",0) 
++ COALESCE(DAILYTRAN."CREDIT_DAILY_CASHAMT",0)  ) "CREDIT_TOTAL_AMT" 
+FROM ACMASTER LEFT JOIN gl_statement_code ON GL_STATEMENT_CODE.ID=CAST(ACMASTER."AC_BCD" AS INTEGER) 
+LEFT JOIN
+ ( SELECT "TRAN_ACNOTYPE" , "TRAN_ACTYPE", "TRAN_ACNO"  , 
+SUM( CASE "TRAN_TYPE" WHEN '.$TR.' THEN  CASE "TRAN_DRCR"  WHEN '.$D.'  THEN  "TRAN_AMOUNT" ELSE 0 END ELSE 0 END  
++ CASE "TRAN_TYPE" WHEN '.$JV.' THEN  CASE "TRAN_DRCR"  WHEN '.$D.'  THEN  "TRAN_AMOUNT" ELSE 0 END ELSE 0 END  
++ CASE "TRAN_TYPE" WHEN '.$CL.' THEN  CASE "TRAN_DRCR"  WHEN '.$D.'  THEN  "TRAN_AMOUNT" ELSE 0 END ELSE 0 END  ) "DEBIT_TRANSFERAMT"  , 
+SUM(CASE "TRAN_TYPE" WHEN '.$TR.' THEN  CASE "TRAN_DRCR"  WHEN '.$C.'  THEN  "TRAN_AMOUNT" ELSE 0 END ELSE 0 END  
++ CASE "TRAN_TYPE" WHEN '.$JV.' THEN  CASE "TRAN_DRCR"  WHEN '.$C.'  THEN  "TRAN_AMOUNT" ELSE 0 END ELSE 0 END  
++ CASE "TRAN_TYPE" WHEN '.$CL.' THEN  CASE "TRAN_DRCR"  WHEN '.$C.'  THEN  "TRAN_AMOUNT" ELSE 0 END ELSE 0 END  ) "CREDIT_TRANSFERAMT"  , 
+SUM(CASE "TRAN_TYPE" WHEN '.$CS.' THEN  CASE "TRAN_DRCR"  WHEN '.$D.'  THEN  "TRAN_AMOUNT" ELSE 0 END ELSE 0 END) "DEBIT_CASHAMT"  , 
+SUM(CASE "TRAN_TYPE" WHEN '.$CS.' THEN  CASE "TRAN_DRCR"  WHEN '.$C.'  THEN  "TRAN_AMOUNT" ELSE 0 END ELSE 0 END) "CREDIT_CASHAMT"  
+FROM ACCOTRAN WHERE CAST("TRAN_DATE" AS DATE) >= TO_DATE('.$start2date.', '.$dateformate.')  AND "BRANCH_CODE"= '.$branchCode.'
+AND CAST("TRAN_DATE" AS DATE) <= TO_DATE('.$end1date.','.$dateformate.')  AND NOT (( CAST("TRAN_DATE" AS DATE) = TO_DATE('.$start2date.', '.$dateformate.') 
+AND COALESCE("CLOSING_ENTRY",0) <> 0 )  OR ( CAST("TRAN_DATE" AS DATE) = TO_DATE('.$end1date.', '.$dateformate.') 
+AND COALESCE("CLOSING_ENTRY",0) <> 0 ) ) GROUP BY "TRAN_ACNOTYPE" , "TRAN_ACTYPE", "TRAN_ACNO"  order by "TRAN_ACNO"
+) ACCOTRAN ON ACCOTRAN."TRAN_ACNO"=CAST(ACMASTER."AC_NO" AS INTEGER)  
+LEFT JOIN  
+(  SELECT "tran_glactype", "TRAN_GLACNO"  , 
+ SUM(CASE "TRAN_DRCR"  WHEN '.$D.'  THEN  CASHAMT  ELSE 0 END) "DEBIT_DAILY_CASHAMT"  ,
+ SUM(CASE "TRAN_DRCR"  WHEN '.$C.'  THEN  CASHAMT  ELSE 0 END) "CREDIT_DAILY_CASHAMT"  ,
+ SUM(CASE "TRAN_DRCR"  WHEN '.$D.'  THEN  TRANSFERAMT ELSE 0 END 
++ CASE "TRAN_DRCR"  WHEN '.$D.'  THEN  CLEARINGAMT ELSE 0 END) "DEBIT_DAILY_TRANSFERAMT"  , 
+SUM(CASE "TRAN_DRCR"  WHEN '.$C.'  THEN  TRANSFERAMT ELSE 0 END 
++ CASE "TRAN_DRCR"  WHEN '.$C.'  THEN  CLEARINGAMT ELSE 0 END) "CREDIT_DAILY_TRANSFERAMT"  
+From VWDETAILDAILYTRAN WHERE CAST("TRAN_GLACNO" AS CHARACTER VARYING) <> (SELECT "CASH_IN_HAND_ACNO" FROM SYSPARA) 
+AND "TRAN_STATUS"=1 AND CAST("TRAN_DATE" AS DATE) <= TO_DATE('.$end1date.','.$dateformate.')  AND "BRANCH_CODE"='.$branchCode.'
+GROUP BY "tran_glactype","TRAN_GLACNO" 
+) DAILYTRAN  ON DAILYTRAN."TRAN_GLACNO"=CAST(ACMASTER."AC_NO" AS INTEGER) AND  ACMASTER."AC_TYPE" = DAILYTRAN."tran_glactype" 
+WHERE
+ACMASTER."AC_ACNOTYPE" = ACCOTRAN."TRAN_ACNOTYPE"  
+AND ACMASTER."AC_TYPE" = ACCOTRAN."TRAN_ACTYPE"  
+ AND ACMASTER."AC_NO" = ACCOTRAN."TRAN_ACNO"  AND ACMASTER."PARENT_NODE" IN ('.$three.','.$four.') ORDER BY "AC_NO"';
+}
+
+else if($flag == 3)
+{
+    $query = '
+SELECT  ACMASTER."AC_NO", ACMASTER."AC_NAME" AC_NAME,(CASE CAST(ACMASTER."PARENT_NODE" AS INTEGER)
+     WHEN 1  THEN '.$Liabilities.'
+     WHEN 2  THEN '.$Asset.'
+	 WHEN 3 THEN '.$Income.'
+	 WHEN 4  THEN '.$Expenditure.'
+     ELSE  '.$NA.'
+END ) a_type ,
+	 ( COALESCE(ACCOTRAN."DEBIT_TRANSFERAMT",0) + COALESCE(DAILYTRAN."DEBIT_DAILY_TRANSFERAMT",0)) "DEBIT_TRANSFERAMT"  , 
+( COALESCE(ACCOTRAN."CREDIT_TRANSFERAMT",0) + COALESCE(DAILYTRAN."CREDIT_DAILY_TRANSFERAMT",0)) "CREDIT_TRANSFERAMT"  , 
+( COALESCE(ACCOTRAN."DEBIT_CASHAMT",0)  + COALESCE(DAILYTRAN."DEBIT_DAILY_CASHAMT",0)) "DEBIT_CASHAMT"  ,
+ ( COALESCE(ACCOTRAN."CREDIT_CASHAMT",0) + COALESCE(DAILYTRAN."CREDIT_DAILY_CASHAMT",0)) "CREDIT_CASHAMT"  ,
+ ( COALESCE(ACCOTRAN."DEBIT_TRANSFERAMT",0) + COALESCE(DAILYTRAN."DEBIT_DAILY_TRANSFERAMT",0)  +  COALESCE(ACCOTRAN."DEBIT_CASHAMT",0)  
++ COALESCE(DAILYTRAN."DEBIT_DAILY_CASHAMT",0)    
+ ) DEBIT_TOTAL_AMT  ,
+( COALESCE(ACCOTRAN."CREDIT_TRANSFERAMT",0) + COALESCE(DAILYTRAN."CREDIT_DAILY_TRANSFERAMT",0)  + COALESCE(ACCOTRAN."CREDIT_CASHAMT",0) 
++ COALESCE(DAILYTRAN."CREDIT_DAILY_CASHAMT",0)  ) "CREDIT_TOTAL_AMT" 
+FROM ACMASTER LEFT JOIN gl_statement_code ON GL_STATEMENT_CODE.ID=CAST(ACMASTER."AC_BCD" AS INTEGER) 
+LEFT JOIN
+ ( SELECT "TRAN_ACNOTYPE" , "TRAN_ACTYPE", "TRAN_ACNO"  , 
+SUM( CASE "TRAN_TYPE" WHEN '.$TR.' THEN  CASE "TRAN_DRCR"  WHEN '.$D.'  THEN  "TRAN_AMOUNT" ELSE 0 END ELSE 0 END  
++ CASE "TRAN_TYPE" WHEN '.$JV.' THEN  CASE "TRAN_DRCR"  WHEN '.$D.'  THEN  "TRAN_AMOUNT" ELSE 0 END ELSE 0 END  
++ CASE "TRAN_TYPE" WHEN '.$CL.' THEN  CASE "TRAN_DRCR"  WHEN '.$D.'  THEN  "TRAN_AMOUNT" ELSE 0 END ELSE 0 END  ) "DEBIT_TRANSFERAMT"  , 
+SUM(CASE "TRAN_TYPE" WHEN '.$TR.' THEN  CASE "TRAN_DRCR"  WHEN '.$C.'  THEN  "TRAN_AMOUNT" ELSE 0 END ELSE 0 END  
++ CASE "TRAN_TYPE" WHEN '.$JV.' THEN  CASE "TRAN_DRCR"  WHEN '.$C.'  THEN  "TRAN_AMOUNT" ELSE 0 END ELSE 0 END  
++ CASE "TRAN_TYPE" WHEN '.$CL.' THEN  CASE "TRAN_DRCR"  WHEN '.$C.'  THEN  "TRAN_AMOUNT" ELSE 0 END ELSE 0 END  ) "CREDIT_TRANSFERAMT"  , 
+SUM(CASE "TRAN_TYPE" WHEN '.$CS.' THEN  CASE "TRAN_DRCR"  WHEN '.$D.'  THEN  "TRAN_AMOUNT" ELSE 0 END ELSE 0 END) "DEBIT_CASHAMT"  , 
+SUM(CASE "TRAN_TYPE" WHEN '.$CS.' THEN  CASE "TRAN_DRCR"  WHEN '.$C.'  THEN  "TRAN_AMOUNT" ELSE 0 END ELSE 0 END) "CREDIT_CASHAMT"  
+FROM ACCOTRAN WHERE CAST("TRAN_DATE" AS DATE) >= TO_DATE('.$start2date.', '.$dateformate.')  AND "BRANCH_CODE"= '.$branchCode.'
+AND CAST("TRAN_DATE" AS DATE) <= TO_DATE('.$end1date.','.$dateformate.')  AND NOT (( CAST("TRAN_DATE" AS DATE) = TO_DATE('.$start2date.', '.$dateformate.') 
+AND COALESCE("CLOSING_ENTRY",0) <> 0 )  OR ( CAST("TRAN_DATE" AS DATE) = TO_DATE('.$end1date.', '.$dateformate.') 
+AND COALESCE("CLOSING_ENTRY",0) <> 0 ) ) GROUP BY "TRAN_ACNOTYPE" , "TRAN_ACTYPE", "TRAN_ACNO"  order by "TRAN_ACNO"
+) ACCOTRAN ON ACCOTRAN."TRAN_ACNO"=CAST(ACMASTER."AC_NO" AS INTEGER)  
+LEFT JOIN  
+(  SELECT "tran_glactype", "TRAN_GLACNO"  , 
+ SUM(CASE "TRAN_DRCR"  WHEN '.$D.'  THEN  CASHAMT  ELSE 0 END) "DEBIT_DAILY_CASHAMT"  ,
+ SUM(CASE "TRAN_DRCR"  WHEN '.$C.'  THEN  CASHAMT  ELSE 0 END) "CREDIT_DAILY_CASHAMT"  ,
+ SUM(CASE "TRAN_DRCR"  WHEN '.$D.'  THEN  TRANSFERAMT ELSE 0 END 
++ CASE "TRAN_DRCR"  WHEN '.$D.'  THEN  CLEARINGAMT ELSE 0 END) "DEBIT_DAILY_TRANSFERAMT"  , 
+SUM(CASE "TRAN_DRCR"  WHEN '.$C.'  THEN  TRANSFERAMT ELSE 0 END 
++ CASE "TRAN_DRCR"  WHEN '.$C.'  THEN  CLEARINGAMT ELSE 0 END) "CREDIT_DAILY_TRANSFERAMT"  
+From VWDETAILDAILYTRAN WHERE CAST("TRAN_GLACNO" AS CHARACTER VARYING) <> (SELECT "CASH_IN_HAND_ACNO" FROM SYSPARA) 
+AND "TRAN_STATUS"=1 AND CAST("TRAN_DATE" AS DATE) <= TO_DATE('.$end1date.','.$dateformate.')  AND "BRANCH_CODE"='.$branchCode.'
+GROUP BY "tran_glactype","TRAN_GLACNO" 
+) DAILYTRAN  ON DAILYTRAN."TRAN_GLACNO"=CAST(ACMASTER."AC_NO" AS INTEGER) AND  ACMASTER."AC_TYPE" = DAILYTRAN."tran_glactype" 
+WHERE
+ACMASTER."AC_ACNOTYPE" = ACCOTRAN."TRAN_ACNOTYPE"  
+AND ACMASTER."AC_TYPE" = ACCOTRAN."TRAN_ACTYPE"  
+ AND ACMASTER."AC_NO" = ACCOTRAN."TRAN_ACNO" ORDER BY "AC_NO"';
+}
+        
+        //   echo $query;
+
+$sql =  pg_query($conn,$query);
+
+$i = 0;
+
+$GRAND_CTOTAL = 0;
+$GRAND_DTOTAL = 0;
+$GRAND_CSTOTAL = 0;
+$GRAND_TRTOTAL = 0;
+$CashCreditTotalAmt = 0;
+$CreditTotalTranAmt = 0;
+$CashDebitTotalAmt = 0;
+$DebitTotalTranAmt = 0;
+$CreditTotal = 0;
+$DebitTotal = 0;
+
+// if (pg_num_rows($sql) == 0) {
+//     include "errormsg.html";
+// }else {
+    $firstRowProcessed = false;
+    $skipFirstIteration = true;
+
+    while($row = pg_fetch_assoc($sql)) {
+
+        // $grandcreditTotal = $row['CREDIT_CASHAMT'] + $row['CREDIT_TRANSFERAMT'] ;
+        // $grandDebitTotal = $row['DEBIT_CASHAMT'] + $row['DEBIT_TRANSFERAMT'] ;
+      
+
+        if (!$firstRowProcessed) {
+            $acName = $row['ac_name'];
+            $creditCashAmt = sprintf("%.2f",($row['CREDIT_CASHAMT']));
+            $debitCashAmt = sprintf("%.2f",($row['DEBIT_CASHAMT']));
+            $CREDIT_TRANSFERAMT = sprintf("%.2f",($row['CREDIT_TRANSFERAMT']));
+            $DEBIT_TRANSFERAMT = sprintf("%.2f",($row['DEBIT_TRANSFERAMT']));
+            $cashBalTotal = sprintf("%.2f",($row['CREDIT_TOTAL_AMT']));
+            $cashBalTranTotal = sprintf("%.2f",($row['debit_total_amt']));
+            $acno = $row['AC_NO'];
+            $firstRowProcessed = true;
+        }
+
+if ($skipFirstIteration) {
+        $skipFirstIteration = false;
+        continue; 
+    }
+
+    $GRAND_CTOTAL = $row['CREDIT_CASHAMT'] + $row['CREDIT_TRANSFERAMT'] ;
+    $GRAND_DTOTAL = $row['DEBIT_CASHAMT'] + $row['DEBIT_TRANSFERAMT'] ;
+
+    $CashCreditTotalAmt += $row['CREDIT_CASHAMT'] ;
+    $CreditTotalTranAmt += $row['CREDIT_TRANSFERAMT'] ;
+    $CashDebitTotalAmt += $row['DEBIT_CASHAMT'] ;
+    $DebitTotalTranAmt += $row['DEBIT_TRANSFERAMT'] ;
+
+    $GRAND_CSTOTAL += $row['CREDIT_TOTAL_AMT'];
+    $GRAND_TRTOTAL += $row['debit_total_amt'] ;
+
+    $CreditTotal = $GRAND_CSTOTAL + $cashBalTotal;
+    $DebitTotal = $GRAND_TRTOTAL + $cashBalTranTotal;
+
+  
+
+    $tmp=[
+        'CashCreditTotalAmt' => sprintf("%.2f",($CashCreditTotalAmt)),
+        'CreditTotalTranAmt' => sprintf("%.2f",($CreditTotalTranAmt)),
+        'CashDebitTotalAmt' => sprintf("%.2f",($CashDebitTotalAmt)),
+        'DebitTotalTranAmt' => sprintf("%.2f",($DebitTotalTranAmt)),
+
+        'creditCashAmt' => $creditCashAmt,
+        'debitCashAmt' => $debitCashAmt,
+        'CREDIT_TRANSFERAMT' => $CREDIT_TRANSFERAMT,
+        'DEBIT_TRANSFERAMT' => $DEBIT_TRANSFERAMT,
+        'cashBalTotal' => $cashBalTotal,
+        'cashBalTranTotal' => $cashBalTranTotal,
+
+        'acName' => $acName,
+        'AC_NO' => $row['AC_NO'],
+        'AC_NAME'=> $row['ac_name'],
+        'NAME'=> $branchName,
+        'crcashamt' => sprintf("%.2f",($row['CREDIT_CASHAMT'])),
+        'crtranamt' => sprintf("%.2f",($row['CREDIT_TRANSFERAMT'])),
+        'drcashamt' => sprintf("%.2f",($row['DEBIT_CASHAMT'])),
+        'drtranamt'=> sprintf("%.2f",($row['DEBIT_TRANSFERAMT'])),
+
+        'cashtot' => sprintf("%.2f",($row['CREDIT_TOTAL_AMT'])),
+        'trantot' => sprintf("%.2f",($row['debit_total_amt'])),
+
+        'csgrandtot' => sprintf("%.2f",($GRAND_CSTOTAL)),
+        'trgrandtot' => sprintf("%.2f",($GRAND_TRTOTAL)),
+        'CreditTotal' => sprintf("%.2f",($CreditTotal)),
+        'DebitTotal' => sprintf("%.2f",($DebitTotal)),
+        'NAME' => $branchName,
+
+        'bankName' => $bankName,
+        'start2date_' => $start2date_,
+        'end1date_' => $end1date_,
+        // 'branched' => $branched,
+        'tran' => $tran,
+        'print' => $print,
+        'penal' => $penal,
+        'acno' => $acno,
+    ];
+    $data[$i]=$tmp;
+    $i++;
+    // echo "<pre>";
+    // print_r($tmp);
+    // echo "</pre>";
+}
+
+// print_r($data);
+
+ob_end_clean();
+
+$config = ['driver'=>'array','data'=>$data];
+
+$report = new PHPJasperXML();
+$report->load_xml_file($filename)    
+    ->setDataSource($config)
+    ->export('Pdf');
+    
+
+?>
+

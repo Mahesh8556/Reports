@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="insurance_due" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="7502050c-2912-4c50-8648-7a2e53f76e24">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<field name="branchName" class="java.lang.String"/>
+	<field name="t1" class="java.lang.String"/>
+	<field name="etdate" class="java.lang.String"/>
+	<field name="AC_TYPE" class="java.lang.String"/>
+	<field name="field5" class="java.lang.String"/>
+	<field name="field6" class="java.lang.String"/>
+	<field name="field7" class="java.lang.String"/>
+	<field name="field8" class="java.lang.String"/>
+	<field name="field9" class="java.lang.String"/>
+	<field name="field10" class="java.lang.String"/>
+	<field name="field1" class="java.lang.String"/>
+	<group name="Scheme">
+		<groupExpression><![CDATA[$F{field1}]]></groupExpression>
+		<groupHeader>
+			<band height="23">
+				<staticText>
+					<reportElement uuid="cc6779dc-9358-4946-b662-fbe97d01756f" x="2" y="2" width="48" height="20"/>
+					<textElement verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Scheme :]]></text>
+				</staticText>
+				<textField>
+					<reportElement uuid="e4535ba7-68ab-4e21-8e69-b13c37fdc125" x="50" y="2" width="100" height="20"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{AC_TYPE}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="24">
+				<staticText>
+					<reportElement uuid="11502137-2feb-4009-85a8-6c09e5a7ca36" x="349" y="3" width="97" height="20"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Schemewise Total :]]></text>
+				</staticText>
+				<line>
+					<reportElement uuid="b42c59e3-235b-4652-bef9-625fcae9ce3b" x="0" y="23" width="802" height="1"/>
+				</line>
+				<line>
+					<reportElement uuid="5656a28a-b91c-40fb-8aba-101020154369" x="0" y="2" width="803" height="1"/>
+				</line>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="41" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="3f1591a0-9248-4913-b7f0-c88bc63ca97a" x="0" y="0" width="191" height="20"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[BANKWALA DEMONSTRATION.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c331ecf3-e3be-4c99-b899-e05241ff5660" x="0" y="20" width="50" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Branch  :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="aac3a3c8-377c-4b81-8dd8-8ece9f5f63a1" x="256" y="20" width="206" height="20"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Insurance Premium Due List as on ]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="2219f55e-e8b5-45ec-aa31-dddca86df38f" x="0" y="40" width="802" height="1"/>
+			</line>
+			<textField>
+				<reportElement uuid="ccc44fa9-d9a5-43a7-aa6f-7406f7e01212" x="50" y="20" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{branchName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="7430d260-1b63-4cc6-afd3-71546051c71d" x="462" y="20" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{etdate}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="34" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="dd4b065e-1759-47ef-bb57-1cf4b23ebea5" x="0" y="0" width="19" height="30"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Sr. No.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="2cc8bbce-7554-46ee-a5d5-6200fad52b7f" x="19" y="0" width="83" height="30"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[A/c No.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="fd10e9fd-9c7c-48fa-b1b7-f60ea254a67a" x="103" y="0" width="181" height="30"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Account Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="6c5eca92-20f9-4795-81df-38fbd32a96f0" x="284" y="0" width="50" height="30"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Opening Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="148c1bf9-5555-4660-91a5-d68f902b0ccc" x="335" y="0" width="48" height="30"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Expiry Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="5a21da29-8353-40ff-80fb-04a8b0caf290" x="384" y="0" width="62" height="30"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Policy Type]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="04313b9d-de58-4bfc-9e76-1119eb59ddb5" x="446" y="0" width="51" height="30"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Policy No.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="bcb4f7a8-a377-4f33-ac2b-93d7be6e1e86" x="513" y="0" width="85" height="30"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Insurance Name /Address]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="f31dccd4-ee89-4a5a-a820-735082e3d16a" x="612" y="0" width="67" height="30"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Policy Nature]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="cd03ba41-e380-43d5-a884-4032de9745a1" x="685" y="0" width="55" height="30"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Premium Amount]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="9e2b46ce-c11e-4f8f-a21a-878da0d4ce5b" x="745" y="0" width="57" height="30"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Premium Due Date]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="4bac1998-f8dc-4956-9610-2b91baae3bca" x="0" y="33" width="802" height="1"/>
+			</line>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="24" splitType="Stretch">
+			<textField>
+				<reportElement uuid="6459e43d-28a2-4dee-91bf-1a26b5f79a1d" x="2" y="0" width="17" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement uuid="e6e7d5c6-33ba-4f8b-b027-f4940c73c0e9" x="0" y="23" width="802" height="1"/>
+			</line>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="26" splitType="Stretch">
+			<textField>
+				<reportElement uuid="2fd6f369-7937-4063-bae3-acb7dd61a655" x="683" y="6" width="80" height="20"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement uuid="afd02080-9304-401a-8a01-a6362127b3c1" x="762" y="6" width="40" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy h.mm a">
+				<reportElement uuid="b226b35d-3ee1-48db-a190-9e9b60f9ca5f" x="1" y="6" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement uuid="a0e22598-79d9-4ae9-bd7b-eab48d95ab04" x="-1" y="3" width="804" height="1"/>
+			</line>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="24" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="7223f826-1677-4ca1-bdd1-48baee76b9e9" x="227" y="3" width="57" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total A/Cs:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="368ae2b9-472c-4f51-905f-2155ed786daf" x="401" y="3" width="40" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total :]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="dbac1f38-faf0-43df-a88a-0d178ed6e9ea" x="0" y="23" width="802" height="1"/>
+			</line>
+			<line>
+				<reportElement uuid="3b5fd620-921d-4d1c-9acb-098f9df2f425" x="2" y="2" width="801" height="1"/>
+			</line>
+			<textField>
+				<reportElement uuid="481f633d-6796-4420-8d29-506cb7e3b412" x="284" y="3" width="100" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{t1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="c7040b79-86fd-4dda-bd4c-3ffc1a218b49" x="441" y="2" width="100" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{total}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

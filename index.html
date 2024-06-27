@@ -1,0 +1,74 @@
+<html>
+    <head>
+        <title>PHPJasperxml samples</title>
+        <script>
+            function changeformat(){
+                let formatvalue = document.getElementById('selectFormat').value;
+                document.getElementById("iframereport").src=formatvalue;
+            }
+
+        </script>
+    </head>
+    <body>
+        <label> Select Report
+            <div class="form-group form-primary form-static-label">
+                <span class="border-lable-flt">
+                <select id="selectFormat" onchange="changeformat()">
+            <option value="">None</option>
+            <option value="BalanceBook.php">Balance Book</option>
+            <option value="AgentwisePigmyBalList.php">Agentwise Pigmy Balance List</option>
+            <option value="AgentwsPigmyBalanceBook.php">Agentwise Pigmy Balance Book</option>
+            <option value="CustomerDetails.php">Customer Details</option>
+            <option value="CustomerIdWiseList.php">Customer ID Wise Balance List</option>
+            <option value="DeadStockRegister.php">Deadstock Register</option>
+            <option value="DepositRegister.php">Opened Term Deposit Register</option>
+            <option value="DormantAccountList.php">Dormant Account List</option>
+            <option value="ExpectedInterestListCredit.php">Expected Interest Execution List (Credit Scheme)</option> 
+            <option value="ExpectedInterestListDebit.php">Expected Interest Execution List (Debit Scheme)</option>  
+            <option value="GeneralLedgerBlncList.php">General Ledger List</option>
+            <option value="InsuranceRegister.php">Loan Against LIC Policy Register</option>
+            <option value="InterestInstruction.php">Interest Instruction Register From</option>
+            <option value="InvestRegister.php">Opened From</option>
+            <option value="NonGuarantorList.php">Non Guarantor List</option>
+            <option value="OtherReceivableBlncList.php">Other Receivable Balance List</option>
+            <option value="PigmyAgentwiseCollection.php">Pigmy Agentwise Collection Chart</option>
+            <option value="PigmyCollectionChart.php">Pigmy Collection Chart</option>
+            <option value="SpecialInstuction.php">Special Instruction Register</option>
+            <option value="ScrollBookReport.php">Cash Scroll</option>
+            <option value="SpecialRevokeInstrut.php">Special Instruction Register ( Revoke List )</option>
+            <option value="StandingInstruction.php">Standing Instruction Register</option>
+            <option value="StandingRevokeInstr.php">Standing Revoke Instruction Register</option> 
+            <option value="SubsidaryReport.php">Subsidary</option>
+            <option value="BnkABTypeBALDeposit.php">AB Type Member Deposit</option>
+            <option value="BnkODRegister.php">O.D.Register</option>
+            <option value="DeadstockBalanceList.php">DeadStock Balance Lists</option>
+            <option value="DepositCashAmt.php">Deposit Cash Amount Movement Detail</option>
+            <option value="GLaccStatement.php">General Ledger Statement</option>
+            <option value="goldsilversubmreturn.php">Gold Silver submission/Return Register</option>
+            <option value="InterestExecutionListCredit.php">Expected Interest Execution List Credit</option>
+            <option value="intinstructionslogFailure.php">Interest Instruction Execution List (Failure)</option>
+            <option value="LineMarkedList.php">Line Marked List</option>
+            <option value="LoanCashAmt.php">Loan Cash Amount Movement </option>
+            <option value="MinorList.php">Minor List</option>
+            <option value="Nomineelist.php">Nomiee List</option>
+            <option value="GeneralLedgerConsistancy.php">General Ledger Consistancy Report</option>
+            <option value="StandingInstructionCredit.php">Expected Standing Instruction Execution List (Credit Scheme)</option>
+            <option value="StandingInstructionDebit.php">Expected Standing Instruction Execution List (Debit Scheme)</option>
+            <option value="standinstructlogSucess.php">Standing Instruction Log Success</option>
+            <option value="standinstructlogSucess.php">Standing Instruction Log Failure</option> -->
+            <option value="transactionamtmovStat.php">Statement Showing Transaction Amount Movement</option>
+            <option value="TrialBal.php">Trial Balance</option>
+            <option value="TrialBalDetail.php">Trial Balance Detail</option>
+            <option value="BnkAgentPigmyCommDetail.php">Agentwise Pigmy Commission Detail</option>
+            <option value="BnkAgentPigmyComSummary.php">Agentwise Pigmy Commission</option>
+            <option value="BnkDeadbalDepr.php">DeadBalance Depresiation</option>
+            <option value="BnkDepositCashAmt.php">Deposit Cash Amount</option>
+            <option value="BnkInstructionsInterest_debit.php">Instruction Interest Debit</option>
+                </select>
+                </span>
+            </div>
+        </label>
+        <!-- <button onclick="changeformat()">Show</button> -->
+        <iframe src="" id="iframereport" style="width: 95vw; height:90vh;border:none"></iframe>
+    </body>
+</html>

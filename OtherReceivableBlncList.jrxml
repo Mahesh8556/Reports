@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="OtherReceivableBlncList" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a9947fcf-2df8-47ac-8e78-6571389d3926">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<field name="AC_NO" class="java.lang.Integer"/>
+	<field name="AC_NAME" class="java.lang.String"/>
+	<field name="NAME" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="60" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="022f07dd-2421-4312-b6cd-f36260e62106" x="0" y="0" width="224" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Test Bank Limited Kolhapur]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="cd6cb2fd-6e73-4763-9214-a6df788ac87e" x="0" y="20" width="46" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Branch :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="30bfcfcf-c5ce-4d44-8c75-b539e704a2f3" x="0" y="40" width="100" height="20"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Test Report Heading]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="d61fdb48-b1df-4ddc-bf99-6b60fec69108" x="47" y="20" width="70" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NAME}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="38" splitType="Stretch">
+			<line>
+				<reportElement uuid="334956d3-6e8e-46b8-9479-b397860ad389" x="0" y="0" width="555" height="1"/>
+			</line>
+			<staticText>
+				<reportElement uuid="1712a3da-1fca-4b27-b6dd-d7e44e04d267" x="0" y="0" width="27" height="36"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Sr.
+No]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="8cd663d8-33d0-4486-b231-2a195a5aa69a" x="27" y="1" width="53" height="35"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[A/c.
+No]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="f21e9257-6a52-465d-8ad6-3b2f3865e5ed" x="80" y="2" width="144" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="4730333d-56bf-437d-ac0c-6a9157659259" x="269" y="2" width="78" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Deposite]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="3732fe8b-0030-4fff-819b-decda3734499" x="347" y="2" width="84" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Loan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="d7f5aa89-3719-4990-aa9e-cc6a1b0c6949" x="431" y="2" width="77" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Share]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="5bcc3ce0-3533-448d-a52d-86362ef6775c" x="0" y="36" width="555" height="1"/>
+			</line>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement uuid="61b2cf9a-2afb-425d-8735-897d41291f9b" x="0" y="0" width="27" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="32026afc-1204-4759-9e55-d81795d6453c" x="27" y="0" width="53" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{AC_NO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="6fb518c0-c0c1-47e6-9cd8-d577bc922bd8" x="80" y="0" width="144" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{AC_NAME}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<line>
+				<reportElement uuid="01560d57-6c3a-48dd-a6c6-3caedac78085" x="0" y="11" width="555" height="1"/>
+			</line>
+			<staticText>
+				<reportElement uuid="bf26ab37-8011-4d31-bc93-809b0a6a5583" x="100" y="12" width="77" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[SUPERVISOR]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="52fe76ed-78a1-486a-9e18-61e9567ec2c2" x="434" y="12" width="80" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement uuid="9a4bbe05-231f-466b-9cf8-3e1fa5faac96" x="514" y="12" width="40" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="d/M/yyyy h.mm a">
+				<reportElement uuid="b69c6fd1-d891-42e6-b061-b17d1cdd6306" x="0" y="12" width="100" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

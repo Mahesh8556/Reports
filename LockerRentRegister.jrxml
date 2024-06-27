@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.0.final using JasperReports Library version 6.20.0-2bc7ab61c56f459e8176eb05c7705e145cd400ad  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="LockerRentRegister" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="86016ba6-cac2-484e-835a-10ec450c7d4c">
+	<property name="ireport.zoom" value="1.7715610000000017"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<field name="AC_NAME" class="java.lang.String"/>
+	<field name="AC_NO" class="java.lang.String"/>
+	<field name="sdate" class="java.lang.String"/>
+	<field name="edate" class="java.lang.String"/>
+	<field name="print_date" class="java.lang.String"/>
+	<field name="branch_name" class="java.lang.String"/>
+	<field name="bank_name" class="java.lang.String"/>
+	<field name="RENT_UPTO_DATE" class="java.lang.String"/>
+	<field name="TRAN_AMOUNT" class="java.lang.String"/>
+	<field name="BRANCH_NAME" class="java.lang.String"/>
+	<field name="TOTAL_RENTBAL" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="43" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="19" width="44" height="20" uuid="9d02feae-1afb-45d5-b631-48f23c20cfbc"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Branch:-]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="318" y="16" width="53" height="14" uuid="71fb8233-55fb-407c-86e0-8413e309b31f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sdate}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="364" y="17" width="21" height="14" uuid="884313ef-870c-4401-ab3c-d2ba901177d8"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TO]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="376" y="16" width="58" height="14" uuid="be109e81-4682-4cf2-a6ba-4abb49cf6356"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{edate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="44" y="19" width="71" height="20" uuid="74be577e-262f-421a-ad40-b59b4254a01d"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{branch_name}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="150" y="14" width="154" height="15" uuid="a5d8d73d-7afa-4b49-9557-275e3ccd6e52"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Locker Rent Register Report ]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="38" width="555" height="1" uuid="84a87d6d-ffc3-42ca-a0b8-21066113f5fb"/>
+			</line>
+			<textField>
+				<reportElement x="157" y="-12" width="255" height="26" uuid="56c3238f-c24c-4f77-9906-3437558c9adb"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{bank_name}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="297" y="16" width="29" height="14" uuid="1665ab92-ac3d-430e-9cf9-38830732c041"/>
+				<textElement verticalAlignment="Top">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[From]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="484" y="25" width="85" height="14" uuid="b5cca78c-90e4-4130-b94a-fbd07de16c95"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Amount in Ruppes]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="124" splitType="Stretch">
+			<textField>
+				<reportElement x="137" y="21" width="114" height="19" uuid="ec3a4fc6-5cf3-44f9-a044-eba1d5263c7a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{AC_NAME}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="1" width="44" height="19" uuid="a1d89452-2777-466c-96b4-50dffc4beb61"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[SR.NO.]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="20" width="555" height="1" uuid="02b9d852-f64a-4483-967a-7b900611a36b"/>
+			</line>
+			<textField>
+				<reportElement x="57" y="21" width="70" height="19" uuid="b1d88cfe-4ff8-4a8d-88b3-d9bce42e744f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{AC_NO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="57" y="0" width="80" height="20" uuid="395818d4-f76f-43e7-8818-51c2f57ea839"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[ACOUNT NUMBER]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="157" y="1" width="59" height="18" uuid="05a43ef3-b3c1-4156-b8f3-c8cead1631a2"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="false"/>
+				</textElement>
+				<text><![CDATA[NAME]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="40" width="555" height="1" uuid="e24bcc55-bef3-4824-8cee-1fcb160704eb"/>
+			</line>
+			<staticText>
+				<reportElement x="440" y="0" width="100" height="19" uuid="8c57e255-1089-46fd-9dd8-fccd697d9a9e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[RENT BALANCE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="329" y="1" width="100" height="20" uuid="4c28f6df-bfe7-4580-8906-dfd6128237e9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[RENT UPTO DATE]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="63" width="555" height="1" uuid="ff6a0728-4e15-4c61-8dd4-de23918eacc6"/>
+			</line>
+			<staticText>
+				<reportElement x="153" y="40" width="52" height="20" uuid="828c5dd9-3dc3-491d-ad79-c6ab92844475"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TOTAL :-]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="329" y="21" width="100" height="19" uuid="7a192e02-d141-4568-ae2d-1e53398df602"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{RENT_UPTO_DATE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="440" y="21" width="90" height="19" uuid="6efe6584-c51a-4a9a-baca-f5b34c8cf1aa"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TRAN_AMOUNT}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="25" y="108" width="65" height="16" uuid="3b2165d1-858e-405f-8812-fe2abf63bb76"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Clerk]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="157" y="104" width="175" height="20" uuid="0a88047b-6e28-479d-b798-0b8c5f97df16"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Manager]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="391" y="104" width="139" height="20" uuid="68127de5-dd2f-4505-a00c-3d1f63a2575b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[General Manager]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="475" y="45" width="25" height="15" uuid="49c144c1-0c3c-4de1-b22c-81d493d2824f"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TOTAL_RENTBAL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="18" y="23" width="20" height="14" uuid="d1518850-d8c1-4f59-8022-a5edaa5ce739"/>
+				<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="97" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="41" width="555" height="2" uuid="1d3de2a2-cdcb-4323-824f-bd5e0cff6416"/>
+			</line>
+			<staticText>
+				<reportElement x="216" y="28" width="100" height="13" uuid="5f7e7f86-01a9-42f4-8973-7c4560c4efbb"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="530" y="48" width="20" height="20" uuid="0ede8907-b542-4834-80de-8d65c9d2d7f4"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="0" y="50" width="100" height="30" uuid="c97ed961-efd3-4b11-a25d-cc46e6f89d1e"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

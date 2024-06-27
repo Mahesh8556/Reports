@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.0.final using JasperReports Library version 6.20.0-2bc7ab61c56f459e8176eb05c7705e145cd400ad  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="passbookissue" language="groovy" pageWidth="566" pageHeight="510" orientation="Landscape" columnWidth="556" leftMargin="5" rightMargin="5" topMargin="283" bottomMargin="20" uuid="7cce5ce9-2488-4343-b0b5-b58454b0d266">
+	<property name="ireport.zoom" value="1.2100000000000002"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<field name="AC_ACNOTYPE" class="java.lang.String"/>
+	<field name="AC_TYPE" class="java.lang.String"/>
+	<field name="AC_NNAME" class="java.lang.String"/>
+	<field name="ISSUE_DATE" class="java.lang.String"/>
+	<field name="BRANCH_NAME" class="java.lang.String"/>
+	<field name="AC_NAME" class="java.lang.String"/>
+	<field name="BANKACNO" class="java.lang.String"/>
+	<field name="AC_ADDR" class="java.lang.String"/>
+	<field name="guaranter" class="java.lang.String"/>
+	<field name="bankName" class="java.lang.String"/>
+	<field name="SCHEME" class="java.lang.String"/>
+	<field name="AC_NNAME1" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="50" splitType="Stretch">
+			<textField>
+				<reportElement x="20" y="20" width="418" height="30" uuid="52770fc3-f410-452d-8b0b-1fd9ffa957e1"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{bankName}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="138" splitType="Stretch">
+			<staticText>
+				<reportElement x="22" y="8" width="100" height="20" uuid="2f7af70f-5f9a-4f72-a00a-bbda450f34bc"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Branch]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="22" y="53" width="100" height="20" uuid="87c60f96-0128-4138-ab7a-b6e5a648a64c"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[A/C. Name / Number]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="22" y="75" width="100" height="20" uuid="4bbc2762-0810-477f-b22c-d46c7b52e0c0"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Address]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="22" y="95" width="100" height="20" uuid="3dedc45d-85d2-404b-a674-b940d9b85049">
+					<printWhenExpression><![CDATA[$F{AC_ACNOTYPE}!="LN"]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nominee]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="153" y="55" width="339" height="20" uuid="70f90989-3ce6-49ae-8f27-cb764e3287a4"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{SCHEME}+" / "+$F{AC_TYPE}+" / "+$F{BANKACNO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="153" y="95" width="336" height="20" uuid="ffeb4507-c8bf-4666-936c-cfa25a1e8a19">
+					<printWhenExpression><![CDATA[$F{AC_ACNOTYPE}!="LN"]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{AC_NNAME}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="153" y="7" width="236" height="20" uuid="a39e2dd3-a5dd-42a9-8afe-2505d0cb07f5"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{BRANCH_NAME}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="153" y="75" width="339" height="20" uuid="ca62f5fa-a1ad-4517-b5f1-7415f8457e79"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{AC_ADDR}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="22" y="95" width="100" height="20" uuid="72872163-b5f1-4745-a43a-2fad710c4774">
+					<printWhenExpression><![CDATA[$F{AC_ACNOTYPE}=="LN"]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Guaranter]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="156" y="96" width="336" height="20" uuid="d449184c-9305-4842-bf96-84bf2743d1b2">
+					<printWhenExpression><![CDATA[$F{AC_ACNOTYPE}=="LN"]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{guaranter}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="155" y="117" width="100" height="20" uuid="573cfb6d-969c-4b5b-b816-0e65d693cf37"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{ISSUE_DATE}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="22" y="118" width="62" height="20" uuid="c831eea1-2753-490e-9b93-15d8a62567bf"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Issued Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="22" y="30" width="100" height="20" uuid="4e881111-f9ce-4c80-ab3d-c9a478a0d7ca"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Account Name]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="153" y="30" width="336" height="20" uuid="feda6e75-430d-432e-82c1-21deeeeb9f8c"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{AC_NAME}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="156" y="96" width="333" height="21" uuid="47f1cdaa-ac1d-402d-ac6d-fa4f0b2452aa"/>
+				<textFieldExpression><![CDATA[$F{AC_NNAME1}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

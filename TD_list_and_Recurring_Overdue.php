@@ -1,0 +1,351 @@
+<?php
+
+ob_start();
+include "main.php";
+require_once('dbconnect.php'); 
+
+// ini_set('display_errors', '1');
+// ini_set('display_startup_errors', '1');
+// error_reporting(E_ALL);
+
+use simitsdk\phpjasperxml\PHPJasperXML;
+
+$filename1 = __DIR__.'/TD_list_and_Recurring_Overdue.jrxml';
+$filename2 = __DIR__.'/TD_list_and_Recurring_OverdueFLAG0.jrxml';
+
+$data = [];
+$row = [];
+$faker = Faker\Factory::create('en_US');
+
+// $conn = pg_connect("host=127.0.0.1 dbname=CBSBhairavnath user=postgres password=admin");
+
+$dateformate = "'DD/MM/YYYY'";
+
+$edate = $_GET['edate'];
+$Branch  = $_GET['Branch'];
+$branch_code = $_GET['branch_code'];
+$BankName  = $_GET['BankName'];
+$trandrcr = "'D'";
+$AC_OP_CD="'D'";
+$TRAN_ACTYPE = $_GET['TRAN_ACTYPE'];
+$TRANACTYPE= $_GET['TRANACTYPE'];
+$TRANSTATUS = "'1'";
+$AC_ACNOTYPE = $_GET['AC_ACNOTYPE'];
+$ACACNOTYPE = $_GET['ACACNOTYPE'];
+$flag1 = $_GET['flag1'];
+$query='';
+
+
+$edate2 = str_replace("'" , "" , $edate);
+$Branch = str_replace("'" , "" , $Branch);
+$BankName1 = str_replace("'" , "" , $BankName);
+$TRAN_ACTYPE1 = str_replace("'" , "" , $TRAN_ACTYPE);
+$TRANACTYPE1 = str_replace("'" , "" , $TRANACTYPE);
+// $AC_ACNOTYPE1 = str_replace("'" , "" , $AC_ACNOTYPE);
+// $ACACNOTYPE1 = str_replace("'" , "" , $ACACNOTYPE);
+
+
+if($flag1=='1')
+{
+    $query.='SELECT SCHEMAST."S_APPL", 
+	SCHEMAST."S_NAME",DPMASTER."AC_ACNOTYPE",
+	DPMASTER."AC_TYPE",
+	DPMASTER."AC_NO",
+	DPMASTER."BANKACNO",
+	DPMASTER."AC_NAME",
+	DPMASTER."AC_CUSTID",
+	DPMASTER."AC_INTRATE",
+	DPMASTER."AC_OPDATE",
+	DPMASTER."AC_SCHMAMT",
+	DPMASTER."AC_MATUAMT",
+	DPMASTER."AC_MONTHS",
+	DPMASTER."AC_OP_BAL",
+	DPMASTER."AC_DAYS",
+	DPMASTER."AC_EXPDT",
+	DPMASTER."AC_REF_RECEIPTNO",
+	DPMASTER."AC_ASON_DATE",
+	INTCATEGORYMASTER."NAME",
+	SCHEMAST."S_APPL",
+	SCHEMAST."S_NAME",
+	VWTMPRDBAL.CLOSING_BALANCE,
+	VWTMPZBALANCE.CLOSING_BALANCE BALANCE,
+	ABS(ROUND(ABS(CAST(VWTMPRDBAL.CLOSING_BALANCE AS INTEGER)) / ABS(CAST(DPMASTER."AC_SCHMAMT" AS INTEGER)),
+0) - CAST(DPMASTER."AC_MONTHS" AS integer)) DUE_INSTALL,
+ABS((ROUND(ABS(CAST(VWTMPRDBAL.CLOSING_BALANCE AS integer)) / ABS(CAST(DPMASTER."AC_SCHMAMT" AS integer)),
+0) - CAST(DPMASTER."AC_MONTHS" AS integer)) * (CAST(DPMASTER."AC_OP_BAL" AS integer) + CAST(DPMASTER."AC_SCHMAMT" AS integer))) DUE_AMOUNT
+FROM DPMASTER
+LEFT OUTER JOIN
+	(SELECT "TRAN_ACNOTYPE",
+			"TRAN_ACTYPE",
+			"TRAN_ACNO",
+			SUM(CAST("TRAN_AMOUNT" AS FLOAT)) CLOSING_BALANCE
+		FROM DEPOTRAN
+		WHERE "TRAN_ACTYPE" = '.$TRAN_ACTYPE.'
+			AND "IS_INTEREST_ENTRY" = 0
+			AND CAST("TRAN_DATE" AS date) <= CAST('.$edate.' AS date)
+	 AND "BRANCH_CODE"='.$branch_code.'
+		GROUP BY "TRAN_ACNOTYPE",
+			"TRAN_ACTYPE",
+			"TRAN_ACNO")VWTMPRDBAL ON VWTMPRDBAL."TRAN_ACNO" = DPMASTER."BANKACNO"
+LEFT OUTER JOIN
+	(SELECT "AC_ACNOTYPE",
+			"AC_TYPE",
+			"AC_NO",
+			"BANKACNO",
+			"AC_OPDATE",
+			"AC_CLOSEDT",
+			(COALESCE(CASE "AC_OP_CD"
+WHEN '.$AC_OP_CD.' THEN CAST("AC_OP_BAL" AS FLOAT)
+ELSE (-1) * CAST("AC_OP_BAL" AS FLOAT)	END,0) + COALESCE(DEPOTRAN.TRAN_AMOUNT,
+0) + COALESCE(DAILYTRAN.DAILY_AMOUNT,0)) CLOSING_BALANCE,
+			(COALESCE(CASE DPMASTER."AC_OP_CD"
+WHEN '.$AC_OP_CD.' THEN CAST(DPMASTER."AC_PAYBLEINT_OP" AS integer)
+ELSE (-1) * CAST(DPMASTER."AC_PAYBLEINT_OP" AS integer)	END,0) + COALESCE(DEPOTRAN.RECPAY_INT_AMOUNT,
+0) + COALESCE(DAILYTRAN.RECPAY_INT_AMOUNT,0)) RECPAY_INT_AMOUNT
+		FROM DPMASTER
+		LEFT OUTER JOIN
+			(SELECT "TRAN_ACNOTYPE",
+					"TRAN_ACTYPE",
+					"TRAN_ACNO",
+					COALESCE(SUM(CASE "TRAN_DRCR"
+WHEN '.$trandrcr.' THEN CAST("TRAN_AMOUNT" AS FLOAT)
+ELSE (-1) * CAST("TRAN_AMOUNT" AS FLOAT)	END),0) TRAN_AMOUNT,
+					SUM(CASE "TRAN_DRCR"
+WHEN '.$trandrcr.' THEN CAST("RECPAY_INT_AMOUNT" AS FLOAT)
+ELSE (-1) *  CAST("RECPAY_INT_AMOUNT" AS FLOAT) END) RECPAY_INT_AMOUNT
+				FROM DEPOTRAN
+				WHERE CAST("TRAN_DATE" AS date) <= CAST('.$edate.' AS date)
+			 AND "BRANCH_CODE"=1
+				GROUP BY "TRAN_ACNOTYPE",
+					"TRAN_ACTYPE",
+					"TRAN_ACNO") DEPOTRAN ON DPMASTER."BANKACNO" = DEPOTRAN."TRAN_ACNO"
+		LEFT OUTER JOIN
+			(SELECT "TRAN_ACNOTYPE",
+					"TRAN_ACTYPE",
+					"TRAN_ACNO",
+					COALESCE(SUM(CASE "TRAN_DRCR"
+WHEN '.$trandrcr.' THEN CAST("TRAN_AMOUNT" AS FLOAT)
+ELSE (-1) * CAST("TRAN_AMOUNT" AS FLOAT) END),	0) DAILY_AMOUNT,
+SUM(CASE "TRAN_DRCR"
+WHEN '.$trandrcr.' THEN CAST("RECPAY_INT_AMOUNT" AS FLOAT)
+ELSE (-1) * CAST("RECPAY_INT_AMOUNT" AS FLOAT)
+									END) RECPAY_INT_AMOUNT
+				FROM DAILYTRAN
+				WHERE CAST("TRAN_DATE" AS date) <= CAST('.$edate.' AS date)
+					AND "TRAN_STATUS" = '.$TRANSTATUS.'
+			 AND "BRANCH_CODE"='.$branch_code.'
+				GROUP BY "TRAN_ACNOTYPE",
+					"TRAN_ACTYPE",
+					"TRAN_ACNO") DAILYTRAN ON DPMASTER."BANKACNO" = DAILYTRAN."TRAN_ACNO"
+		WHERE ((DPMASTER."AC_OPDATE" IS NULL)
+									OR (CAST(DPMASTER."AC_OPDATE" AS date) <= CAST('.$edate.' AS date)))
+			AND ((DPMASTER."AC_CLOSEDT" IS NULL)
+								OR (CAST(DPMASTER."AC_CLOSEDT" AS date) > CAST('.$edate.' AS date))) 
+AND	DPMASTER.STATUS=1 AND DPMASTER."SYSCHNG_LOGIN" IS NOT NULL AND DPMASTER."BRANCH_CODE"=1
+	)VWTMPZBALANCE ON VWTMPZBALANCE."BANKACNO" = DPMASTER."BANKACNO"
+INNER JOIN INTCATEGORYMASTER ON DPMASTER."AC_INTCATA" = INTCATEGORYMASTER.ID
+INNER JOIN SCHEMAST ON DPMASTER."AC_TYPE" = SCHEMAST."id"
+WHERE VWTMPZBALANCE."AC_ACNOTYPE" <> '.$AC_ACNOTYPE.'
+	AND (DPMASTER."AC_OPDATE" IS NULL
+						OR CAST(DPMASTER."AC_OPDATE" AS date) <= CAST('.$edate.' AS date))
+	AND (DPMASTER."AC_CLOSEDT" IS NULL
+						OR CAST(DPMASTER."AC_CLOSEDT" AS date) > CAST('.$edate.' AS date))
+	AND DPMASTER."AC_TYPE" = '.$TRAN_ACTYPE.'
+	AND DPMASTER."AC_ACNOTYPE" = '.$ACACNOTYPE.'
+	AND	DPMASTER.STATUS=1 AND DPMASTER."SYSCHNG_LOGIN" IS NOT NULL AND DPMASTER."BRANCH_CODE"='.$branch_code.'
+ORDER BY DPMASTER."AC_ACNOTYPE",
+	DPMASTER."AC_TYPE",
+	DPMASTER."AC_NO"'; 
+}
+else
+{
+    $query.='SELECT SCHEMAST."S_APPL", 
+	SCHEMAST."S_NAME",DPMASTER."AC_ACNOTYPE",
+	DPMASTER."AC_TYPE",
+	DPMASTER."AC_NO",
+	DPMASTER."BANKACNO",
+	DPMASTER."AC_NAME",
+	DPMASTER."AC_CUSTID",
+	DPMASTER."AC_INTRATE",
+	DPMASTER."AC_OPDATE",
+	DPMASTER."AC_SCHMAMT",
+	DPMASTER."AC_MATUAMT",
+	DPMASTER."AC_MONTHS",
+	DPMASTER."AC_OP_BAL",
+	DPMASTER."AC_DAYS",
+	DPMASTER."AC_EXPDT",
+	DPMASTER."AC_REF_RECEIPTNO",
+	DPMASTER."AC_ASON_DATE",
+	INTCATEGORYMASTER."NAME",
+	SCHEMAST."S_NAME",
+	VWTMPRDBAL.CLOSING_BALANCE,
+	VWTMPZBALANCE.CLOSING_BALANCE BALANCE
+FROM DPMASTER
+LEFT OUTER JOIN
+	(SELECT "TRAN_ACNOTYPE",
+			"TRAN_ACTYPE",
+			"TRAN_ACNO",
+			SUM(CAST("TRAN_AMOUNT" AS FLOAT)) CLOSING_BALANCE
+		FROM DEPOTRAN
+		WHERE "TRAN_ACTYPE" = '.$TRANACTYPE.'
+			AND "IS_INTEREST_ENTRY" = 0
+	 AND "BRANCH_CODE"='.$branch_code.'
+			AND CAST("TRAN_DATE" AS date) <= CAST('.$edate.' AS date)
+		GROUP BY "TRAN_ACNOTYPE",
+			"TRAN_ACTYPE",
+			"TRAN_ACNO")VWTMPRDBAL ON VWTMPRDBAL."TRAN_ACNO" = DPMASTER."BANKACNO"
+LEFT OUTER JOIN
+	(SELECT "AC_ACNOTYPE",
+			"AC_TYPE",
+			"AC_NO",
+			"BANKACNO",
+			"AC_OPDATE",
+			"AC_CLOSEDT",
+			(COALESCE(CASE "AC_OP_CD"
+WHEN '.$AC_OP_CD.' THEN CAST("AC_OP_BAL" AS FLOAT)
+ELSE (-1) * CAST("AC_OP_BAL" AS FLOAT)	END,0) + COALESCE(DEPOTRAN.TRAN_AMOUNT,
+0) + COALESCE(DAILYTRAN.DAILY_AMOUNT,0)) CLOSING_BALANCE,
+			(COALESCE(CASE DPMASTER."AC_OP_CD"
+WHEN '.$AC_OP_CD.' THEN CAST(DPMASTER."AC_PAYBLEINT_OP" AS integer)
+ELSE (-1) * CAST(DPMASTER."AC_PAYBLEINT_OP" AS integer) END,
+0) + COALESCE(DEPOTRAN.RECPAY_INT_AMOUNT,0) + COALESCE(DAILYTRAN.RECPAY_INT_AMOUNT,
+0)) RECPAY_INT_AMOUNT
+		FROM DPMASTER
+		LEFT OUTER JOIN
+			(SELECT "TRAN_ACNOTYPE",
+					"TRAN_ACTYPE",
+					"TRAN_ACNO",
+					COALESCE(SUM(CASE "TRAN_DRCR"
+WHEN '.$trandrcr.' THEN CAST("TRAN_AMOUNT" AS FLOAT)
+ELSE (-1) * CAST("TRAN_AMOUNT" AS FLOAT) END),0) TRAN_AMOUNT,
+					SUM(CASE "TRAN_DRCR"
+WHEN '.$trandrcr.' THEN CAST("RECPAY_INT_AMOUNT" AS FLOAT)
+ELSE (-1) * CAST("RECPAY_INT_AMOUNT" AS FLOAT)
+END) RECPAY_INT_AMOUNT
+FROM DEPOTRAN
+WHERE CAST("TRAN_DATE" AS date) <= CAST('.$edate.' AS date)
+			 AND "BRANCH_CODE"='.$branch_code.'
+GROUP BY "TRAN_ACNOTYPE",
+					"TRAN_ACTYPE",
+					"TRAN_ACNO") DEPOTRAN ON DPMASTER."BANKACNO" = DEPOTRAN."TRAN_ACNO"
+		LEFT OUTER JOIN
+			(SELECT "TRAN_ACNOTYPE",
+					"TRAN_ACTYPE",
+					"TRAN_ACNO",
+					COALESCE(SUM(CASE "TRAN_DRCR"
+WHEN '.$trandrcr.' THEN CAST("TRAN_AMOUNT" AS FLOAT)
+ELSE (-1) * CAST("TRAN_AMOUNT" AS FLOAT)
+END),0) DAILY_AMOUNT,
+SUM(CASE "TRAN_DRCR"
+WHEN '.$trandrcr.' THEN CAST("RECPAY_INT_AMOUNT" AS FLOAT)
+ELSE (-1) * CAST("RECPAY_INT_AMOUNT" AS FLOAT)
+END) RECPAY_INT_AMOUNT
+				FROM DAILYTRAN
+				WHERE CAST("TRAN_DATE" AS date) <= CAST('.$edate.' AS date)
+					AND "TRAN_STATUS" = '.$TRANSTATUS.'
+			 AND "BRANCH_CODE"='.$branch_code.'
+				GROUP BY "TRAN_ACNOTYPE",
+					"TRAN_ACTYPE",
+					"TRAN_ACNO") DAILYTRAN ON DPMASTER."BANKACNO" = DAILYTRAN."TRAN_ACNO"
+		WHERE ((DPMASTER."AC_OPDATE" IS NULL)
+									OR (CAST(DPMASTER."AC_OPDATE" AS date) <= CAST('.$edate.' AS date)))
+			AND ((DPMASTER."AC_CLOSEDT" IS NULL)
+								OR (CAST(DPMASTER."AC_CLOSEDT" AS date) > CAST('.$edate.' AS date))) 
+	)VWTMPZBALANCE ON VWTMPZBALANCE."BANKACNO" = DPMASTER."BANKACNO"
+INNER JOIN INTCATEGORYMASTER ON DPMASTER."AC_INTCATA" = INTCATEGORYMASTER.ID
+INNER JOIN SCHEMAST ON DPMASTER."AC_TYPE" = SCHEMAST."id"
+WHERE VWTMPZBALANCE."AC_ACNOTYPE" <> '.$AC_ACNOTYPE.'
+	AND (DPMASTER."AC_OPDATE" IS NULL
+						OR CAST(DPMASTER."AC_OPDATE" AS date) <= CAST('.$edate.' AS date))
+	AND (DPMASTER."AC_CLOSEDT" IS NULL
+						OR CAST(DPMASTER."AC_CLOSEDT" AS date) > CAST('.$edate.' AS date))
+	AND DPMASTER."AC_TYPE" = '.$TRANACTYPE.'
+	AND DPMASTER."AC_ACNOTYPE" = '.$ACACNOTYPE.'
+	AND DPMASTER.STATUS=1 AND DPMASTER."SYSCHNG_LOGIN" IS NOT NULL AND DPMASTER."BRANCH_CODE"='.$branch_code.'
+ORDER BY DPMASTER."AC_ACNOTYPE",
+	DPMASTER."AC_TYPE",
+	DPMASTER."AC_NO"'; 
+}
+
+
+          
+$sql =  pg_query($conn,$query);
+
+$i = 0;
+
+$GRAND_TOTAL1 = 0;
+$GRAND_TOTAL2 = 0;
+
+// if ($row['balance'] < 0) {
+//     $netType = 'Cr';
+// } else {
+//     $netType = 'Dr';
+// }
+
+// if (pg_num_rows($sql) == 0) {
+//     include "errormsg.html";
+// }else {
+
+while($row = pg_fetch_assoc($sql)){
+
+    $GRAND_TOTAL1 = $GRAND_TOTAL1 + $row["AC_SCHMAMT"];
+    $GRAND_TOTAL2 = $GRAND_TOTAL2 + $row["AC_MATUAMT"];
+
+    $tmp=[
+        "SR_NO" => $row["SR_NO"],
+        "Total_Accounts" => $row["Total_Accounts"],
+        "AC_NO" => $row["AC_NO"],
+        "AC_NAME" => $row["AC_NAME"],
+        "AC_OPDATE" => $row["AC_OPDATE"],
+        "AC_ASON_DATE" => $row["AC_ASON_DATE"],
+        "AC_CUSTID" => $row["AC_CUSTID"],
+        "AC_SCHMAMT" => sprintf("%.2f", (abs($row['AC_SCHMAMT']))),
+        "AC_INTRATE" => $row["AC_INTRATE"],
+        "AC_MONTHS" => $row["AC_MONTHS"],
+        "balance" =>sprintf("%.2f", (abs($row['balance']))),
+        "due_install" => $row["due_install"],
+        "due_amount" => sprintf("%.2f", (abs($row['due_amount']))),
+        "AC_EXPDT" => $row["AC_EXPDT"],
+        "AC_MATUAMT" => sprintf("%.2f", (abs($row['AC_MATUAMT']))),
+
+        "SCHEME_WISE_TOTAL" => sprintf("%.2f",($GRAND_TOTAL1) + 0.0 ) ,
+        "SCHEME_TOTAL" => sprintf("%.2f",($GRAND_TOTAL1) + 0.0 ) ,
+        "SCHEMEWISE_MATUAMT" => sprintf("%.2f",($GRAND_TOTAL2) + 0.0 ) ,
+        "edate" => $edate2,
+        "TOTAL_MATUAMT" => sprintf("%.2f",($GRAND_TOTAL2) + 0.0 ) ,
+        "Branch" => $Branch,
+        'branch_code' => $branch_code ,
+        "BankName" => $BankName1,
+        "TRAN_ACTYPE" => $TRAN_ACTYPE1,
+        "TRANACTYPE" => $TRANACTYPE1,
+        "ACACNOTYPE" => $$row['S_APPL'].'  '.$row['S_NAME'],
+        "AC_ACNOTYPE" => $AC_ACNOTYPE1,
+        "flag1" => $flag1,
+
+    ];
+    $data[$i]=$tmp;
+    $i++;
+    
+}
+ob_end_clean();
+
+$config = ['driver'=>'array','data'=>$data];
+//print_r($data);
+$report = new PHPJasperXML();
+if($flag1=='1')
+{
+    $report->load_xml_file($filename1)    
+     ->setDataSource($config)
+     ->export('Pdf');
+}
+else
+{
+    $report->load_xml_file($filename2)    
+     ->setDataSource($config)
+     ->export('Pdf');
+
+}
+
+    
+//}   
+?>

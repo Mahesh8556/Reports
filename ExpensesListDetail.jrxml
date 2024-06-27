@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ExpensesListDetail" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="70cc8676-429c-4d1b-a67f-270798da49aa">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<field name="TRAN_DATE" class="java.lang.String"/>
+	<field name="NARRATION" class="java.lang.String"/>
+	<field name="drtranamt" class="java.lang.String"/>
+	<field name="crtranamt" class="java.lang.String"/>
+	<field name="TRAN_ACNO" class="java.lang.String"/>
+	<field name="dgrandtot" class="java.lang.String"/>
+	<field name="cgrandtot" class="java.lang.String"/>
+	<field name="cschmamt" class="java.lang.String"/>
+	<field name="dschmamt" class="java.lang.String"/>
+	<field name="subamt" class="java.lang.String"/>
+	<group name="Acno">
+		<groupExpression><![CDATA[$F{TRAN_ACNO}]]></groupExpression>
+		<groupHeader>
+			<band height="20">
+				<textField>
+					<reportElement uuid="5cc072d3-fea3-42ce-a1be-fa791fdcf433" x="0" y="0" width="100" height="20"/>
+					<textElement verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$F{TRAN_ACNO}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="34">
+				<line>
+					<reportElement uuid="ddf93d60-b12f-4d51-9c6b-49806117d87e" x="121" y="14" width="420" height="1"/>
+					<graphicElement>
+						<pen lineWidth="0.9"/>
+					</graphicElement>
+				</line>
+				<staticText>
+					<reportElement uuid="f4509664-8459-40ef-98de-eb1d4fcaae8f" x="162" y="15" width="67" height="18"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Sub Total:]]></text>
+				</staticText>
+				<line>
+					<reportElement uuid="3853b538-4d3b-4b9f-b0bb-3eb4f7df799f" x="121" y="33" width="420" height="1"/>
+					<graphicElement>
+						<pen lineWidth="0.9"/>
+					</graphicElement>
+				</line>
+				<textField>
+					<reportElement uuid="b8a9ded5-6574-486f-a278-429e99c57604" x="229" y="15" width="100" height="18"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$F{dschmamt}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement uuid="34d98123-e7d2-4a46-b968-7c6ac6db2dc9" x="340" y="15" width="99" height="18"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$F{cschmamt}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="39" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="d4ef0af0-7d8f-4f90-878b-7bec9f08b20b" x="0" y="0" width="217" height="18"/>
+				<textElement verticalAlignment="Top">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[BANKWALA DEMONSTRATION.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="f6680eab-49bc-4073-a7d7-18066361523d" x="0" y="19" width="72" height="16"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Branch :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="d488c906-02f8-4758-91e7-6ec5c5ecca1f" x="109" y="19" width="382" height="16"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Expenses Detail Report From 01/04/2022 To 20/06/2022]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="23" splitType="Stretch">
+			<line>
+				<reportElement uuid="2dbc9ea8-61b6-4995-be30-55bafb0b81f9" x="0" y="1" width="541" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.9"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement uuid="8e896c23-6083-485f-b61a-ee2aa5f15537" x="0" y="2" width="62" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="96cefc9d-d7f1-44f4-97f1-fa5c146f51a9" x="72" y="2" width="138" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Name & Narration]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="38cf466e-b1c7-4c92-89e2-1ff607d6151d" x="229" y="2" width="100" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Amount (Debit)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="12256580-427a-4e51-bdc0-c939662d7d85" x="339" y="2" width="100" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Amount (Credit)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c59d0cda-181e-4cca-b18c-8f8c26e56f91" x="440" y="2" width="84" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Amount]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="2a33867a-7796-482d-96e9-30687402b90c" x="0" y="22" width="541" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.9"/>
+				</graphicElement>
+			</line>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement uuid="bf18fa68-b95f-4fb5-96fd-8db0cdbd66a5" x="0" y="0" width="62" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{TRAN_DATE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="b52a361c-c1a1-44e7-ad63-268a7fe66f18" x="72" y="0" width="138" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{NARRATION}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="407e69da-ba8f-4df6-a786-be86d87db029" x="229" y="0" width="100" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{drtranamt}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="0b854a1c-41ec-451d-9f42-3f2c16a11fd7" x="339" y="0" width="100" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{crtranamt}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="f640343f-81cf-4a01-9801-bf9397f75f37" x="440" y="0" width="84" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{subamt}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="36" splitType="Stretch">
+			<line>
+				<reportElement uuid="0cdb6478-4b9c-46a8-8264-08af839c2588" x="0" y="0" width="541" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.9"/>
+				</graphicElement>
+			</line>
+			<textField pattern="d/M/yyyy h.mm a">
+				<reportElement uuid="e5a5d0ef-ad1b-438e-aa88-e8a0d23e78a3" x="0" y="1" width="100" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="0f02ac1c-5597-4559-9e39-4848ef6839ec" x="420" y="1" width="80" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement uuid="7855a600-2878-49b3-a3ee-9ef82101b4c5" x="500" y="1" width="40" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="95a3ba51-fd03-47b1-b185-17ca7f62a090" x="100" y="1" width="72" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[SUPERVISOR]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="118" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="b43519f1-fa5e-4baf-9194-dd11f451ad93" x="162" y="1" width="67" height="18"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Grand Total:]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="c75d4165-bc44-4ebf-8da4-b157c2882d2a" x="121" y="0" width="420" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.9"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement uuid="1014dabf-354d-4d5d-b637-9306e97e74f9" x="121" y="19" width="420" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.9"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement uuid="e367579d-209e-41a6-b2d3-5b611dded2a4" x="0" y="36" width="50" height="16"/>
+				<textElement/>
+				<text><![CDATA[In Words]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="33d3080b-588c-432c-88d0-24f7a32b9c0c" x="39" y="95" width="100" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Clerk]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="da664e98-71e8-4916-8197-186fecd6e5b3" x="205" y="95" width="100" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Officer / Manager]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="bcffbbd7-996a-4b39-a4bc-f8fb1466556f" x="375" y="95" width="100" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[General Manager]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="9b8ade80-22d5-4a3a-958c-f1e65f0af718" x="229" y="1" width="100" height="18"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{dgrandtot}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="16765499-19d1-4ede-97b6-6aa21f31942d" x="339" y="1" width="100" height="18"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{cgrandtot}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

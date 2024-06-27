@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReconciliationStatement_Flag0" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c002bd2e-22cd-44ec-a2fc-d9fb0a77f3a3">
+	<property name="ireport.zoom" value="1.2100000000000004"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<field name="Branch" class="java.lang.String"/>
+	<field name="sdate" class="java.lang.String"/>
+	<field name="edate" class="java.lang.String"/>
+	<field name="TRAN_DATE" class="java.lang.String"/>
+	<field name="CHEQUE_NO" class="java.lang.String"/>
+	<field name="NARRATION" class="java.lang.String"/>
+	<field name="STATEMENT_DATE" class="java.lang.String"/>
+	<field name="TOTAL_DEBIT_AMT" class="java.lang.String"/>
+	<field name="TOTAL_CREDIT_AMOUNT" class="java.lang.String"/>
+	<field name="AC_ACNOTYPE" class="java.lang.String"/>
+	<field name="AC_TYPE" class="java.lang.String"/>
+	<field name="debit_amount" class="java.lang.String"/>
+	<field name="credit_amount" class="java.lang.String"/>
+	<field name="closing_balance" class="java.lang.String"/>
+	<field name="FINAL_CREDIT_AMT" class="java.lang.String"/>
+	<field name="FINAL_DEBIT_AMT" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="197" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="b0efa9ce-f05d-451a-8ce3-c73fc3017cd9" x="0" y="13" width="235" height="20"/>
+				<textElement>
+					<font size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[BANKWALA DEMONSTRATION]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="1677b862-93d0-4d1d-a03f-cd581e63f3a4" x="0" y="61" width="50" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Branch :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="79dbe580-7f39-4ee1-937f-3fac49a0eb6f" x="0" y="91" width="81" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Account Name :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="483d0a29-04ae-4b34-976f-b17616b63c29" x="325" y="91" width="149" height="20"/>
+				<textElement>
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[K.D.C. Current Account]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="4bc59595-a780-4994-a213-6ed92234626b" x="454" y="61" width="151" height="20"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Reconciliation Statement]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="557dd104-5e5e-41da-b961-5fb68718834c" x="687" y="61" width="18" height="20"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[To]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="10a779f6-7eb3-43e9-b160-e8fe9b3c2fc2" x="0" y="150" width="100" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="7fd0f803-4600-4e73-80d5-7529d5220c87" x="113" y="150" width="100" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cheque No.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="893389ca-a80f-4a1b-8875-73b108a7d696" x="235" y="150" width="100" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Narration]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="efbe4b0d-ed5b-499c-a267-1dc345ccdaa6" x="464" y="150" width="100" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Debit Amount]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="965dbf27-ab96-41a1-a515-bf3daa84cc95" x="587" y="151" width="100" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Credit Amount]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="98eac41e-2687-4b51-a85f-ba14f9260c73" x="702" y="151" width="100" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Statement Date]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="01494fdd-868a-4a3a-80e1-474eab1fa08e" x="0" y="138" width="802" height="1"/>
+			</line>
+			<line>
+				<reportElement uuid="0d72e58e-ac20-4f61-a9a7-323e0e17a139" x="0" y="170" width="802" height="1"/>
+			</line>
+			<staticText>
+				<reportElement uuid="1356faef-e63c-42be-a60e-96130a39a6ce" x="0" y="177" width="175" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Transaction As Per Branch Book]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="122f514a-ae9d-4b20-b71f-8ed2a3211fd4" x="50" y="61" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{Branch}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="19b234b0-b835-4b7f-83b4-5c0c279d253a" x="621" y="66" width="66" height="15"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{sdate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="edf42363-9cea-49c5-907a-634e4e1e1906" x="717" y="66" width="53" height="15"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{edate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="b375dba5-1b70-4d01-8360-bea9dea3c43b" x="81" y="91" width="52" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{AC_ACNOTYPE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="2850cbce-8576-40be-8470-d34ab1e13e81" x="150" y="91" width="51" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{AC_TYPE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="bd774a55-2504-439d-9a70-9d5cfdbf75e6" x="217" y="92" width="50" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{TRAN_ACNO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="e56b6aee-2561-416f-a651-ce1c6f93e8d6" x="133" y="92" width="17" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[/]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="75d0d0eb-3213-4bfb-95e5-d030f0973ea9" x="201" y="91" width="16" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[/]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="5" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="5" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="27" splitType="Stretch">
+			<textField>
+				<reportElement uuid="1a59e93b-4f33-453f-bd39-0b6b20513235" x="705" y="0" width="97" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{STATEMENT_DATE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="7950dfc2-ebd6-4880-8708-f81e95f3b1cf" x="236" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{NARRATION}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="eae7596e-2b77-4c15-b280-bb8c3f017525" x="113" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{CHEQUE_NO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="9f2a267e-2a7f-475a-bfd2-e8e911186fbf" x="0" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{TRAN_DATE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="11351cdc-3b01-41b8-88c4-ebd7d1a87cff" x="464" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{debit_amount}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="a8480929-9074-49a0-b560-c74c9213b994" x="587" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{credit_amount}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="272" splitType="Stretch">
+			<line>
+				<reportElement uuid="d90bee25-5984-4e0f-836d-f5b6d5162a5b" x="0" y="10" width="802" height="1"/>
+			</line>
+			<line>
+				<reportElement uuid="4b1dd5e0-c934-4d51-a1c7-0cdebd146f59" x="0" y="49" width="802" height="1"/>
+			</line>
+			<line>
+				<reportElement uuid="c7028369-7231-496c-9f16-3257ff8020d1" x="0" y="135" width="802" height="1"/>
+			</line>
+			<line>
+				<reportElement uuid="6017c9d4-a909-4726-ab55-39fa62f6840d" x="0" y="172" width="802" height="1"/>
+			</line>
+			<staticText>
+				<reportElement uuid="375f7703-35f7-4025-b60d-e10008d9e43a" x="354" y="29" width="100" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="07eb3ece-8f82-4ef5-82c9-a136f916989a" x="236" y="53" width="118" height="20"/>
+				<textElement/>
+				<text><![CDATA[Closing Balance As on :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="6b889cf5-e43a-445c-8c6a-e2b1c9f8ace1" x="236" y="73" width="128" height="20"/>
+				<textElement/>
+				<text><![CDATA[Unadjusted Debit Entries :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="93bb0530-968a-4f2b-b5e2-0679a75d8d4c" x="236" y="93" width="128" height="20"/>
+				<textElement/>
+				<text><![CDATA[Unadjusted Credit Entries :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="16b480e3-685b-4492-bb27-006a150e11b1" x="236" y="113" width="128" height="20"/>
+				<textElement/>
+				<text><![CDATA[Balance At HO/Other Bank :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="a124c020-fbf9-4235-bcb0-39495467016b" x="354" y="152" width="100" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="aaa01bf9-160c-407d-8881-fe73453e0988" x="64" y="252" width="100" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[CASHIER]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="d5c7d0ae-c716-49b5-baa6-7de25ec5f166" x="296" y="250" width="158" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[BRANCH CHAIRMAN / OFFICER]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c073a116-5a4c-4664-be0b-f46cd3d7d360" x="575" y="250" width="175" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[EXECUTIVE DIRECTOR / CHAIRMAN]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="8392f4c0-db94-4040-a022-9bee8f3996a9" x="464" y="30" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{TOTAL_DEBIT_AMT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="c9346f95-92d6-4d0c-b84c-03f7865897aa" x="587" y="29" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{TOTAL_CREDIT_AMOUNT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="7304c7bd-87ae-43e0-a11e-4a7b58f5e1b4" x="587" y="73" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{TOTAL_DEBIT_AMT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="d1936bf7-2cae-42b9-96ca-cc781eddee23" x="464" y="93" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{TOTAL_CREDIT_AMOUNT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="bc2fbfcd-5b59-4c32-a24d-a449a986fa37" x="354" y="53" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{edate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="49405637-dc3a-4609-97d8-5281629586ae" x="464" y="53" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{closing_balance}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="d25b53ef-a68c-4f63-9539-83209b1050aa" x="587" y="113" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{closing_balance}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="b1daf7c3-cc2d-4038-a096-a8fb4c301b6e" x="464" y="152" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{FINAL_CREDIT_AMT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="f38b69de-822b-4bd8-90c7-8df7189e774b" x="587" y="152" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{FINAL_DEBIT_AMT}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

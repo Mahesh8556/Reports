@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="UserCounterWorkDelayTime" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b86b8d26-cf29-4f83-a8bf-04eebf1ad807">
+	<property name="ireport.zoom" value="2.1435888100000042"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<field name="TRAN_NO" class="java.lang.String"/>
+	<field name="TRAN_TIME" class="java.lang.String"/>
+	<field name="TRAN_TYPE" class="java.lang.String"/>
+	<field name="transfer_amount" class="java.lang.String"/>
+	<field name="clearing_amount" class="java.lang.String"/>
+	<field name="cash_amount" class="java.lang.String"/>
+	<field name="BRANCH" class="java.lang.String"/>
+	<field name="BANK_NAME" class="java.lang.String"/>
+	<field name="USER_CODE" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="58" splitType="Stretch">
+			<staticText>
+				<reportElement x="183" y="20" width="167" height="20" uuid="04d7ded6-a349-4552-839f-2813f63411b4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Counter Works Delay Time Details]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="56" width="555" height="1" uuid="f04c54ed-4da3-40ca-b681-0e0f81a1acd2"/>
+			</line>
+			<staticText>
+				<reportElement x="0" y="39" width="53" height="17" uuid="16ce681e-ee5b-473a-8695-403e402359e3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[BRANCH:-]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="58" y="39" width="66" height="17" uuid="7159fafa-3828-415c-9d25-7a63a503df44"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{BRANCH}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="134" y="0" width="274" height="20" uuid="e4cceee6-3200-4f6f-bc46-5f5d42e2afdc"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{BANK_NAME}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="18" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="48" height="18" uuid="dade0cde-aed9-48cc-8e52-1b9c33425300"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Tran No]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="68" y="0" width="51" height="18" uuid="27f3f45f-bf5a-442c-8783-ab13c448d66f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Tran Time]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="134" y="0" width="54" height="18" uuid="1d10feaf-9634-4a9a-afc6-4b454f01bbe1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Tran Type]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="203" y="0" width="40" height="18" uuid="e90b5549-fb01-4453-bdba-a38ecf5c3187"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[User ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="258" y="0" width="79" height="18" uuid="8c7e26c0-f115-4f0f-b1f0-b49181fa1de0"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Transfer Amount ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="450" y="0" width="82" height="18" uuid="6fe8046e-0ccb-4b7d-8137-d4c1d63131a5"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Clearing Amount]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="357" y="0" width="68" height="18" uuid="88204471-7b60-4778-9690-f3b9d38ee261"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Cash Amount]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="4" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="0" width="550" height="1" uuid="6e3ef5fc-581f-4d41-bb34-6458099e098c"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="27" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="22" width="550" height="1" uuid="e3e88dd5-5d30-407a-a952-5d86b75b93f3"/>
+			</line>
+			<textField>
+				<reportElement x="0" y="0" width="58" height="20" uuid="64ce4894-63fc-46de-bd71-ab6729db2693"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TRAN_NO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="58" y="0" width="66" height="20" uuid="8f44e2da-b9b7-4be4-8235-cbfdde2ad28f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TRAN_TIME}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="124" y="0" width="68" height="20" uuid="17076555-0815-42a6-a2a8-e4bc50296535"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TRAN_TYPE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="192" y="0" width="51" height="20" uuid="ad85f95b-8769-48bf-a87b-4f44829bd33f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{USER_CODE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="243" y="0" width="94" height="20" uuid="a02cbc79-c14a-4243-95cf-77e83c7bb867"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{transfer_amount}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="350" y="2" width="75" height="20" uuid="2d4427a2-141b-4d0f-a19f-874ae60b5f44"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cash_amount}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="451" y="0" width="81" height="20" uuid="e5508b34-633f-4605-896e-cd29446a6be8"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{clearing_amount}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="6" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="24" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

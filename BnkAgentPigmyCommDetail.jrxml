@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.0.final using JasperReports Library version 6.20.0-2bc7ab61c56f459e8176eb05c7705e145cd400ad  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="PigmyAgentCommission" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="7982ae20-2b64-4b9f-bd5a-f1fb03a76a5a">
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="bankName" class="java.lang.String"/>
+	<field name="branchName" class="java.lang.String"/>
+	<field name="tran_date" class="java.lang.String"/>
+	<field name="name" class="java.lang.String"/>
+	<field name="totalamount" class="java.lang.String"/>
+	<field name="totalAmt" class="java.lang.String"/>
+	<field name="commissionAmt" class="java.lang.String"/>
+	<field name="from_date" class="java.lang.String"/>
+	<field name="to_date" class="java.lang.String"/>
+	<field name="grandtotal" class="java.lang.String"/>
+	<field name="totalcommission" class="java.lang.String"/>
+	<field name="percentage" class="java.lang.String"/>
+	<field name="flag" class="java.lang.String"/>
+	<field name="acno" class="java.lang.String"/>
+	<field name="schemecodeno" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="83" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="1" width="554" height="20" uuid="4a93299f-0371-47e8-8223-9d06617cad25"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{bankName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="63" y="44" width="100" height="16" uuid="9749b19c-aeab-4acb-9a6f-bef61d8af77e"/>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA[$F{branchName}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="464" y="56" width="94" height="22" uuid="d837919f-7154-48bb-8281-d8956cea3c04"/>
+				<textElement textAlignment="Right" verticalAlignment="Bottom"/>
+				<text><![CDATA[Amount in Rupees]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="44" width="68" height="18" uuid="908a0471-58f3-4ca1-940b-c3af3b7650ba"/>
+				<text><![CDATA[Branch Name :  ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="24" width="554" height="20" uuid="d180614f-6a1e-4c6b-9070-76d37b9864fd"/>
+				<textElement textAlignment="Center">
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Pigmy Agent Commission From "+$F{from_date}+" To "+$F{to_date}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="31" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="0" width="554" height="1" uuid="5dc3125b-33b0-4319-b474-21fd3dc497ad"/>
+			</line>
+			<line>
+				<reportElement x="0" y="26" width="554" height="1" uuid="087f401d-1392-4d38-870b-dfe12b004095"/>
+			</line>
+			<staticText>
+				<reportElement x="0" y="2" width="50" height="24" uuid="310ceb71-e259-4501-82a4-e75cdd92ffa2"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<text><![CDATA[Sr. No.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="80" y="2" width="100" height="24" uuid="229600b9-99ee-4f45-8d7b-7b342b7ea565">
+					<printWhenExpression><![CDATA[$F{flag}==1]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="347" y="1" width="100" height="26" uuid="276cce95-2a5e-47ff-9948-f6804c4d92db"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Total Amount]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="457" y="3" width="100" height="24" uuid="dc750a65-aff2-4189-b437-5894c0ddc5ad">
+					<printWhenExpression><![CDATA[$F{flag}==0]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Commission Amount]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="-21" width="100" height="18" uuid="d1a386cc-575a-49bd-b40d-a4f81288abda"/>
+				<text><![CDATA[Agent Particulars]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="142" y="-21" width="222" height="18" uuid="10f8d6b2-8ec1-49aa-b435-2ae80f92874b"/>
+				<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="74" y="-21" width="100" height="18" uuid="3b44fe64-34f5-4695-9cb7-1e4c9ff92fec"/>
+				<textFieldExpression><![CDATA[$F{acno}+" / "+$F{schemecodeno}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="280" y="7" width="68" height="14" uuid="90e8a2ea-2845-4183-a7b3-3d3424d38ab0">
+					<printWhenExpression><![CDATA[$F{flag}==0]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Percentage]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="18" splitType="Stretch">
+			<textField>
+				<reportElement x="10" y="2" width="50" height="14" uuid="62dbe75e-1328-47e4-aaf9-9df8b883c90b"/>
+				<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="80" y="2" width="100" height="14" uuid="9c1866b4-b914-4d66-aa17-da76b6102d4f"/>
+				<textElement textAlignment="Center" verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[$F{tran_date}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="317" y="2" width="100" height="14" uuid="81d0abae-da70-4130-bd18-e3cee60f1274"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{totalamount}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="249" y="2" width="76" height="14" uuid="20a0419b-bfdd-41ba-90aa-a100d23ce439">
+					<printWhenExpression><![CDATA[$F{flag}==0]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{percentage}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="80" y="2" width="142" height="16" uuid="2bed89b6-fe97-41c2-b50b-cd4f3ad64aa0">
+					<printWhenExpression><![CDATA[$F{flag}==0]]></printWhenExpression>
+				</reportElement>
+				<textFieldExpression><![CDATA["Range :  "+$F{from_date}+" To "+$F{to_date}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="457" y="2" width="72" height="14" uuid="3ec453c3-61f9-4f0c-84a7-aa0fddd7f334"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{totalcommission}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="32" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="2" width="554" height="1" uuid="1f4bc482-3632-4c5d-bff6-0278a80a50ec"/>
+			</line>
+			<textField pattern="d/M/yyyy h.mm a">
+				<reportElement x="-4" y="9" width="100" height="20" uuid="fc1c1d88-8a58-4046-9ff6-e488e4d30296"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="439" y="12" width="80" height="20" uuid="8c934e30-485b-4a85-adc2-61aaba30e606"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="519" y="12" width="40" height="20" uuid="e5b926ee-a7bb-4bd6-b728-4fb4c366d022"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="119" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="2" width="555" height="1" uuid="31622ada-f7ce-4cb5-b7d5-18f4899414ba"/>
+			</line>
+			<line>
+				<reportElement x="1" y="25" width="555" height="1" uuid="049d6e5b-5dfb-4fc1-8bcd-3a3c545b585f"/>
+			</line>
+			<staticText>
+				<reportElement x="281" y="2" width="80" height="22" uuid="baa6fb2c-5e75-493a-b065-e2243229a001"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Total Amount : ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="20" y="89" width="100" height="30" uuid="57eb2044-a29a-4eee-8ce8-9b795c0d5474"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Cashier]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="241" y="89" width="100" height="30" uuid="64979368-4bb3-4a8f-b35c-fc289ca6e102"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Manager]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="439" y="89" width="100" height="30" uuid="d3bd4025-a439-4663-a20e-1f876f63c955"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[G. Manager]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="319" y="2" width="100" height="22" uuid="8300a61e-977d-41af-9da3-d64ba809eb00"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{grandtotal}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="117" y="3" width="100" height="20" uuid="b083961a-abf1-4a97-8da0-6275dd3b3c57"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Commission Amount :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="193" y="2" width="72" height="22" uuid="ebc24774-4947-42fb-a322-8e21db69f218"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{totalcommission}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="2" y="52" width="224" height="20" uuid="701799a0-a853-49ae-afaa-cf4f6ba11f93">
+					<printWhenExpression><![CDATA[$F{flag}==1]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{grandtotal}+"  On  "+$F{percentage}+"%"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="70" y="53" width="84" height="18" uuid="db222779-ab12-4cf7-96c5-dc3925cf4780">
+					<printWhenExpression><![CDATA[$F{flag}==1]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{totalcommission}+" Ruppes"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1" y="36" width="164" height="20" uuid="4d37d46c-cbb5-4b22-a577-5f546012751e">
+					<printWhenExpression><![CDATA[$F{flag}==1]]></printWhenExpression>
+				</reportElement>
+				<textFieldExpression><![CDATA["Range :    "+$F{from_date}+"  To  "+$F{to_date}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

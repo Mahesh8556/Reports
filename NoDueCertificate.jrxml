@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.5.final using JasperReports Library version 6.20.5-3efcf2e67f959db3888d79f73dde2dbd7acb4f8e  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="NoDueCertificate" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f535c54c-946f-4757-8dda-9885adb060f8">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="AC_NAME" class="java.lang.String"/>
+	<field name="Address" class="java.lang.String"/>
+	<field name="Date" class="java.lang.String"/>
+	<field name="acc_no" class="java.lang.String"/>
+	<field name="Name" class="java.lang.String"/>
+	<field name="AC_SANCTION_AMOUNT" class="java.lang.String"/>
+	<field name="AC_CLOSEDT" class="java.lang.String"/>
+	<field name="AC_SANCTION_DATE" class="java.lang.String"/>
+	<field name="S_APPL" class="java.lang.String"/>
+	<field name="S_NAME" class="java.lang.String"/>
+	<field name="CITY_NAME" class="java.lang.String"/>
+	<field name="rs" class="java.lang.String"/>
+	<field name="branchName" class="java.lang.String"/>
+	<field name="bankName" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="69" splitType="Stretch">
+			<staticText>
+				<reportElement x="-20" y="20" width="595" height="21" uuid="9662f452-be4c-4057-99a7-d913847cf590"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[No Due Certificate]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="11" y="49" width="100" height="19" uuid="6f044d76-c0d5-4c65-8ef0-2127942692ff"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Date}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="7" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="420" splitType="Stretch">
+			<staticText>
+				<reportElement x="10" y="4" width="31" height="26" uuid="128b60e4-52dd-46ff-a7a6-775149d3a040"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[To,]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="29" width="96" height="21" uuid="6582544b-04f6-44ab-9b2a-9f8e6e285423"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Name of Borrowers :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="106" y="30" width="214" height="21" uuid="7bee5b5e-bec0-4d4a-8f99-ea3ba911afa7"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{AC_NAME}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="10" y="52" width="50" height="18" uuid="2547111d-58c1-4f77-a909-92325a3dea11"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Address :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="10" y="76" width="440" height="16" uuid="65e7ff28-f2dd-4c3d-9812-f830a2f9e66c"/>
+				<textElement>
+					<font size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Reference :-"+ $F{S_APPL}+ "/"+$F{S_NAME}  +   "  -  "+$F{acc_no}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="10" y="107" width="112" height="19" uuid="4f446ef7-660d-4aed-a6df-c99792183734"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[This is certify That ,]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="10" y="124" width="560" height="56" uuid="ffa032f6-67fd-4751-96b1-d3bb6f1c746a"/>
+				<textElement verticalAlignment="Top">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["                             Shri./Mr./Miss. "+   $F{AC_NAME}  +" had  taken a  " +$F{S_NAME}+". Loan amount of RS "+$F{AC_SANCTION_AMOUNT} +"  on  "+$F{AC_SANCTION_DATE} +"  From our  Patsanstha /Bank. The given / said loan account has been Fully Repaid, adjusted with interest and other charges on Date : "+$F{AC_CLOSEDT}+" and there is no any outstanding Dues."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="10" y="211" width="80" height="20" uuid="fe8f66e0-8cc2-4c8f-961f-68a61a29a7db"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Sincerly ,]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="10" y="180" width="350" height="16" uuid="fd4b67a2-392e-4094-9f30-1802e02e70f8"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Therefore, the certificate issued on the demand application of Mr./Mrs./Shri   "]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="59" y="50" width="100" height="18" uuid="fe71378d-52d6-430c-b713-782a1a53d525"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CITY_NAME}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="348" y="180" width="174" height="16" uuid="5203acef-c803-4037-9f5e-ddc445ff3637"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{AC_NAME}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="47" y="247" width="180" height="16" uuid="d53f1106-1cde-4f1e-8777-3da8f5c28913"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{branchName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="10" y="233" width="270" height="15" uuid="13ac16c9-2a59-4d54-b558-889aee397705"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{bankName}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="11" y="247" width="48" height="17" uuid="98b82eb3-b421-49ab-b27b-e39e4823f3dd"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Branch :]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="conditional" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="3bec08ad-3cdf-4735-966a-ba4c0c31d186">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<field name="Sample" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="aa4a7cc7-1fa5-4d96-857b-9b1f1f95035c" x="249" y="15" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[Tran No.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="4c52d0bf-ae8c-4060-9953-73e23e4f2bdb" x="545" y="15" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[Narrations]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="86">
+			<staticText>
+				<reportElement uuid="5037fb8c-e6ff-479c-92ed-5bd875914aa5" x="249" y="25" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[1212]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="19bc5cee-a57f-4eb9-9cec-cb5cf35da9b8" x="545" y="45" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[LOAN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="00ec1359-153f-4fb6-9e54-6f129884028a" x="249" y="45" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[4343]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c80efcca-f238-488e-ae64-80300a2f87d1" x="545" y="25" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[SAVING]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="fe253a84-0978-4d4b-87b3-4ea1d6fcdf0b" x="249" y="65" width="100" height="20">
+					<printWhenExpression><![CDATA[($F{field1}== 0) ? "<font isBold='true'/>":""]]></printWhenExpression>
+				</reportElement>
+				<textElement/>
+				<text><![CDATA[0]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="0d2f03aa-1386-4da0-bf73-c37e9149c4da" x="545" y="5" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[PIGMY]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="653702df-f542-4221-8aba-ca02a4c04115" x="249" y="5" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[2323]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="1fd73f5f-1394-4a71-8b62-3a80ba096a6c" x="545" y="65" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{Sample}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

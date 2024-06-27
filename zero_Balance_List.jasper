@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name=" Credit_Balance_List" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="e49da251-89f5-4092-9cd3-58ebfb564d6a">
+	<property name="ireport.zoom" value="1.2100000000000002"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<field name="Branch" class="java.lang.String"/>
+	<field name="date" class="java.lang.String"/>
+	<field name="AC_NO" class="java.lang.String"/>
+	<field name="AC_NAME" class="java.lang.String"/>
+	<field name="closing_balance" class="java.lang.String"/>
+	<field name="AC_OPDATE" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="164" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="19" width="264" height="20" uuid="8c9611b9-2aa2-432b-8bda-dad850df7251"/>
+				<textElement>
+					<font size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[BANKWALA DEMONSTRATION]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="67" width="43" height="20" uuid="c406c6e7-d078-4b34-b3c9-ce3f2bbf4961"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Branch :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="446" y="53" width="158" height="34" uuid="eba80027-c335-4693-bbf5-d51b7df5dd3f"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[
+0 Balance List report as on]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="53" y="67" width="100" height="20" uuid="e6f82283-dac3-4940-8d79-f812182acfa1"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Branch}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="604" y="67" width="100" height="20" uuid="72d9a014-f84d-4838-94b5-9b98f98ec8bb"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{date}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="19" y="130" width="68" height="20" uuid="7b3970b8-8f77-422f-ae4d-e1a5589e013a"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Sr.No.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="132" y="130" width="100" height="20" uuid="6a9ceadc-dbe0-4149-b83d-ae475c5dfa86"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[A/C No.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="277" y="129" width="206" height="20" uuid="d5dddc28-8065-4783-b2cf-60bf9341348c"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Account Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="540" y="130" width="100" height="20" uuid="cd3499ab-a58a-4726-a8d7-26ab733e72cb"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Opening Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="690" y="129" width="100" height="20" uuid="e5d644a6-6bfe-4fd4-9cb4-ca669dc8f884"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Balance]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="149" width="802" height="1" uuid="7e692740-48e2-49f4-8b94-e76b691b42cb"/>
+			</line>
+			<line>
+				<reportElement x="0" y="115" width="802" height="1" uuid="ac292067-103b-40b7-ac47-6540f477842a"/>
+			</line>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="6" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="1" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="26" splitType="Stretch">
+			<textField>
+				<reportElement x="277" y="5" width="206" height="20" uuid="ae65c047-3cb4-41c0-86ca-b9871ba64015"/>
+				<textFieldExpression><![CDATA[$F{AC_NAME}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="690" y="6" width="100" height="20" uuid="6d38032c-5093-4dbe-8da2-db71ca7d047c"/>
+				<textFieldExpression><![CDATA[$F{closing_balance}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="19" y="4" width="68" height="20" uuid="d1233bd2-e582-43de-81a3-5bc9b10f5103"/>
+				<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="132" y="5" width="100" height="20" uuid="a7017538-c7dd-49fb-aaa0-25bbddea0c0d"/>
+				<textFieldExpression><![CDATA[$F{AC_NO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="540" y="6" width="100" height="20" uuid="c5aeec8d-b515-4279-8fe6-15e940a24f85"/>
+				<textFieldExpression><![CDATA[$F{AC_OPDATE}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="9" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="8" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="137" splitType="Stretch">
+			<staticText>
+				<reportElement x="87" y="112" width="100" height="20" uuid="1d84ff78-e74a-48d8-aee4-8a05bcbc5b6c"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Clerk]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="370" y="112" width="100" height="20" uuid="fce1cfcc-ab2b-4b78-894c-b61c7e46dfb7"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Manager]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="627" y="112" width="100" height="20" uuid="68209f0d-c298-49a7-88ec-b890082c0da0"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Chairman]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

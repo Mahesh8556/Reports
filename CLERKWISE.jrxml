@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="CLERKWISE" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="110cec69-cdab-4e39-9604-fd9aba738136">
+	<property name="ireport.zoom" value="1.6105100000000037"/>
+	<property name="ireport.x" value="126"/>
+	<property name="ireport.y" value="0"/>
+	<field name="branchname" class="java.lang.String"/>
+	<field name="sdate" class="java.lang.String"/>
+	<field name="clerkname" class="java.lang.String"/>
+	<field name="actype" class="java.lang.String"/>
+	<field name="acno" class="java.lang.String"/>
+	<field name="Gname" class="java.lang.String"/>
+	<field name="Acname" class="java.lang.String"/>
+	<field name="sname" class="java.lang.String"/>
+	<field name="opdate" class="java.lang.String"/>
+	<field name="edate" class="java.lang.String"/>
+	<field name="closingbalance" class="java.lang.String"/>
+	<field name="total" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="43" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="117" height="20" uuid="199215f3-58ac-4968-bf08-9d066a2596e5"/>
+				<text><![CDATA[Bankwala demonstration]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="20" width="39" height="20" uuid="3f61276c-d8c5-4672-811f-f1d44321e071"/>
+				<text><![CDATA[Branch:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="39" y="20" width="78" height="20" uuid="ff30b8cf-ede6-46cb-aec4-047e340ce2fc"/>
+				<textFieldExpression><![CDATA[$F{branchname}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="255" y="0" width="102" height="40" uuid="5009d0c1-5a13-40fe-bf0b-a5a3db07d0b0"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sdate}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="357" y="0" width="224" height="40" uuid="5b137874-15e4-425e-9a99-e1d04c7bc9f4"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[
+Recovery Clearkwise Balance List ]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="40" width="802" height="1" uuid="b2a4f0e5-587c-4948-9eca-3f925faa6e42"/>
+			</line>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="47" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="39" height="20" uuid="2d19198c-bf4b-4d93-9b67-e8a62b4839ad"/>
+				<text><![CDATA[Scheme]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="68" y="0" width="115" height="20" uuid="f91e9de0-d2a7-4274-a4ae-863034549c1f"/>
+				<text><![CDATA[A/C.No]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="334" y="0" width="100" height="20" uuid="bb4e1241-c3d9-4726-9fe2-0cfbfae91e3f"/>
+				<text><![CDATA[Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="222" y="2" width="100" height="20" uuid="8724cded-d11e-484d-ba83-6c94648d6636"/>
+				<text><![CDATA[Guaranter Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="448" y="2" width="100" height="20" uuid="04201fc9-3801-4543-8939-40737086a677"/>
+				<text><![CDATA[Scheme Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="563" y="2" width="75" height="20" uuid="6f1670b8-29bb-4346-a83f-a05a0bd6bd07"/>
+				<text><![CDATA[Opening Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="649" y="2" width="63" height="20" uuid="e3d6aab7-28eb-42fe-8f9c-b836cd0e3445"/>
+				<text><![CDATA[Expiry Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="725" y="0" width="77" height="20" uuid="c2bc837c-3ee1-46e9-9356-ea5668b10144"/>
+				<text><![CDATA[Closing Balance]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="42" width="802" height="1" uuid="6015446f-ae44-46e4-82d0-e1ddfb4e8688"/>
+			</line>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="24" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="155" height="20" uuid="d82cf02a-2f53-4fa5-ae00-29484de46fc9"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Recovery Clerk Name:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="155" y="0" width="100" height="20" uuid="5272f9c5-6428-47ea-938f-62f07ff36043"/>
+				<textFieldExpression><![CDATA[$F{clerkname}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="26" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="39" height="20" uuid="a87b051e-223d-43b0-a6c6-41b44b578957"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{actype}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="68" y="0" width="115" height="20" uuid="35428b30-0889-4ffa-bb6e-e8f916f23e22"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{acno}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="222" y="0" width="100" height="20" uuid="7dc7a5f9-3c7d-48ca-b0aa-055273464ad3"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{Gname}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="334" y="0" width="100" height="20" uuid="4d711c59-a677-49be-9eee-165fb3a87de7"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{Acname}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="448" y="0" width="100" height="20" uuid="9da39447-09a1-4a9e-bf65-ee28218a064a"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{sname}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="563" y="0" width="75" height="20" uuid="03bb9408-d4d6-430b-b211-48c893fa3da2"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{opdate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="649" y="0" width="63" height="20" uuid="907219f7-6d19-445c-b3bf-5854b175a987"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{edate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="725" y="0" width="77" height="20" uuid="14e9ae49-3ace-44f5-a6b0-e1cf97f51f70"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{closingbalance}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="5" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="3" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="76" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="0" width="802" height="1" uuid="339bca1a-718a-4e59-88a0-53302fcf6be2"/>
+			</line>
+			<staticText>
+				<reportElement x="391" y="0" width="100" height="20" uuid="a33102ce-63d5-4f2f-85a8-265a830ab684"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<text><![CDATA[CityWise Total:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="20" width="802" height="1" uuid="0fede28c-4ead-43ff-b060-f19b67174193"/>
+			</line>
+			<staticText>
+				<reportElement x="391" y="21" width="100" height="20" uuid="944f1121-e8db-4443-bd78-2b09f30e5e1b"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Total:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="40" width="802" height="1" uuid="fee16cfb-90e4-4154-ade2-1f423bf74790"/>
+			</line>
+			<staticText>
+				<reportElement x="83" y="54" width="100" height="20" uuid="dcaa9caf-9002-4569-8bef-f4450db0c610"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Cashier]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="391" y="54" width="100" height="20" uuid="0737a0b0-b7ce-453b-8456-78a703a397cd"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Branch Manager]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="681" y="54" width="100" height="20" uuid="99b14beb-9b45-4398-984d-f979420aecf2"/>
+				<textElement textAlignment="Center" verticalAlignment="Top"/>
+				<text><![CDATA[Clerk]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="725" y="1" width="77" height="20" uuid="72ccac13-c29f-4a93-b62e-b2e335d9165c"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{total}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

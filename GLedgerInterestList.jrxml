@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="GLedgerInterestList" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="849af1be-9d3d-433f-8281-615564d12dd8">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<field name="field1" class="java.lang.String"/>
+	<field name="field2" class="java.lang.String"/>
+	<field name="field3" class="java.lang.String"/>
+	<field name="field4" class="java.lang.String"/>
+	<field name="field5" class="java.lang.String"/>
+	<field name="field6" class="java.lang.String"/>
+	<group name="A/c Detail">
+		<groupExpression><![CDATA[$F{field1}]]></groupExpression>
+		<groupHeader>
+			<band height="20">
+				<staticText>
+					<reportElement uuid="6bfdf513-6dbf-4f6f-881e-ce7dbe22aa83" x="0" y="0" width="61" height="20"/>
+					<textElement verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[A/c Detail :]]></text>
+				</staticText>
+				<textField>
+					<reportElement uuid="cd1582a5-7a1e-4b2e-9d1a-dd34b8af277a" x="61" y="0" width="76" height="20"/>
+					<textElement verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$F{field1}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="11"/>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="37" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="0957731d-cd23-4a50-9f1f-faf3f143aec8" x="0" y="0" width="231" height="18"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[BANKWALA DEMONSTRATION.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="20411718-5dc7-4a75-865a-1cda9836bfdc" x="0" y="18" width="44" height="18"/>
+				<textElement verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Branch :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="ee88e1f7-95f4-4424-b857-f4b1106d360c" x="206" y="18" width="393" height="18"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[General Ledger Interest List From 01/08/2020 To 18/08/2020]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="28" splitType="Stretch">
+			<line>
+				<reportElement uuid="5f42bb41-b53c-4980-b458-73394f1eaa95" x="0" y="3" width="727" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.9"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement uuid="c50d15b0-f7aa-4048-a85d-24e477095e77" x="0" y="4" width="84" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="5d6a9199-bd6a-4597-a319-16283fcb9080" x="108" y="4" width="56" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Days]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="4df01d0b-b28a-450d-88f2-059b9ff2b650" x="282" y="3" width="148" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Balance Amount]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="f8948cda-049e-4c4a-b12f-5e7e25c91041" x="585" y="4" width="139" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Debit Interest ( 10.00% )]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="9cbd02ab-50d3-4fa0-8a30-c564e6510449" x="449" y="4" width="136" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Credit Interest ( 8.00% )]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="aaa617c2-ea15-4231-a112-b4f6593dfe76" x="0" y="25" width="727" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.9"/>
+				</graphicElement>
+			</line>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement uuid="e6f7b2b1-19a3-4be7-a47c-0a698ea0e620" x="0" y="0" width="84" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{field2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="480cf70c-e1c5-4beb-a33b-a070c09e4317" x="106" y="0" width="58" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{field3}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="28e5b1d3-b17f-4348-ab93-32aef0dec3c8" x="282" y="0" width="148" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{field4}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="eca333df-8f4a-471b-8903-61c36ba86494" x="449" y="0" width="136" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{field5}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="8b0690a9-6456-4797-9626-8244de66c24b" x="585" y="0" width="139" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{field6}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="63" splitType="Stretch">
+			<line>
+				<reportElement uuid="4edfa81c-7223-4a6f-937e-9c1092159583" x="0" y="14" width="727" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.9"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement uuid="feb49597-a54c-4c34-9c7f-60223982412e" x="609" y="15" width="80" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement uuid="421608a0-8cbb-4c4f-9e19-3465d0fdf22d" x="689" y="15" width="40" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="d/M/yyyy h.mm a">
+				<reportElement uuid="339ff757-1f15-499b-8e41-6211ad13e3ac" x="0" y="15" width="100" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="0a01d2d9-34e7-4b0a-b851-a1d1ee67ebfa" x="100" y="15" width="75" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[ SUPERVISOR]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="89" splitType="Stretch">
+			<line>
+				<reportElement uuid="5e8229fe-b2cf-472f-8375-33c4baa212e2" x="0" y="45" width="727" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.9"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement uuid="c3728eed-c25a-47ce-947b-62700fefd156" x="449" y="24" width="117" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total Interest Amount :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="805a07a3-8174-4e3f-ae9d-b4d0a277801a" x="35" y="4" width="49" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total :]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="8486fa41-c219-4b22-9381-40d5a1b89ce3" x="0" y="3" width="727" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.9"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement uuid="82d0a5f7-9e5d-4bf1-8b43-32d73e74ec6a" x="37" y="69" width="100" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Secretary]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

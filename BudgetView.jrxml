@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.5.final using JasperReports Library version 6.20.5-3efcf2e67f959db3888d79f73dde2dbd7acb4f8e  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="BudgetView" pageWidth="900" pageHeight="860" orientation="Landscape" columnWidth="860" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8d6addb9-d448-4a36-bca8-44e3b880121a">
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="bank" class="java.lang.String"/>
+	<field name="branch" class="java.lang.String"/>
+	<field name="AcNo" class="java.lang.String"/>
+	<field name="AcName" class="java.lang.String"/>
+	<field name="ba24" class="java.lang.String"/>
+	<field name="balance" class="java.lang.String"/>
+	<field name="examt" class="java.lang.String"/>
+	<field name="expercent" class="java.lang.String"/>
+	<field name="lessamt" class="java.lang.String"/>
+	<field name="lesspercent" class="java.lang.String"/>
+	<field name="ba25" class="java.lang.String"/>
+	<field name="t1" class="java.lang.String"/>
+	<field name="t2" class="java.lang.String"/>
+	<field name="t3" class="java.lang.String"/>
+	<field name="t4" class="java.lang.String"/>
+	<field name="t5" class="java.lang.String"/>
+	<field name="pnode" class="java.lang.String"/>
+	<field name="flag" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="81" splitType="Stretch">
+			<textField>
+				<reportElement x="-20" y="2" width="900" height="28" uuid="445fe880-e770-4b07-82ca-dfc07bbd89ec"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{bank}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="63" y="56" width="100" height="21" uuid="fc396d0a-6c51-4ad7-8f93-cffa3bfd4b23"/>
+				<textFieldExpression><![CDATA[$F{branch}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="-10" y="56" width="100" height="21" uuid="669ee1a2-b43c-4870-b44f-a41177a74ba1"/>
+				<text><![CDATA[Branch Name : ]]></text>
+			</staticText>
+			<line>
+				<reportElement x="-20" y="77" width="900" height="1" uuid="ada147a1-96df-47a2-9a77-f067262821c4"/>
+			</line>
+			<staticText>
+				<reportElement x="326" y="30" width="260" height="30" uuid="60f80301-8e58-45d7-b78c-0167f6ad6ec6">
+					<printWhenExpression><![CDATA[$F{flag} == 0]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Budget Allocation Master Expendature]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="330" y="30" width="210" height="30" uuid="694d1c5b-8380-4ef6-8c1d-d61022b00a0c">
+					<printWhenExpression><![CDATA[$F{flag} == 1]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Budget Allocation Master Income]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="27" splitType="Stretch">
+			<staticText>
+				<reportElement x="-10" y="2" width="30" height="20" uuid="9919bd34-3285-496c-bf92-d1e83eadf233"/>
+				<text><![CDATA[Sr.No.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="25" y="3" width="80" height="20" uuid="83bd13df-00f1-4f87-9f99-611c214130bd"/>
+				<text><![CDATA[Account No.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="95" y="2" width="111" height="20" uuid="281c0934-22c3-4ab1-80cb-8bd561d9f0ce"/>
+				<text><![CDATA[Account Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="232" y="-1" width="63" height="20" uuid="ec8ffd50-b10c-45e0-84af-aabe8c1d99a6"/>
+				<text><![CDATA[Budget Amt 2023-2024]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="323" y="2" width="100" height="20" uuid="330ca222-e07e-4ee7-bd83-23aed13d3593"/>
+				<text><![CDATA[Current Balance]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="423" y="2" width="100" height="20" uuid="31a63d77-0965-4a3f-83d5-c475add94d9c"/>
+				<text><![CDATA[Excess Amt]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="523" y="2" width="100" height="20" uuid="fe60c852-fce3-4c00-b408-0b32203366db"/>
+				<text><![CDATA[Excess Percentage]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="623" y="2" width="100" height="20" uuid="8ddea7ed-561a-4319-8a83-eef29a1cc320"/>
+				<text><![CDATA[Less Amt]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="791" y="0" width="80" height="20" uuid="cfc0f17c-56ae-4f85-a9cf-9cd5c66ef5ed"/>
+				<text><![CDATA[Budget Amt 2024-2025]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="691" y="2" width="100" height="20" uuid="420dbb81-58df-4fb5-a208-28d35d991f34"/>
+				<text><![CDATA[Less Percentage]]></text>
+			</staticText>
+			<line>
+				<reportElement x="-20" y="19" width="900" height="1" uuid="0231bb20-03bb-4105-9a51-edc4424883ef"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="29" y="0" width="90" height="20" uuid="84c79115-87c0-4cf0-bfcb-eea90a86ab88"/>
+				<textFieldExpression><![CDATA[$F{AcNo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="97" y="0" width="111" height="20" uuid="173a03f4-a0ab-4b5c-92ae-2ccf63203d19">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="3a2f368c-bbb0-4bcd-ab86-6102b5b40ffc"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{AcName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="-8" y="0" width="21" height="20" uuid="87702f9b-aa31-4424-b6b7-d23d98c63741"/>
+				<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="229" y="-4" width="90" height="20" uuid="6c4dbe9b-abce-4cff-96df-54aff6c8ec10">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0793e010-b45b-48e9-a89c-4ee44bd14976"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{ba24}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="328" y="0" width="90" height="20" uuid="41a90fbd-42a0-4516-a306-dde01fe7570d">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d916a6cf-e9cc-4cd9-b049-e830e742510c"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{balance}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="428" y="0" width="100" height="20" uuid="ad633a43-9d59-4c6d-b8cc-bd26da85d90f">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d5fad31e-feb9-4cd5-af26-b494a9b0df38"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{examt}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="528" y="0" width="100" height="20" uuid="026c19ae-6e65-45fc-9684-f1d127a59f8d">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f6837643-7010-4c7a-a140-66cf1720fc54"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{expercent}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="628" y="0" width="100" height="20" uuid="b9bc3fd8-6fc3-4ef4-82c5-0e5bec15c4dd">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a1a4ab5f-5236-4050-bfcd-a992719b2652"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{lessamt}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="696" y="0" width="100" height="20" uuid="2ec2c06b-86b8-456c-87be-6e2b2a22385f">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="942c1eb1-9f85-4226-ad45-4bfc4acbab1c"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{lesspercent}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="796" y="0" width="80" height="20" uuid="676c91b8-ba94-439e-b2be-342546b6ad25">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="87d2c53d-a3ca-4d79-ae11-f81c3dbc8bbe"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{ba25}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="36" splitType="Stretch">
+			<textField pattern="M/d/yy h:mm a">
+				<reportElement x="-14" y="10" width="100" height="19" uuid="c99a110c-81d8-44e8-ab86-3ec5310c9a4c"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="682" y="10" width="190" height="18" uuid="c7a10cdd-579a-4ab5-897f-2cf30121c7bf"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[" page" + $V{PAGE_NUMBER} +"of "+ $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="-20" y="2" width="900" height="1" uuid="59cc3077-9771-472f-8a98-9d40abe4915c"/>
+			</line>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement x="150" y="9" width="42" height="20" uuid="4066fda9-ab8c-4fc6-ae35-97411efa5786"/>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="218" y="9" width="90" height="20" uuid="68f3d5e9-398f-4003-8dc7-5dcb7cbc7bc9"/>
+				<textFieldExpression><![CDATA[$F{t1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="325" y="9" width="100" height="20" uuid="a1bfcffc-d4f4-4f92-86df-f015c5339f97"/>
+				<textFieldExpression><![CDATA[$F{t2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="425" y="10" width="100" height="20" uuid="2cd40237-81b8-4bfc-9cb4-77b6f94a1ef9"/>
+				<textFieldExpression><![CDATA[$F{t3}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="620" y="9" width="100" height="20" uuid="33c2771a-6981-4bd1-ab82-94347fa527ac"/>
+				<textFieldExpression><![CDATA[$F{t4}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="789" y="10" width="100" height="20" uuid="7e880b23-8cb1-4ba0-b156-388b8c4106de"/>
+				<textFieldExpression><![CDATA[$F{t5}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="-20" y="2" width="900" height="1" uuid="dc097ad4-0d06-4103-8989-3eaa76065a35"/>
+			</line>
+			<line>
+				<reportElement x="-20" y="28" width="900" height="1" uuid="8f957812-30e9-44ab-8ce0-f2979e457e64"/>
+			</line>
+		</band>
+	</summary>
+</jasperReport>

@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.5.final using JasperReports Library version 6.20.5-3efcf2e67f959db3888d79f73dde2dbd7acb4f8e  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="NPA_Analysis_Report1" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="27e0b812-bd57-4996-b232-5cedd0c9019e">
+	<property name="ireport.zoom" value="1.7715610000000512"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<field name="date1" class="java.lang.String"/>
+	<field name="date2" class="java.lang.String"/>
+	<field name="Gross_Advance1" class="java.lang.String"/>
+	<field name="Gross_Advance2" class="java.lang.String"/>
+	<field name="Gross_NPA1" class="java.lang.String"/>
+	<field name="Gross_NPA2" class="java.lang.String"/>
+	<field name="Percentage_of_Gross_NPA" class="java.lang.String"/>
+	<field name="Percentage_of_Gross_NPA2" class="java.lang.String"/>
+	<field name="Overdue_Interest_Reserve" class="java.lang.String"/>
+	<field name="Overdue_Interest_Reserve1" class="java.lang.String"/>
+	<field name="Cerdit_Amount_of_Anamat" class="java.lang.String"/>
+	<field name="Credit_Amount_of_Anamat2" class="java.lang.String"/>
+	<field name="NPA_Provision" class="java.lang.String"/>
+	<field name="NPA_Provision2" class="java.lang.String"/>
+	<field name="Net_Advance" class="java.lang.String"/>
+	<field name="Net_Advance2" class="java.lang.String"/>
+	<field name="Net_NPA" class="java.lang.String"/>
+	<field name="Net_NPA2" class="java.lang.String"/>
+	<field name="Percentage_of_Net_NPA_With_Net_Advance" class="java.lang.String"/>
+	<field name="Total_Deductions1" class="java.lang.String"/>
+	<field name="Total_Deductions2" class="java.lang.String"/>
+	<field name="Percentage_of_NPA_With_Net_Advance2" class="java.lang.String"/>
+	<field name="Branch_name" class="java.lang.String"/>
+	<field name="Bank_name" class="java.lang.String"/>
+	<field name="Field_1" class="java.lang.String"/>
+	<field name="BranchCode" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="53" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="33" width="40" height="20" uuid="c45c6cf0-5c3e-482e-8527-7120b57f9265"/>
+				<textElement verticalAlignment="Bottom"/>
+				<text><![CDATA[Branch:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="737" y="33" width="65" height="20" uuid="a9d690ca-aa59-4e27-86c4-808242850501"/>
+				<text><![CDATA[(Rs in Lakhs)]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="37" y="33" width="100" height="20" uuid="1e402401-5ef3-4126-9b9e-7c57e19b4566"/>
+				<textElement verticalAlignment="Bottom"/>
+				<textFieldExpression><![CDATA[$F{Branch_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1" y="0" width="799" height="20" uuid="9c9eceb5-d656-4cbb-b352-00afc3dc80d4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Bank_name}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="37" splitType="Stretch">
+			<textField>
+				<reportElement x="404" y="2" width="195" height="35" uuid="ddb26b1d-77b6-4766-91e6-2dca876af464"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{date1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="600" y="2" width="201" height="35" uuid="053a5bd1-607b-4afa-a956-1e1851fc39ae"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{date2}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="66" y="1" width="337" height="34" uuid="c12a0bbf-938d-497c-b972-978ffc0bf0ce"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Particulars]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="1" width="65" height="34" uuid="98f610c4-2d90-472d-b1bf-378d09b017ff"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Sr. No.]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="324" splitType="Stretch">
+			<line>
+				<reportElement x="403" y="0" width="1" height="322" uuid="bb66faa0-1255-4af6-9b61-c47f71c91b93"/>
+			</line>
+			<line>
+				<reportElement x="599" y="-3" width="1" height="323" uuid="76b57b77-f760-4878-aca9-f19f0c34446e"/>
+			</line>
+			<line>
+				<reportElement x="801" y="0" width="1" height="322" uuid="b901ccc0-b543-4a6e-a995-78b59dac7a09"/>
+			</line>
+			<line>
+				<reportElement x="0" y="0" width="1" height="323" uuid="cc072038-0d68-4d5b-ac1e-fb3c26433b38"/>
+			</line>
+			<line>
+				<reportElement x="1" y="322" width="402" height="1" uuid="61c474ac-eb0b-44dc-9bc4-ccb0ce1b182c"/>
+			</line>
+			<line>
+				<reportElement x="403" y="322" width="86" height="1" uuid="8f45476f-a6c7-4fef-b767-2433b045a1e8"/>
+			</line>
+			<line>
+				<reportElement x="489" y="322" width="312" height="1" uuid="a284834f-9f1f-451b-83e1-b8f0c9c530df"/>
+			</line>
+			<staticText>
+				<reportElement x="24" y="5" width="21" height="20" uuid="a69f8a4d-9815-4d86-b01c-bb25072ce110"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[1)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="36" width="21" height="20" uuid="b801ae6b-4dc8-47b0-a3b9-ae17ff7b323e"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[2)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="66" width="21" height="32" uuid="a8520219-0122-4a05-96db-5051928798a4"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[3)]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="405" y="67" width="195" height="20" uuid="f90674e7-bdbb-48b9-a70b-5ed84a77ee35"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Percentage_of_Gross_NPA}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="66" y="67" width="289" height="31" uuid="78fcb8d6-af5a-47c9-a956-1e0a1dfec69d"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Percentage of Gross NPA with Gross Advance SrNo. 2 / 1 * 100]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="108" width="21" height="20" uuid="568ee8a5-1445-42be-816c-18c95eb45cec"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[4)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="66" y="108" width="100" height="20" uuid="a52bc65a-9c3a-4e39-91fb-008a52f7cc3a"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Deductions]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="66" y="128" width="227" height="20" uuid="e8a876b4-5d00-4053-8183-b8d9d237269e"/>
+				<text><![CDATA[Overdue Interst Reserve as Per Profit & Loss A/C]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="66" y="148" width="227" height="20" uuid="59cdffde-f6f5-448f-867e-cfd5329c547a"/>
+				<text><![CDATA[Credit Amount of Anamat A/C for NPA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="66" y="168" width="110" height="20" uuid="2504fc83-9dbc-4ef6-8005-8776146429f9"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total Deductions  >>>]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="199" width="21" height="20" uuid="1478b355-b99c-4cf0-8a23-16847b7f9e53"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[5)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="66" y="199" width="100" height="20" uuid="8a72d8b7-398e-4b3a-86e4-1cc29f602599"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[NPA Provision]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="404" y="199" width="195" height="22" uuid="2d4057b1-f3ea-4c62-a337-057daa2b8fba"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NPA_Provision}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="24" y="231" width="21" height="20" uuid="1033ecab-dbfa-4890-b035-5d874604d03c"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[6)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="261" width="21" height="20" uuid="675d7b33-bcab-42d9-92c4-4107da20a7d9"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[7)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="293" width="21" height="20" uuid="5cf9aa68-8f5e-494d-89e5-cb5a3272879b"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[8)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="66" y="231" width="120" height="20" uuid="6c73b805-f2a4-44c8-8df2-d419d3e333a8"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Net Advance ( 1 - 4 - 5 )]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="404" y="231" width="195" height="20" uuid="bd580ef4-f320-4868-8bff-f18fe48b76db"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Net_Advance}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="66" y="261" width="100" height="20" uuid="de0772fc-4340-4326-8859-8b8a03478593"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Net NPA ( 2 - 4 - 5 )]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="404" y="261" width="195" height="20" uuid="30fd49d7-eb00-47b6-922d-0a6fd6467288"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Net_NPA}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="66" y="293" width="269" height="20" uuid="f1f73f4c-73e9-4785-9f1a-195f707854ba"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Percentage of Net NPA With Net Advance ( 7 / 6 * 100 )]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="405" y="293" width="195" height="20" uuid="79878e4e-9280-4911-a910-a6e4905e7078"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Percentage_of_Net_NPA_With_Net_Advance}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="404" y="126" width="195" height="20" uuid="3f5cd8aa-c943-4806-8687-39ee9305808d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Overdue_Interest_Reserve}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="404" y="147" width="195" height="20" uuid="ad162917-1c5c-4259-82ff-5e759a844a40"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Cerdit_Amount_of_Anamat}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="403" y="5" width="195" height="20" uuid="d6a0f031-1893-4435-8ffd-2e311445882c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Gross_Advance1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="600" y="5" width="200" height="20" uuid="f361cd6b-2948-4b0e-b578-8336385645f2"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Gross_Advance2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="405" y="36" width="195" height="20" uuid="aafd4626-55ab-43d6-a572-e3e09207cd74"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Gross_NPA1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="601" y="36" width="200" height="20" uuid="2a24d5f6-8e20-458d-83de-c582ad23872f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Gross_NPA2}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="66" y="5" width="89" height="20" uuid="6b3bf988-77d6-42a2-ade0-6e78b23c414b"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Gross Advance]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="66" y="36" width="100" height="20" uuid="02764b02-40ea-4052-acba-85e4f7965cb4"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Gross NPA]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="601" y="67" width="200" height="20" uuid="42d33bfb-99ee-4a12-a7e2-0a348d93b45f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Percentage_of_Gross_NPA2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="601" y="198" width="200" height="23" uuid="118ecab3-e4d4-4fc6-9af4-66c585f39512"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NPA_Provision2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="601" y="231" width="200" height="20" uuid="a3bf1603-6d60-4ed0-abd7-e6fd9694c6d0"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Net_Advance2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="404" y="169" width="195" height="20" uuid="c4a0b2a3-1655-4895-a842-2f0091830884"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Total_Deductions1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="601" y="168" width="200" height="21" uuid="1f6df5c0-e967-4624-9ce6-c4036d58c256"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Total_Deductions2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="601" y="125" width="200" height="23" uuid="f662e4e0-9971-44d8-882d-17d91bd37b2a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Overdue_Interest_Reserve1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="601" y="148" width="200" height="21" uuid="4f106d95-744c-41ba-864e-60265bca325e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Credit_Amount_of_Anamat2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="601" y="261" width="200" height="20" uuid="1350da62-547f-46ff-8d17-1c2029d9c66e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Net_NPA2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="601" y="293" width="200" height="31" uuid="a23cfddd-319e-41d0-a1ea-e03e45f7f28e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Percentage_of_NPA_With_Net_Advance2}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="-1" y="0" width="803" height="1" uuid="5c7796f3-2d98-4cf6-a713-467273ad3339"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="2" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="403" height="54" uuid="d634e9a8-a028-4810-881a-9608924d9f7e"/>
+				<text><![CDATA[i.e. accured interest on NPA account if included (capitalised) in loans and advances CERTIFIED that the non-performing assets have been worked out as per RBI instructions and provisions made accordingly.]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="2" splitType="Stretch"/>
+	</summary>
+</jasperReport>

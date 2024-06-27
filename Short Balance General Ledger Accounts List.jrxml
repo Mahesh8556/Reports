@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.0.final using JasperReports Library version 6.20.0-2bc7ab61c56f459e8176eb05c7705e145cd400ad  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Short Balance Deposit List" language="groovy" pageWidth="720" pageHeight="595" orientation="Landscape" columnWidth="680" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="7c9de619-8567-4394-b703-dd990e716d9d">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<field name="bankname" class="java.lang.String"/>
+	<field name="scheme" class="java.lang.String"/>
+	<field name="Branch_name" class="java.lang.String"/>
+	<field name="total" class="java.lang.String"/>
+	<field name="date" class="java.lang.String"/>
+	<field name="Ac_no" class="java.lang.String"/>
+	<field name="closing_balance" class="java.lang.String"/>
+	<group name="Group1">
+		<groupHeader>
+			<band height="43">
+				<textField>
+					<reportElement x="60" y="11" width="80" height="20" uuid="304794b5-13ec-475d-8546-1ccf060d3d29"/>
+					<textElement>
+						<font size="12" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{scheme}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="0" y="11" width="60" height="20" uuid="ad7acf34-3776-4614-9536-e158276ce275"/>
+					<textElement>
+						<font size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Scheme:-]]></text>
+				</staticText>
+				<line>
+					<reportElement x="0" y="3" width="680" height="1" uuid="5455519e-7a37-415e-87e0-38658a44b543"/>
+				</line>
+				<line>
+					<reportElement x="0" y="35" width="680" height="1" uuid="9a7e87ec-bc05-4617-b956-fc1614a696e4"/>
+				</line>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="50"/>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="76" splitType="Stretch">
+			<textField>
+				<reportElement x="54" y="11" width="549" height="20" uuid="886cdf51-661b-417e-8cdc-26525cefb84d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{bankname}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="92" y="49" width="110" height="20" uuid="0374eb3d-52cc-4749-974a-82f2866eacc8"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Branch_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="280" y="50" width="89" height="20" uuid="9cc047e7-220a-4c0a-b496-48d1ed277107"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{date}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="50" width="90" height="19" uuid="4bafc33f-68d5-41b2-b570-52dc4313758e"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Branch_name]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="37" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="8" width="120" height="22" uuid="24581cd3-b34c-44da-bad3-579851a1806f"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Ac_no}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="130" y="7" width="100" height="23" uuid="16a3337a-b81f-4b64-bb21-4d78a479c65c"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{closing_balance}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="230" y="7" width="20" height="23" uuid="d249381b-e49f-4991-b677-0dbbdadf9cda"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cr.]]></text>
+			</staticText>
+		</band>
+	</detail>
+</jasperReport>

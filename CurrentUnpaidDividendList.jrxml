@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="CurrentUnpaidDividendList" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6db823d8-e198-48e7-8541-5ecdd98d221c">
+	<property name="ireport.zoom" value="1.6105100000000017"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="41"/>
+	<field name="BRANCH" class="java.lang.String"/>
+	<field name="PRINT_DATE" class="java.lang.String"/>
+	<field name="BANK_NAME" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="35" width="46" height="20" uuid="87676ba6-1dbf-49d3-a708-79949a031311"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[BRANCH:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="46" y="35" width="67" height="20" uuid="6fbe7f01-d701-4192-ab0f-dd632d73b8ed"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{BRANCH}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="66" width="555" height="1" uuid="34227b3f-b3c0-49ec-b398-0e9056596f49"/>
+			</line>
+			<staticText>
+				<reportElement x="171" y="35" width="163" height="20" uuid="904b0030-819f-4fdf-bf95-62036d0b44d4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Current Unpaid Dividend List  as on]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="350" y="35" width="100" height="20" uuid="dace50f8-5e42-4c82-8c64-3a13edd66d83"/>
+				<textFieldExpression><![CDATA[$F{PRINT_DATE}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="439" y="0" width="116" height="20" uuid="8a2f2a64-1a1d-4442-aa5a-a7503ac0460b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Current Unpaid Dividend]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="230" y="6" width="89" height="20" uuid="38592d26-e383-48cf-bc3a-0575d21a9ae2"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{BANK_NAME}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="27" height="28" uuid="e907c4d4-c38e-4887-815b-4e9ce779c9a8"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Sr.No.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="46" y="0" width="52" height="20" uuid="1a9ec3b2-b641-45c1-bc18-0e816823868f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Member No.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="113" y="0" width="61" height="20" uuid="2d6f6819-c67d-437c-870f-bb8d6afc69ff"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Member Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="187" y="0" width="57" height="20" uuid="06dba1eb-a2a1-47c5-9903-0eda455b5f44"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Closing Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="257" y="0" width="62" height="20" uuid="d8508f1a-92e5-4ace-871d-bf5f81b37bb7"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Shares Amount]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="334" y="0" width="65" height="20" uuid="3e7f485d-a751-41c0-be9c-043dcf468d7f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Dividend Amount]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="421" y="0" width="57" height="20" uuid="9b755b89-73c3-483c-a5f0-a03cfd7e3d14"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Other Amount]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="495" y="0" width="60" height="20" uuid="6f693949-cbc7-414b-9d88-03a66ac0be9d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Total Amount]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="28" width="555" height="1" uuid="9a0d307a-00a3-4281-b1d0-ffd49fd06466"/>
+			</line>
+			<line>
+				<reportElement x="0" y="41" width="555" height="1" uuid="8bf537ee-79d4-4273-a232-3b12517edfbf"/>
+			</line>
+			<line>
+				<reportElement x="0" y="64" width="555" height="1" uuid="86a8833c-c8ac-4b77-abc4-108b8cc60378"/>
+			</line>
+			<staticText>
+				<reportElement x="219" y="44" width="25" height="20" uuid="c6675d2c-7b9b-4fd5-a789-9ac5810828d1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Total:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="257" y="45" width="28" height="19" uuid="2a9db252-6067-46c0-94c7-0048858afb60"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

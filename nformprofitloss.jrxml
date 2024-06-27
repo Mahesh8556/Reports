@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="nformprofitloss" language="groovy" pageWidth="750" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6b4c44db-af50-403d-8062-a3aec9ade3bf">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="50" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="1edd6c61-2c10-4706-857d-d99697285e4f" x="0" y="0" width="316" height="19"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DEVYANI SAHAKARI BANK LTD., KOPARGAON.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="8fd6781a-9d9e-40ee-9914-ac4923219078" x="0" y="20" width="40" height="19"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Branch :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="01e07867-a6d2-4078-b2df-f35e7adba7f2" x="204" y="20" width="368" height="19"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Profit And Loss Account for the Period Ending as on 05/07/2022]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="42" splitType="Stretch">
+			<line>
+				<reportElement uuid="64c6b1ef-9a77-4c22-9369-dc15c5470d60" x="0" y="1" width="710" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.9"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement uuid="00047b2b-40f1-4c80-a303-e9a453f1a0ae" x="0" y="2" width="87" height="37"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Balance as
+on       31/03/2022]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="bb807ba3-6bd1-4b31-a6ea-05939f2ec19f" x="87" y="2" width="108" height="37"/>
+				<box topPadding="0" bottomPadding="4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[L I A B I L I T I E S]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="a12f9cef-547a-4f8d-b0c2-ce3533d9cc25" x="195" y="2" width="77" height="29"/>
+				<box topPadding="2"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Sub Amount]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="998feb63-25f8-4ca4-a581-9b4bbb36edf1" x="272" y="2" width="72" height="29"/>
+				<box topPadding="2"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ Amount]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="99a68a9f-3bb6-414c-84e0-137ccb7f57a2" x="446" y="2" width="110" height="37"/>
+				<box topPadding="0" leftPadding="2" bottomPadding="4"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[A S S E T S]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="ef18f1fa-49ad-4a63-9e7c-045150cc3956" x="346" y="2" width="100" height="37"/>
+				<box leftPadding="0"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Balance as
+on       31/03/2022]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="76c5b4d2-547c-4395-bd0e-d06394d884f6" x="640" y="2" width="70" height="29"/>
+				<box topPadding="2"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ Amount]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c4cdd78c-6867-4ce2-9a2d-a5855e218b2c" x="556" y="2" width="84" height="29"/>
+				<box topPadding="2"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Sub Amount]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="5edafc5a-0aa6-4bdb-98e7-a89c6315f2e3" x="0" y="39" width="710" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.9"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement uuid="52388601-a8a7-409c-af55-0c2d6af35c3c" x="345" y="2" width="1" height="37"/>
+				<graphicElement>
+					<pen lineWidth="0.9"/>
+				</graphicElement>
+			</line>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="62" splitType="Stretch"/>
+	</detail>
+	<pageFooter>
+		<band height="61" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="93" splitType="Stretch"/>
+	</summary>
+</jasperReport>

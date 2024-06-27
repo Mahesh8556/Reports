@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.0.final using JasperReports Library version 6.20.0-2bc7ab61c56f459e8176eb05c7705e145cd400ad  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Voucher Printing" language="groovy" printOrder="Horizontal" pageWidth="720" pageHeight="288" orientation="Landscape" columnWidth="719" leftMargin="1" rightMargin="0" topMargin="0" bottomMargin="0" uuid="4765bb0e-0264-429f-abf3-2383f96050d9">
+	<property name="ireport.zoom" value="0.8264462809917354"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<field name="ac_name" class="java.lang.String"/>
+	<field name="ledgerbalance" class="java.lang.String"/>
+	<field name="tranamount" class="java.lang.String"/>
+	<field name="voucher_type" class="java.lang.String"/>
+	<field name="date" class="java.lang.String"/>
+	<field name="NAME" class="java.lang.String"/>
+	<field name="voucher_no" class="java.lang.String"/>
+	<field name="TRAN_ACNOTYPE" class="java.lang.String"/>
+	<field name="ac_no" class="java.lang.String"/>
+	<field name="AMTINWORDS" class="java.lang.String"/>
+	<field name="crdr" class="java.lang.String"/>
+	<field name="trantype" class="java.lang.String"/>
+	<field name="totalvalue" class="java.lang.String"/>
+	<field name="NARRATION" class="java.lang.String"/>
+	<field name="Narration1" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="256" splitType="Stretch">
+			<textField>
+				<reportElement x="14" y="52" width="41" height="21" uuid="8430a4e9-a5d4-41ec-986b-c4b5b7d56342"/>
+				<textElement textAlignment="Left" verticalAlignment="Bottom">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{voucher_no}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="72" y="52" width="53" height="21" uuid="bfb7e44f-736f-4c52-973e-3169696bf69d"/>
+				<textElement verticalAlignment="Bottom">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{date}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="295" y="52" width="38" height="21" uuid="bb9d16f4-e60b-4871-9126-f2d8afcea302"/>
+				<textElement textAlignment="Left" verticalAlignment="Bottom">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{voucher_no}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="407" y="52" width="63" height="21" uuid="f3d8502e-6dee-4d61-8eaf-de89fd263346"/>
+				<textElement textAlignment="Left" verticalAlignment="Bottom">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{date}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="35" y="75" width="144" height="20" uuid="c6fa3181-41c7-4205-be11-6d5479a0ff15"/>
+				<textElement textAlignment="Left" verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[$F{ac_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="296" y="77" width="205" height="20" uuid="f6b587bc-77e5-44dc-a0a9-01c3ff697a78"/>
+				<textElement textAlignment="Left" verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[$F{ac_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="106" y="86" width="90" height="20" uuid="af7bac3a-bdcd-4953-bad8-5a69ffde44e9"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[$F{TRAN_ACNOTYPE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="86" width="84" height="20" uuid="01609aea-4e99-4add-b0fe-36f6cd3e22ed"/>
+				<textElement textAlignment="Left" verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[$F{ac_no}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="269" y="88" width="100" height="20" uuid="bcafcfe7-72e9-46d2-b750-5354082abb9c"/>
+				<textFieldExpression><![CDATA[$F{ac_no}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="468" y="88" width="127" height="20" uuid="e8ca170b-715a-42cf-851c-da4da4604266"/>
+				<textFieldExpression><![CDATA[$F{TRAN_ACNOTYPE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="137" y="52" width="54" height="21" uuid="94d5cb38-50ab-47d8-8ef3-3acc5addd380"/>
+				<textElement verticalAlignment="Bottom">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{trantype}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="534" y="52" width="59" height="21" uuid="611f106f-7624-426d-97d7-36967f4061d4"/>
+				<textElement textAlignment="Left" verticalAlignment="Bottom">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{trantype}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="7" y="129" width="110" height="25" uuid="e74bbbe5-5ccf-4c18-90b8-d6212b7f9029">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{Narration1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="133" y="129" width="51" height="25" uuid="b2833f8b-655f-4ed9-a190-6219d83c6725"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{tranamount}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="188" y="129" width="36" height="25" uuid="3000597b-ee0e-48d7-91a7-99ddfbd1887b"/>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA[$F{crdr}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="287" y="129" width="169" height="25" uuid="6315d407-985f-4700-b247-40e7159ba950"/>
+				<textFieldExpression><![CDATA[$F{Narration1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="466" y="129" width="100" height="25" uuid="3db2d8d7-5723-4420-b266-0cbbb92b9368"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{tranamount}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="568" y="129" width="32" height="25" uuid="cccfac6a-f44b-46c8-b646-3980e5801cd2"/>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA[$F{crdr}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="7" y="170" width="100" height="17" uuid="039771bc-4207-42d8-b474-88bfb4659e5b"/>
+				<textFieldExpression><![CDATA[$F{NARRATION}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="7" y="198" width="90" height="31" uuid="8891fa21-2254-4236-a604-12aaff447d3d"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[$F{AMTINWORDS}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="188" y="170" width="169" height="17" uuid="0e99068e-1855-4183-82e4-bf813cf48c9b"/>
+				<textFieldExpression><![CDATA[$F{NARRATION}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="548" y="198" width="32" height="30" uuid="9f73d762-03ae-4045-a3fe-b5eb4cc8db88"/>
+				<textElement textAlignment="Left" verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[$F{crdr}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="446" y="198" width="100" height="30" uuid="4071c58d-4aba-4001-8b9b-2696f8bfa1c9"/>
+				<textElement textAlignment="Right" verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[$F{totalvalue}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="306" y="198" width="130" height="30" uuid="bf414750-5b34-45aa-9fa5-973c616ea2f0"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[$F{AMTINWORDS}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="164" y="198" width="36" height="30" uuid="97a265f7-45a5-463e-9100-b150d6ee7d21"/>
+				<textElement textAlignment="Left" verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[$F{crdr}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="109" y="198" width="50" height="30" uuid="a024f6e3-1bf1-4d4e-be57-93007cdba6ac"/>
+				<textElement textAlignment="Right" verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[$F{totalvalue}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+</jasperReport>

@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.0.final using JasperReports Library version 6.20.0-2bc7ab61c56f459e8176eb05c7705e145cd400ad  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="balanceSheet1" pageWidth="880" pageHeight="600" columnWidth="840" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0e049e30-44f9-4875-a0c1-6b00c586fb5d">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="sampleDataAdapter"/>
+	<style name="Style1">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{LisHead}=="1"]]></conditionExpression>
+			<style hTextAlign="Left" isBold="true">
+				<paragraph leftIndent="0"/>
+			</style>
+		</conditionalStyle>
+	</style>
+	<style name="Style2">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{AisHead}=="1"]]></conditionExpression>
+			<style isBold="true"/>
+		</conditionalStyle>
+	</style>
+	<queryString language="json">
+		<![CDATA[]]>
+	</queryString>
+	<field name="LisHead" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="LisHead"/>
+		<fieldDescription><![CDATA[LisHead]]></fieldDescription>
+	</field>
+	<field name="AisHead" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="AisHead"/>
+		<fieldDescription><![CDATA[AisHead]]></fieldDescription>
+	</field>
+	<field name="lhead_name" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="lhead_name"/>
+		<fieldDescription><![CDATA[lhead_name]]></fieldDescription>
+	</field>
+	<field name="ahead_name" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="ahead_name"/>
+		<fieldDescription><![CDATA[ahead_name]]></fieldDescription>
+	</field>
+	<field name="lheadtotal" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="lheadtotal"/>
+		<fieldDescription><![CDATA[lheadtotal]]></fieldDescription>
+	</field>
+	<field name="aheadtotal" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="aheadtotal"/>
+		<fieldDescription><![CDATA[aheadtotal]]></fieldDescription>
+	</field>
+	<field name="lledger" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="lledger"/>
+		<fieldDescription><![CDATA[lledger]]></fieldDescription>
+	</field>
+	<field name="aledger" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="aledger"/>
+		<fieldDescription><![CDATA[aledger]]></fieldDescription>
+	</field>
+	<field name="position" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="position"/>
+		<fieldDescription><![CDATA[position]]></fieldDescription>
+	</field>
+	<field name="isHead" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="isHead"/>
+		<fieldDescription><![CDATA[isHead]]></fieldDescription>
+	</field>
+	<field name="Lgrandtotal" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="Lgrandtotal"/>
+		<fieldDescription><![CDATA[Lgrandtotal]]></fieldDescription>
+	</field>
+	<field name="Agrandtotal" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="Agrandtotal"/>
+		<fieldDescription><![CDATA[Agrandtotal]]></fieldDescription>
+	</field>
+	<field name="date" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="date"/>
+		<fieldDescription><![CDATA[date]]></fieldDescription>
+	</field>
+	<field name="bankName" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="bankName"/>
+		<fieldDescription><![CDATA[bankName]]></fieldDescription>
+	</field>
+	<field name="branch_code" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="branch_code"/>
+		<fieldDescription><![CDATA[branch_code]]></fieldDescription>
+	</field>
+	<field name="branchName" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="branchName"/>
+		<fieldDescription><![CDATA[branchName]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="56" splitType="Stretch">
+			<textField>
+				<reportElement x="280" y="3" width="279" height="23" uuid="e01bf1fc-34d2-4100-92e1-5a0fc1896153"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{bankName}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="3" y="36" width="39" height="20" uuid="83327ffe-6fbf-4e34-b40c-748c9a08d6be"/>
+				<text><![CDATA[Branch :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="53" y="36" width="100" height="20" uuid="dabccb09-3c92-4fe5-af93-3e865e013912"/>
+				<textFieldExpression><![CDATA[$F{branchName}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="290" y="36" width="140" height="20" uuid="5539778a-5a33-4520-b19c-8a5754df6ae2"/>
+				<textElement textAlignment="Right">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Balance Sheet as on ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="433" y="36" width="100" height="20" uuid="28ca4cfa-a224-4a89-b286-59b2201943e6"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[$F{date}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="740" y="36" width="100" height="20" uuid="48a9ed35-aa3d-437b-a674-6790867b8cbf"/>
+				<textElement verticalAlignment="Bottom"/>
+				<text><![CDATA[Amount in Rupees]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="48" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="4" width="840" height="1" uuid="7fb56cd8-77d2-44b3-afc5-8e8722314d10"/>
+			</line>
+			<line>
+				<reportElement x="0" y="38" width="840" height="3" uuid="0bced574-7889-4f49-975a-0cb376cf5f1d"/>
+			</line>
+			<staticText>
+				<reportElement x="1" y="11" width="129" height="24" uuid="33d88962-b407-46a7-97f0-ddbf695a8ac4"/>
+				<textElement verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[LIABILITIES]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="179" y="11" width="95" height="23" uuid="65998429-e8d5-49e9-889d-d16cd79d2c35"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Sub Amount]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="286" y="11" width="108" height="23" uuid="e359aa66-04a5-4544-ad7d-1641817714e2"/>
+				<box rightPadding="4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Amount]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="410" y="11" width="161" height="24" uuid="272eed8f-228d-4ab8-a804-d67036152554"/>
+				<textElement verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Assets]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="621" y="11" width="95" height="23" uuid="b36ee726-8fde-486b-a279-1e95e9cc9d8d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Sub Amount]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="726" y="11" width="108" height="23" uuid="3631c7e6-b8ee-4241-ba2f-4b479eae29d0"/>
+				<box rightPadding="4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Amount]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="30" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement style="Style1" stretchType="ContainerHeight" x="0" y="0" width="169" height="30" uuid="d2f1e562-b321-4c37-92bc-1a59ec6617ef">
+					<property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
+					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+				</reportElement>
+				<textElement>
+					<paragraph leftIndent="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{lhead_name}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="179" y="0" width="95" height="30" uuid="a2041179-a128-40f9-8d24-0c7d1f051a74"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{lledger}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="Style1" x="286" y="0" width="108" height="30" uuid="450f14b8-c5ca-421f-b7fc-40897afc4d40"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{lheadtotal}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="Style2" stretchType="ContainerHeight" x="410" y="0" width="194" height="30" uuid="99e1aaeb-24e1-4c4a-b167-c51c1c74f6d9"/>
+				<textFieldExpression><![CDATA[$F{ahead_name}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="621" y="0" width="95" height="30" uuid="23b9a914-1547-43ce-b302-d0abdfed5eb4"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{aledger}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="Style2" x="726" y="0" width="108" height="30" uuid="251e9c63-6b33-4ccd-8187-0bddc8f08370"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{aheadtotal}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="402" y="-43" width="1" height="73" uuid="2aed3e33-d2fb-479c-bf3b-d80b850b6bb5"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="30" splitType="Stretch">
+			<textField>
+				<reportElement x="690" y="9" width="90" height="20" uuid="aae9949d-8535-4c4e-af77-f4d451eef321"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="780" y="9" width="50" height="20" uuid="9c999a10-c001-4b55-8189-7d0afe9391cb"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="d/M/yyyy h.mm a">
+				<reportElement x="1" y="10" width="105" height="20" uuid="78cc6707-1030-4e34-b01e-27de81f6705f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="-1" width="840" height="1" uuid="cbf534f6-e75e-4bb3-8506-f867d7907c04"/>
+			</line>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="150" splitType="Stretch">
+			<staticText>
+				<reportElement x="15" y="130" width="100" height="20" uuid="39245aa5-b86b-414a-8c22-4e3bb86f7603"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Clerk]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="360" y="130" width="100" height="20" uuid="6b379967-6348-4496-9bcc-ddde162c1991"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Officer/Manager]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="702" y="130" width="100" height="20" uuid="cdcee395-e0d0-4249-9934-bb88d1a18feb"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[General Manager]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="160" y="10" width="100" height="20" uuid="26c7cf50-a8a9-4520-97a1-b08f6ce2eb34"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Grand Total :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="610" y="10" width="100" height="20" uuid="da253eaf-24f5-483d-96d6-28701c243e3e"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Grand Total :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="286" y="10" width="108" height="20" uuid="539d1106-b6cc-437d-b1fa-00dc7e200e8a"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Lgrandtotal}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="730" y="10" width="108" height="20" uuid="d35450c6-a2d0-4a3e-a247-a30eac32fb9a"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Agrandtotal}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="0" width="840" height="1" uuid="46c386a2-3194-4041-a58f-bbc348724555"/>
+			</line>
+			<line>
+				<reportElement x="0" y="40" width="839" height="1" uuid="3eeeaf08-f5a6-4b74-861e-30a78e6dfe2c"/>
+			</line>
+			<line>
+				<reportElement x="402" y="0" width="1" height="40" uuid="8a450fca-c0d0-457e-8d18-9de320469067"/>
+			</line>
+		</band>
+	</summary>
+</jasperReport>

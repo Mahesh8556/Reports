@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SizewiseDetailBalanceList" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="31e36636-6056-42bb-88ae-fd9b7eda0488">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<field name="BankName" class="java.lang.String"/>
+	<field name="Name" class="java.lang.String"/>
+	<field name="date" class="java.lang.String"/>
+	<field name="Range" class="java.lang.String"/>
+	<field name="Scheme" class="java.lang.String"/>
+	<group name="Range">
+		<groupExpression><![CDATA[$F{Range}]]></groupExpression>
+		<groupHeader>
+			<band height="20">
+				<staticText>
+					<reportElement uuid="09c5a6d0-45cf-49f9-8080-d858074677af" x="0" y="0" width="41" height="20"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Range : ]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<group name="Scheme">
+		<groupExpression><![CDATA[$F{Scheme}]]></groupExpression>
+		<groupHeader>
+			<band height="20">
+				<staticText>
+					<reportElement uuid="ac11b5ae-63af-49b4-aed8-f7d2ef754a01" x="0" y="0" width="51" height="20"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Scheme : ]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="24">
+				<staticText>
+					<reportElement uuid="dcb293b6-3812-4fe2-a508-e2af4e8e22fc" x="316" y="3" width="89" height="21"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="true"/>
+					</textElement>
+					<text><![CDATA[No. Of Acs.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="8304bebb-48c4-4562-b7a7-dae6c6e6e4d6" x="481" y="3" width="111" height="20"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="true"/>
+					</textElement>
+					<text><![CDATA[SchemeWise Total :]]></text>
+				</staticText>
+				<line>
+					<reportElement uuid="10942227-7dea-4750-a1ba-778b1f6590b9" x="0" y="23" width="802" height="1"/>
+				</line>
+				<line>
+					<reportElement uuid="b4b8492b-d8f6-4008-83c3-fcb4a154b321" x="0" y="2" width="802" height="1"/>
+				</line>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="51" splitType="Stretch">
+			<textField>
+				<reportElement uuid="d427ec5e-988c-4dbc-8714-ee05227f05a4" x="0" y="1" width="481" height="20"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{BankName}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="cf41ede0-c873-47ad-b689-9fd75835f496" x="0" y="25" width="66" height="20"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Branch : ]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="6ded9871-828c-4155-960f-58a00daaf9d9" x="66" y="25" width="100" height="20"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Name}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="2821b91f-f601-42a3-a8d2-f991613bbf17" x="197" y="25" width="227" height="20"/>
+				<textElement textAlignment="Right">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SizeWise Detail Balance List From ]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="1f2c8f5f-3706-4584-8be4-034be7f57abf" x="424" y="25" width="89" height="20"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{date}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="25" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="e8642327-02fa-4f3b-9174-64609c500a07" x="0" y="2" width="51" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Sr. No.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="e646e486-9dd3-4699-8f83-103807b54627" x="51" y="2" width="115" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[A/c. No.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="d8a9f984-01e2-4f0d-a412-382f38543c37" x="166" y="2" width="305" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Account Name : ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="15da8fe9-31d5-491b-a1f5-886556594d9c" x="594" y="2" width="160" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[OurStanging Balance]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="3562223f-d407-4a9d-9377-8c8305a54f8b" x="0" y="23" width="802" height="1"/>
+			</line>
+			<line>
+				<reportElement uuid="305e30ba-9cfb-4d68-bbde-4c87471f22d7" x="0" y="1" width="802" height="1"/>
+			</line>
+		</band>
+	</pageHeader>
+	<pageFooter>
+		<band height="59" splitType="Stretch">
+			<line>
+				<reportElement uuid="4e732cbb-4448-49ef-9b9f-42f5d3f7734e" x="0" y="10" width="802" height="1"/>
+			</line>
+			<textField pattern="d/M/yyyy h.mm a">
+				<reportElement uuid="c7de2bb2-2f06-445a-a128-db4488c125e3" x="0" y="11" width="110" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="6bdef7c2-e742-497d-98e7-6cca8779582e" x="674" y="11" width="80" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement uuid="ea5e6bf9-0d45-4cec-8ac7-f6d0aaa1c211" x="754" y="11" width="40" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="29" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="58ddc435-b4f7-4fd2-899b-15ae1b3f3034" x="481" y="4" width="111" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SlabWise Total :]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="85a09fb4-0b58-4ecc-879a-c54012866e89" x="0" y="3" width="802" height="1"/>
+			</line>
+			<line>
+				<reportElement uuid="0cf5fa37-3e59-4245-91c7-d7076b01ca6a" x="0" y="24" width="802" height="1"/>
+			</line>
+		</band>
+	</summary>
+</jasperReport>
